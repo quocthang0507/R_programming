@@ -2,7 +2,7 @@
 
 ## Johns Hopkins University
 
-Link to this course in Cousera: [https://www.coursera.org/learn/r-programming/home/](https://www.coursera.org/learn/r-programming/home/)
+Link to this course in Coursera: [https://www.coursera.org/learn/r-programming/home/](https://www.coursera.org/learn/r-programming/home/)
 
 ## Table of contents
 
