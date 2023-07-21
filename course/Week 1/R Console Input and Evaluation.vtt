@@ -1,0 +1,401 @@
+WEBVTT
+
+1
+00:00:04.867 --> 00:00:08.574
+So once we start typing things into the R
+prompt, they we're going to be start,
+
+2
+00:00:08.574 --> 00:00:11.050
+we're going to start coding and
+doing calculation.
+
+3
+00:00:11.050 --> 00:00:15.370
+So the things that we type into
+the R prompt are called expressions.
+
+4
+00:00:15.370 --> 00:00:16.560
+So for example, the symbol,
+
+5
+00:00:16.560 --> 00:00:20.340
+which looks like a left-hand arrow and
+is actually the less than symbol,
+
+6
+00:00:20.340 --> 00:00:23.910
+followed by a hyphen this is what's
+called the assignment operator.
+
+7
+00:00:23.910 --> 00:00:28.990
+The assignment operator is what
+assigns a value to a symbol.
+
+8
+00:00:28.990 --> 00:00:33.255
+So, for example, in this first expression
+here the symbol that I'm creating is
+
+9
+00:00:33.255 --> 00:00:36.414
+called x, and the value that
+I'm assigning it is call, is 1.
+
+10
+00:00:36.414 --> 00:00:39.320
+And thi, so, and I used the assignment
+operator to create that.
+
+11
+00:00:39.320 --> 00:00:45.140
+So x is 1, is a, is an R expression.
+
+12
+00:00:45.140 --> 00:00:48.290
+And the next expression I'm going to
+print that value so print is a function.
+
+13
+00:00:48.290 --> 00:00:49.960
+And I'm passing it the symbol x so
+
+14
+00:00:49.960 --> 00:00:54.110
+that when I print out x I get its
+value which, in this case is 1.
+
+15
+00:00:54.110 --> 00:00:57.140
+So another thing to think
+about x is also considered a,
+
+16
+00:00:57.140 --> 00:01:00.500
+is an R object that is a numeric
+object that has one element.
+
+17
+00:01:00.500 --> 00:01:04.730
+So it's really a numeric vector where
+the first element is the number one.
+
+18
+00:01:06.370 --> 00:01:10.860
+In the third expression here, you notice,
+I'm just typing X at the prompt and, and,
+
+19
+00:01:10.860 --> 00:01:15.160
+and when you hit enter what happens
+is it prints out the value of X.
+
+20
+00:01:15.160 --> 00:01:18.130
+So this is called, this is another way to
+
+21
+00:01:18.130 --> 00:01:21.310
+print out an object without explicitly
+calling the print function.
+
+22
+00:01:22.800 --> 00:01:23.550
+So in the,
+
+23
+00:01:23.550 --> 00:01:29.320
+in this expression over here, I'm creating
+a new symbol called message, MS, MSG.
+
+24
+00:01:29.320 --> 00:01:31.530
+And I'm assigning it a value
+of the string hello.
+
+25
+00:01:31.530 --> 00:01:33.540
+All right?
+So now, this is a character vector.
+
+26
+00:01:34.560 --> 00:01:38.050
+And the first element of this
+character vector is the string hello.
+
+27
+00:01:38.050 --> 00:01:40.440
+I could add other elements to
+this vector if I wanted to,
+
+28
+00:01:40.440 --> 00:01:41.890
+but they would all have to be character.
+
+29
+00:01:43.190 --> 00:01:47.080
+So the grammar of the language
+determines whether an expression is
+
+30
+00:01:47.080 --> 00:01:48.310
+syntactically correct or not.
+
+31
+00:01:48.310 --> 00:01:49.800
+Or whether it's complete.
+
+32
+00:01:49.800 --> 00:01:52.968
+So for example by this type x followed
+by the assignment operator and
+
+33
+00:01:52.968 --> 00:01:57.191
+I don't have anything else, that's not a,
+that's not a complete expression and so
+
+34
+00:01:57.191 --> 00:02:00.081
+when I hit Enter nothing will
+happen because it's waiting for
+
+35
+00:02:00.081 --> 00:02:01.940
+the expression to be completed.
+
+36
+00:02:01.940 --> 00:02:05.550
+The other thing I've got here
+is this hash symbol here.
+
+37
+00:02:05.550 --> 00:02:09.250
+So this hash symbol here it indicates
+that everything to the right of
+
+38
+00:02:09.250 --> 00:02:10.910
+that is a comment.
+
+39
+00:02:10.910 --> 00:02:12.170
+And so the, the, the, the,
+
+40
+00:02:13.270 --> 00:02:18.490
+the R engine will ignore anything that
+happens to the right of that symbol.
+
+41
+00:02:18.490 --> 00:02:20.695
+So you can put things like comments or
+
+42
+00:02:20.695 --> 00:02:24.834
+notes to yourself in code and
+R will just ignore those comments.
+
+43
+00:02:28.666 --> 00:02:31.567
+So once you've typed in
+a syntactically valid and
+
+44
+00:02:31.567 --> 00:02:35.414
+complete expression at the prompt
+when you hit enter what happens is
+
+45
+00:02:35.414 --> 00:02:38.984
+that the expression is
+evaluated by the R engine.
+
+46
+00:02:38.984 --> 00:02:43.124
+And the result of that evaluation
+expression is then returned.
+
+47
+00:02:43.124 --> 00:02:45.872
+And so, so
+sometimes when you evaluate an expression,
+
+48
+00:02:45.872 --> 00:02:49.130
+nothing happens because there's
+nothing to really show.
+
+49
+00:02:49.130 --> 00:02:49.780
+And so, for example,
+
+50
+00:02:49.780 --> 00:02:53.260
+in the first expression here when
+I say x is assigned to be five.
+
+51
+00:02:53.260 --> 00:02:54.880
+So I'm creating an object called x.
+
+52
+00:02:54.880 --> 00:02:58.300
+It's a numeric vector and
+the first element's going to be five.
+
+53
+00:02:58.300 --> 00:03:01.860
+Now when I hit enter nothing happens
+because there's really nothing to show.
+
+54
+00:03:02.950 --> 00:03:05.520
+And so but now when I hit x and
+
+55
+00:03:05.520 --> 00:03:10.080
+I hit enter it prints out the value five,
+so it prints out the value of x.
+
+56
+00:03:10.080 --> 00:03:12.460
+So when I hit x, when,
+when I type in x and
+
+57
+00:03:12.460 --> 00:03:16.010
+I hit enter, that, and it prints out five,
+that's called autoprinting, and
+
+58
+00:03:16.010 --> 00:03:19.880
+so when you just type an object's name and
+hit enter.
+
+59
+00:03:19.880 --> 00:03:25.168
+R will by default autoprint
+the value of that object.
+
+60
+00:03:25.168 --> 00:03:28.914
+This is the same as calling the print
+function on that object which will
+
+61
+00:03:28.914 --> 00:03:30.940
+just print out the value of that object.
+
+62
+00:03:30.940 --> 00:03:34.282
+So you can explicitly print an object or
+you can auto print an object.
+
+63
+00:03:34.282 --> 00:03:36.318
+So this is,
+this sounds a little complicated but
+
+64
+00:03:36.318 --> 00:03:39.710
+it's really just the natural thing to do
+and it is what most people would expect.
+
+65
+00:03:40.810 --> 00:03:42.900
+You'll notice that when I
+print out the object x,
+
+66
+00:03:42.900 --> 00:03:45.620
+there's a little one in brackets here.
+
+67
+00:03:45.620 --> 00:03:46.980
+And you might be wondering what that is.
+
+68
+00:03:46.980 --> 00:03:49.012
+So, all that indicates is that, it,
+
+69
+00:03:49.012 --> 00:03:53.080
+it's telling you what element
+of the vector is being shown.
+
+70
+00:03:53.080 --> 00:03:56.712
+And this will make more sense when
+we have longer vectors to look at.
+
+71
+00:03:56.712 --> 00:04:00.789
+But all this is shame, saying is that
+the number five that you're seeing there
+
+72
+00:04:00.789 --> 00:04:02.547
+is the first element of the vector.
+
+73
+00:04:06.426 --> 00:04:11.012
+So for printing you'll see that here I'm
+creating an x an object called x and
+
+74
+00:04:11.012 --> 00:04:12.859
+it's the sequence one to 20, so
+
+75
+00:04:12.859 --> 00:04:17.820
+the colon operator here that I've used
+is what's used to create a sequence.
+
+76
+00:04:17.820 --> 00:04:21.011
+So, when I say one colon 20,
+that creates a sequence of one, two,
+
+77
+00:04:21.011 --> 00:04:22.451
+three, all the way up to 20.
+
+78
+00:04:22.451 --> 00:04:26.370
+So, now when I autoprint x in this case,
+you'll see I've got a long,
+
+79
+00:04:26.370 --> 00:04:28.500
+much longer vector here.
+
+80
+00:04:28.500 --> 00:04:30.810
+In this case, it's an integer vector.
+
+81
+00:04:30.810 --> 00:04:34.990
+And you'll see that the first line of
+the printout it has a one next to it,
+
+82
+00:04:34.990 --> 00:04:36.300
+because that's the first element.
+
+83
+00:04:36.300 --> 00:04:39.760
+And then the, the second line has
+a 16 in brackets because that's,
+
+84
+00:04:39.760 --> 00:04:42.670
+the first element of that line is
+the 16th element of this vector.
+
+85
+00:04:42.670 --> 00:04:46.640
+So it's all kind of straightforward but
+just that's how the printout works

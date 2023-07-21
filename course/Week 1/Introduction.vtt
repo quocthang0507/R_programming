@@ -1,0 +1,136 @@
+WEBVTT
+
+1
+00:00:01.300 --> 00:00:03.440
+Hey everyone welcome to R Programming.
+
+2
+00:00:03.440 --> 00:00:06.660
+This is the second course in the Data
+Science Specialization and, as
+
+3
+00:00:06.660 --> 00:00:10.750
+the title suggests, we will be focusing on
+R as a programming language.
+
+4
+00:00:10.750 --> 00:00:12.720
+So in this course, we'll kind of start
+with the basic
+
+5
+00:00:12.720 --> 00:00:15.940
+building blocks of R kind of different
+data types in the
+
+6
+00:00:15.940 --> 00:00:18.840
+very, kind of low level details and then
+we'll kind of
+
+7
+00:00:18.840 --> 00:00:23.870
+move on to writing and formulating our
+programs or our scripts.
+
+8
+00:00:23.870 --> 00:00:26.300
+This involves things like control
+structures and writing r
+
+9
+00:00:26.300 --> 00:00:30.450
+functions and kind of doing some basic
+operations on data.
+
+10
+00:00:30.450 --> 00:00:33.120
+And then, and then we'll talk about kind
+of profiling your code, some of the
+
+11
+00:00:33.120 --> 00:00:35.950
+tools for debugging and kind of how to
+work,
+
+12
+00:00:35.950 --> 00:00:38.350
+how to work through longer pieces of code.
+
+13
+00:00:38.350 --> 00:00:40.280
+And then so after this course is done, I
+think you'll
+
+14
+00:00:40.280 --> 00:00:43.540
+have a pretty solid grasp of R as a
+programming language.
+
+15
+00:00:43.540 --> 00:00:48.860
+We're not going to cover every last
+feature of the R packages because of
+
+16
+00:00:48.860 --> 00:00:52.670
+their and some of the other courses in the
+specialization you'll learn more about,
+
+17
+00:00:52.670 --> 00:00:55.720
+for example, how to use the graphics
+system, how to make plots, how
+
+18
+00:00:55.720 --> 00:00:56.860
+to use some of the packages for
+
+19
+00:00:56.860 --> 00:00:59.430
+things like statistical inference and
+machine learning.
+
+20
+00:00:59.430 --> 00:01:01.090
+And so that will be covered in other
+classes.
+
+21
+00:01:01.090 --> 00:01:03.340
+So, the pur, purpose of this class is to
+really kind of
+
+22
+00:01:03.340 --> 00:01:04.630
+get you into R programming, in
+
+23
+00:01:04.630 --> 00:01:06.890
+particularly or if you're not very
+familiar
+
+24
+00:01:06.890 --> 00:01:09.390
+with the language and to make sure you
+kind of kind of get a
+
+25
+00:01:09.390 --> 00:01:12.870
+hand, get a sense of the on the of the
+nuts and bolts.
+
+26
+00:01:12.870 --> 00:01:14.460
+So I hope you enjoy it.
+
+27
+00:01:14.460 --> 00:01:17.070
+And I think after this course is done
+you'll be ready to move
+
+28
+00:01:17.070 --> 00:01:19.780
+on to a bunch of, to mo, to the other
+courses in the specialization.

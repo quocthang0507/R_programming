@@ -1,0 +1,139 @@
+WEBVTT
+
+1
+00:00:03.923 --> 00:00:07.800
+In this video, I'm going to briefly
+show how you can install R on the Mac.
+
+2
+00:00:07.800 --> 00:00:11.100
+It's a very simple process,
+it only takes a few steps.
+
+3
+00:00:11.100 --> 00:00:17.022
+So the first thing you need to do is
+open your web browser and go to CRAN,
+
+4
+00:00:17.022 --> 00:00:20.830
+this is the Comprehensive R Archive
+Network, and you'll see that there
+
+5
+00:00:20.830 --> 00:00:24.930
+are a number of options for you to
+download here for different platforms.
+
+6
+00:00:24.930 --> 00:00:27.480
+So we're going to download
+the Mac platform here.
+
+7
+00:00:27.480 --> 00:00:30.860
+So we can go to Download R for the Mac,
+you want to download this package file
+
+8
+00:00:30.860 --> 00:00:35.730
+here, so just click on this and you'll see
+that the download meter will start going.
+
+9
+00:00:35.730 --> 00:00:38.570
+It might take a few minutes depending on
+the speed of your internet connection, so
+
+10
+00:00:38.570 --> 00:00:39.320
+just be patient.
+
+11
+00:00:40.810 --> 00:00:41.930
+It's finished downloading.
+
+12
+00:00:43.430 --> 00:00:44.460
+I'm just going to open up here,
+
+13
+00:00:44.460 --> 00:00:49.230
+the package, and you can see it
+will start the installer, and
+
+14
+00:00:49.230 --> 00:00:52.490
+it will guide you through all of
+the steps you need to install R.
+
+15
+00:00:52.490 --> 00:00:54.250
+I'll click Continue here and
+
+16
+00:00:54.250 --> 00:00:56.590
+this is just the description of
+what's going to get installed.
+
+17
+00:00:56.590 --> 00:00:57.210
+Hit Continue.
+
+18
+00:00:58.580 --> 00:01:02.110
+The software license agreement is the
+GNU General Public License Version 2, so
+
+19
+00:01:02.110 --> 00:01:06.100
+you should agree to the license,
+after having read it, of course.
+
+20
+00:01:07.370 --> 00:01:10.940
+Then you can just click Install here and
+you might have to type in your
+
+21
+00:01:10.940 --> 00:01:12.910
+administrator password, so
+just go ahead and do that.
+
+22
+00:01:15.060 --> 00:01:17.160
+It'll start installing
+the files on your computer.
+
+23
+00:01:20.940 --> 00:01:25.520
+Now it's finished, I can hit Close,
+then it will be in my applications folder.
+
+24
+00:01:25.520 --> 00:01:27.800
+So I can just go to my applications
+folder, which is right here.
+
+25
+00:01:28.810 --> 00:01:33.365
+They're in alphabetical order, so I'll
+just scroll down to R and there it is and
+
+26
+00:01:33.365 --> 00:01:34.405
+there you have it.
+
+27
+00:01:34.405 --> 00:01:37.325
+You've installed R on your computer and
+now you can go ahead,
+
+28
+00:01:37.325 --> 00:01:41.235
+you can just use it directly, or if you
+want to, you can install an interface,
+
+29
+00:01:41.235 --> 00:01:43.005
+like R Studio, if you like.

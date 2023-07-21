@@ -1,0 +1,1497 @@
+WEBVTT
+
+1
+00:00:00.770 --> 00:00:03.110
+And then in this lecture, I'm going to
+give a little overview
+
+2
+00:00:03.110 --> 00:00:06.610
+and a very brief history of the R
+statistical programing environment.
+
+3
+00:00:07.710 --> 00:00:11.880
+So the very first question, I think is
+most obvious, is which is, what is R?
+
+4
+00:00:11.880 --> 00:00:14.040
+And the answer is actually quite simple.
+
+5
+00:00:14.040 --> 00:00:16.690
+It's basically R is a dialect of S.
+
+6
+00:00:16.690 --> 00:00:20.540
+Okay, so that leads to the next logical
+question, which is what is S?
+
+7
+00:00:21.760 --> 00:00:26.580
+So S was a language, or is a language that
+was developed by John Chambers and
+
+8
+00:00:26.580 --> 00:00:29.830
+at the now-defunct Bell Labs.
+
+9
+00:00:29.830 --> 00:00:31.820
+And it was initiated in 1976
+
+10
+00:00:31.820 --> 00:00:34.020
+as an internal statistical analysis
+environment, so
+
+11
+00:00:34.020 --> 00:00:38.120
+the, an environment that people at Bell
+Labs could use to analyze data.
+
+12
+00:00:38.120 --> 00:00:41.030
+And initially it was implemented as a
+series of
+
+13
+00:00:41.030 --> 00:00:43.960
+FORTRAN libraries to kind of implement
+routines that were
+
+14
+00:00:43.960 --> 00:00:45.520
+tedious to have to do over and over again,
+
+15
+00:00:45.520 --> 00:00:48.930
+so there were FORTRAN libraries to repeat
+these statistical routines.
+
+16
+00:00:50.040 --> 00:00:52.430
+Early versions of the language did
+
+17
+00:00:52.430 --> 00:00:54.560
+not contain functions for statistical
+modelling.
+
+18
+00:00:54.560 --> 00:00:58.310
+That did not come until roughly version
+three of the language.
+
+19
+00:00:58.310 --> 00:01:02.120
+So in 1988, the system was rewritten in
+the C language and to make it
+
+20
+00:01:02.120 --> 00:01:06.220
+more portable across systems and it began
+to resemble the system that we have today.
+
+21
+00:01:06.220 --> 00:01:07.910
+So this was version three.
+
+22
+00:01:07.910 --> 00:01:10.990
+And there was a seminal book the, called
+the Statistical
+
+23
+00:01:10.990 --> 00:01:14.500
+Models in S written by John Chambers and
+Trevor Hastie.
+
+24
+00:01:14.500 --> 00:01:16.420
+Sometimes referred to as the white book.
+
+25
+00:01:16.420 --> 00:01:17.660
+And that documents,
+
+26
+00:01:17.660 --> 00:01:20.590
+all the statistical analysis functionality
+that came
+
+27
+00:01:20.590 --> 00:01:23.240
+into the version, that version of the
+language.
+
+28
+00:01:23.240 --> 00:01:25.820
+Version four of the S language was
+released in 1998.
+
+29
+00:01:25.820 --> 00:01:28.530
+And its version, it's the version we more
+or less use today.
+
+30
+00:01:29.890 --> 00:01:33.795
+The book Programming with Data, which is a
+reference for this course, is written by
+
+31
+00:01:33.795 --> 00:01:36.325
+John Chambers sometimes called the green
+book and
+
+32
+00:01:36.325 --> 00:01:39.270
+it documents version four of the S
+language.
+
+33
+00:01:39.270 --> 00:01:42.850
+So, R is an implementation of the S
+language,
+
+34
+00:01:42.850 --> 00:01:45.250
+that was originally del, developed in Bell
+Labs.
+
+35
+00:01:45.250 --> 00:01:49.550
+So, just a little bit more history here,
+in 1993 Bell Labs gave a corporation
+
+36
+00:01:49.550 --> 00:01:53.560
+called StatSci which became Insightful
+Corporation, an exclusive
+
+37
+00:01:53.560 --> 00:01:55.980
+license to develop and sell the S
+language.
+
+38
+00:01:55.980 --> 00:02:01.870
+In 2004, Insightful purchased the S
+language completely from Lucent.
+
+39
+00:02:01.870 --> 00:02:07.670
+So Bell Labs became Lucent Technology for
+$2 million, and became the current owner.
+
+40
+00:02:07.670 --> 00:02:09.880
+In 2006, Alcatel purchased Lucent
+
+41
+00:02:09.880 --> 00:02:13.235
+Technologies and it's now called
+Alcatel-Lucent.
+
+42
+00:02:14.780 --> 00:02:18.610
+So Insightful developed a product which
+was a implementation
+
+43
+00:02:18.610 --> 00:02:20.531
+of the S language under the product name
+S-PLUS.
+
+44
+00:02:20.531 --> 00:02:23.430
+And they built a number of fancy features
+into it for
+
+45
+00:02:23.430 --> 00:02:27.744
+example graphical user interfaces and all
+kinds of a nice tools.
+
+46
+00:02:27.744 --> 00:02:31.630
+that, so that's where the plus comes from
+in S-PLUS.
+
+47
+00:02:31.630 --> 00:02:33.770
+In 2008 the Insightful Corporation
+
+48
+00:02:33.770 --> 00:02:36.210
+was acquired a company called TIBCO for
+$25 million
+
+49
+00:02:36.210 --> 00:02:38.800
+dollars and that's more or less where it
+stands.
+
+50
+00:02:38.800 --> 00:02:42.630
+TIBCO still develops as PLUS, although in
+a
+
+51
+00:02:42.630 --> 00:02:45.530
+variety of different types of business
+analytic type products.
+
+52
+00:02:45.530 --> 00:02:47.900
+And it continues to this day.
+
+53
+00:02:47.900 --> 00:02:49.860
+So you can see the history of the language
+is a little bit
+
+54
+00:02:49.860 --> 00:02:53.990
+tortured because of the various corporate
+acquisitions
+
+55
+00:02:53.990 --> 00:02:56.180
+but it still survives to this day.
+
+56
+00:02:56.180 --> 00:02:58.802
+The basic fundamentals of the S language
+have
+
+57
+00:02:58.802 --> 00:03:03.563
+not really changed since 1998 and the
+language that existed in 1998 looks
+
+58
+00:03:03.563 --> 00:03:07.846
+more or less like we, like what we use
+today at least superficially.
+
+59
+00:03:07.846 --> 00:03:10.164
+And it's worth nothing that in 1998 the S
+
+60
+00:03:10.164 --> 00:03:14.480
+language won the association for repeating
+machinery software system award.
+
+61
+00:03:14.480 --> 00:03:14.980
+A very pretigious honor.
+
+62
+00:03:16.600 --> 00:03:19.880
+So in a document called the stages and the
+evolution of S, John
+
+63
+00:03:19.880 --> 00:03:24.530
+Chambers who was the original writer of
+the S language the, the original creator
+
+64
+00:03:24.530 --> 00:03:27.988
+kind of laid out his key principal with
+designing the S language.
+
+65
+00:03:27.988 --> 00:03:30.900
+And it's very important I think to to see
+this which is that basically.
+
+66
+00:03:32.190 --> 00:03:35.120
+They wanted to create an interactive
+environment where you
+
+67
+00:03:35.120 --> 00:03:37.760
+didn't have to think of themselves as
+programming, right.
+
+68
+00:03:37.760 --> 00:03:39.150
+Then he says then as the needs became
+
+69
+00:03:39.150 --> 00:03:41.390
+clearer and their sophistication
+increased, they should be
+
+70
+00:03:41.390 --> 00:03:43.890
+able to slide gradually into programming,
+when the
+
+71
+00:03:43.890 --> 00:03:46.830
+language and system aspects would become
+more important.
+
+72
+00:03:46.830 --> 00:03:49.960
+So the basic idea is behind the S language
+and
+
+73
+00:03:49.960 --> 00:03:51.700
+then later the R language is that people
+
+74
+00:03:51.700 --> 00:03:54.370
+would enter the language in an interactive
+environment.
+
+75
+00:03:54.370 --> 00:03:57.690
+Where they could use the lang, the
+environment, without knowing about any
+
+76
+00:03:57.690 --> 00:04:02.610
+sort of programming, or having to know
+very detailed aspects of the language.
+
+77
+00:04:02.610 --> 00:04:06.482
+So, they could use the environment to look
+at data, and do basic analyses.
+
+78
+00:04:06.482 --> 00:04:08.700
+And then when the environment, when they
+kind of
+
+79
+00:04:08.700 --> 00:04:12.840
+outgrew their environment, then they can
+get into programming.
+
+80
+00:04:12.840 --> 00:04:15.160
+They could get into learning the language
+aspects and
+
+81
+00:04:15.160 --> 00:04:19.966
+learning to develop their own tools and,
+and the system would very
+
+82
+00:04:19.966 --> 00:04:24.620
+kind of, would promote the kind of
+transition from user to programmer.
+
+83
+00:04:24.620 --> 00:04:26.940
+And so that was the basic philosopy of the
+S language.
+
+84
+00:04:28.320 --> 00:04:31.800
+So that's enough about S.
+we, let's go back to R.
+
+85
+00:04:31.800 --> 00:04:32.700
+So what is R about?
+
+86
+00:04:32.700 --> 00:04:35.570
+So basically, R is a relatively recent
+development.
+
+87
+00:04:35.570 --> 00:04:40.210
+In 1991, it was created in New Zealand by
+two gentleman named Ross Ihaka and
+
+88
+00:04:40.210 --> 00:04:40.960
+Robert Gentleman.
+
+89
+00:04:42.850 --> 00:04:46.098
+So, and they talked about their experience
+developing R in a paper
+
+90
+00:04:46.098 --> 00:04:50.960
+writ-, published in 1996 in the Journal of
+Computation and Graphical Statistics.
+
+91
+00:04:50.960 --> 00:04:53.870
+In 1993 the first announcement of R was
+made to the public.
+
+92
+00:04:53.870 --> 00:04:58.990
+1995, Martin Michler convinced Ross and
+Robert to use,
+
+93
+00:04:58.990 --> 00:05:01.360
+to license R under the GNU General Public
+License.
+
+94
+00:05:01.360 --> 00:05:03.910
+And we'll talk a little bit about, more
+about that in a second.
+
+95
+00:05:03.910 --> 00:05:05.220
+And that made R what
+
+96
+00:05:05.220 --> 00:05:07.210
+we call free software.
+
+97
+00:05:07.210 --> 00:05:11.180
+1996 a mailing list was developed, so
+there's two main mailing lists.
+
+98
+00:05:11.180 --> 00:05:15.250
+One called R-help, which is a general
+mailing list for questions.
+
+99
+00:05:15.250 --> 00:05:19.530
+And R-devel, which is a more specific
+mailing list
+
+100
+00:05:19.530 --> 00:05:21.330
+for people who are doing development work
+in R.
+
+101
+00:05:22.400 --> 00:05:26.580
+1997, what's called the R core group was
+formed.
+
+102
+00:05:26.580 --> 00:05:29.250
+And these contained a lot of, this
+contained a lot of the same people.
+
+103
+00:05:29.250 --> 00:05:31.237
+From the S-PLUS who developed S-PLUS.
+
+104
+00:05:31.237 --> 00:05:34.610
+And the core group, basically controls the
+source code for R.
+
+105
+00:05:34.610 --> 00:05:37.550
+So this, so the primary source code for R.
+
+106
+00:05:37.550 --> 00:05:40.780
+Can only be modified by members of the R
+core group.
+
+107
+00:05:40.780 --> 00:05:43.490
+However, a number of, people who are not
+in the core group have
+
+108
+00:05:43.490 --> 00:05:47.940
+suggested changes to R, and they have been
+accepted by the core group.
+
+109
+00:05:49.030 --> 00:05:53.070
+So, some of the features of R the first
+one, which was important
+
+110
+00:05:53.070 --> 00:05:56.270
+back in the old days, when people were
+still using S+ but the
+
+111
+00:05:56.270 --> 00:06:00.820
+syntax is very similar to S, which made it
+easy for S+ users to switch over.
+
+112
+00:06:00.820 --> 00:06:02.460
+This feature isn't quite so relevant
+today,
+
+113
+00:06:02.460 --> 00:06:05.030
+where most people generally go to R
+directly.
+
+114
+00:06:06.170 --> 00:06:10.240
+The semantics are superficially similar to
+S, in that it looks like it's S, but
+
+115
+00:06:10.240 --> 00:06:11.690
+in reality are quite different, but we'll
+
+116
+00:06:11.690 --> 00:06:14.310
+talk more about this in the future
+lecture.
+
+117
+00:06:14.310 --> 00:06:15.710
+One of the main benefits of R is that
+
+118
+00:06:15.710 --> 00:06:19.730
+it runs on any standard computing platform
+or operating system.
+
+119
+00:06:19.730 --> 00:06:21.300
+Mac, Windows, Linux whatever you
+
+120
+00:06:21.300 --> 00:06:25.480
+want even on your PlayStation 3 and there
+are frequent releases, so there
+
+121
+00:06:25.480 --> 00:06:29.640
+are annual major releases and often there
+are bug fixes releases in between.
+
+122
+00:06:29.640 --> 00:06:32.340
+There is a very active development going
+on and so things are happening.
+
+123
+00:06:34.270 --> 00:06:37.800
+The software the core software of R is
+actually quite lean.
+
+124
+00:06:37.800 --> 00:06:41.200
+Its functionality is divided into modular
+packages, so you don't
+
+125
+00:06:41.200 --> 00:06:45.530
+have to download and install a massive
+piece of software.
+
+126
+00:06:45.530 --> 00:06:46.470
+Whereas you can download
+
+127
+00:06:46.470 --> 00:06:48.690
+a very small piece of fundamental core,
+kind of
+
+128
+00:06:48.690 --> 00:06:51.660
+functions, and then add things on as you
+need them.
+
+129
+00:06:51.660 --> 00:06:54.790
+So it's graphics capabilities are very
+sophisticated and
+
+130
+00:06:54.790 --> 00:06:56.400
+give the user a lot of control over
+
+131
+00:06:56.400 --> 00:07:00.000
+how graphics are, are, are created, and in
+
+132
+00:07:00.000 --> 00:07:01.600
+my opinion are better than most stat
+packages.
+
+133
+00:07:01.600 --> 00:07:05.900
+It might even be the best for the mo- kind
+of a general purpose statistical package.
+
+134
+00:07:05.900 --> 00:07:07.500
+It's very useful for interactive work as I
+
+135
+00:07:07.500 --> 00:07:10.690
+said before, but it contains this powerful
+programming language.
+
+136
+00:07:10.690 --> 00:07:11.790
+For developing new tools,
+
+137
+00:07:11.790 --> 00:07:15.630
+so, it eases the transition from the user
+to the program.
+
+138
+00:07:15.630 --> 00:07:18.240
+And fundamentally, actually, for a
+language like this, is
+
+139
+00:07:18.240 --> 00:07:20.230
+that there is a very active and vibrant
+user community.
+
+140
+00:07:20.230 --> 00:07:23.370
+So the mailing lists at R-help and R-devel
+are very active.
+
+141
+00:07:23.370 --> 00:07:26.130
+There's many, posts per day, and there's
+also a
+
+142
+00:07:26.130 --> 00:07:29.640
+series on stack overflow where questions
+can be answered.
+
+143
+00:07:29.640 --> 00:07:33.680
+So, the user community is, is one of the
+most interesting aspects of R.
+
+144
+00:07:33.680 --> 00:07:36.820
+It's where all the R packages come from
+and it creates a lot
+
+145
+00:07:36.820 --> 00:07:38.910
+of kind of interesting features.
+
+146
+00:07:40.950 --> 00:07:45.480
+Of course one of the, probably the most
+critical feature of R is that it's free.
+
+147
+00:07:45.480 --> 00:07:47.900
+Both in the sense of free beer and the
+sense of speech.
+
+148
+00:07:47.900 --> 00:07:50.280
+So what I mean by that, is that it doesn't
+cost any
+
+149
+00:07:50.280 --> 00:07:55.130
+money so you can download the entire
+software from from the web.
+
+150
+00:07:55.130 --> 00:07:58.080
+And also it's free software, so I'm
+going to divert for
+
+151
+00:07:58.080 --> 00:08:00.600
+a second to talk a little bit about free
+software.
+
+152
+00:08:00.600 --> 00:08:03.340
+So, with free software there are four
+basic principles, right?
+
+153
+00:08:03.340 --> 00:08:05.638
+You have four basic freedoms that you
+have.
+
+154
+00:08:05.638 --> 00:08:06.044
+The freedom
+
+155
+00:08:06.044 --> 00:08:10.070
+zero is the freedom to run the program for
+any purpose, so you don't need.
+
+156
+00:08:10.070 --> 00:08:12.410
+There's no restrictions on how you can run
+the program or when you
+
+157
+00:08:12.410 --> 00:08:14.550
+can run the program or what you can or
+cannot do with it.
+
+158
+00:08:15.550 --> 00:08:18.090
+Freedom one is the freedom to study how
+
+159
+00:08:18.090 --> 00:08:20.060
+the program works and adapt it to your
+needs.
+
+160
+00:08:20.060 --> 00:08:23.410
+So this happens almost every day which is
+that
+
+161
+00:08:23.410 --> 00:08:26.110
+you can look at the source code for R
+itself.
+
+162
+00:08:26.110 --> 00:08:28.140
+You can make changes to it if you want.
+
+163
+00:08:28.140 --> 00:08:31.110
+You can, you may improve it or make a
+better version
+
+164
+00:08:31.110 --> 00:08:33.280
+of it.
+You can sell changes to it if you want.
+
+165
+00:08:33.280 --> 00:08:37.160
+You can do, you can modify the program any
+way you want and adapt it to your needs.
+
+166
+00:08:37.160 --> 00:08:40.360
+Of course, so you can look at the source
+code for this to get freedom one.
+
+167
+00:08:40.360 --> 00:08:44.310
+Freedom two is that you have the freedom
+to redistribute copies so you can help
+
+168
+00:08:44.310 --> 00:08:47.550
+your neighbor and so the idea is that you
+can give copies to other people.
+
+169
+00:08:47.550 --> 00:08:48.470
+You can sell copies.
+
+170
+00:08:48.470 --> 00:08:50.280
+You can do whatever you want with it.
+
+171
+00:08:50.280 --> 00:08:53.960
+Lastly you have the freedom to improve the
+program and release your improvements
+
+172
+00:08:53.960 --> 00:08:57.670
+to the public so the whole community
+benefits, so this is freedom three.
+
+173
+00:08:57.670 --> 00:09:01.750
+The idea is that when people make changes
+to the program they
+
+174
+00:09:01.750 --> 00:09:05.400
+can release them to the public so that
+everyone gets those changes.
+
+175
+00:09:05.400 --> 00:09:07.500
+And so these basic freedoms are outlined
+by the free software
+
+176
+00:09:07.500 --> 00:09:10.660
+foundation and you can see more about it
+at their website there.
+
+177
+00:09:12.510 --> 00:09:14.300
+So, there a couple drawbacks of R.
+
+178
+00:09:14.300 --> 00:09:15.220
+I won't go through all of them
+
+179
+00:09:15.220 --> 00:09:17.690
+and probably other people have many other
+complaints.
+
+180
+00:09:17.690 --> 00:09:20.970
+But there's some basic drawbacks which are
+one
+
+181
+00:09:20.970 --> 00:09:23.760
+that it's essentially based on 40 year old
+technology.
+
+182
+00:09:23.760 --> 00:09:28.920
+So the original S language developed in
+the 70s was based on
+
+183
+00:09:28.920 --> 00:09:32.650
+a couple of principles, and the basic
+ideas have not changed too much.
+
+184
+00:09:34.120 --> 00:09:37.200
+Since then and so as, one of the results
+of that for example
+
+185
+00:09:37.200 --> 00:09:40.710
+is that there is little built in support
+for dynamic or 3D graphics.
+
+186
+00:09:40.710 --> 00:09:44.210
+But things have improved, greatly and not
+on that front since the old days
+
+187
+00:09:44.210 --> 00:09:48.610
+and there's a lot of interesting tools now
+packages for doing dynamic or 3D graphics.
+
+188
+00:09:49.880 --> 00:09:52.570
+Another drawback of R that I, I hear a lot
+about is
+
+189
+00:09:52.570 --> 00:09:54.150
+that the functionality is based on
+
+190
+00:09:54.150 --> 00:09:57.640
+consumer demand and basically user
+contributions.
+
+191
+00:09:57.640 --> 00:09:59.260
+So if no one feels like implementing your
+
+192
+00:09:59.260 --> 00:10:02.210
+favorite message then that's your job to
+do.
+
+193
+00:10:02.210 --> 00:10:04.180
+And so you can't, there is no corporation,
+
+194
+00:10:04.180 --> 00:10:06.250
+there's no company that you can complain
+to.
+
+195
+00:10:06.250 --> 00:10:08.210
+There's no helpline that you can call to
+say
+
+196
+00:10:08.210 --> 00:10:11.225
+that, to demand a specific implementation
+or a specific feature.
+
+197
+00:10:11.225 --> 00:10:14.600
+If the feature's not there, then you have
+to build it.
+
+198
+00:10:14.600 --> 00:10:14.950
+Or at least
+
+199
+00:10:14.950 --> 00:10:16.090
+you can pay someone to build it.
+
+200
+00:10:17.730 --> 00:10:21.840
+Another drawback which is a little bit
+more technical is that the objects that
+
+201
+00:10:21.840 --> 00:10:25.438
+you manipulate in R have to be stored in
+the physical memory of the computer.
+
+202
+00:10:25.438 --> 00:10:28.820
+And so if the object is bigger, than the
+physical
+
+203
+00:10:28.820 --> 00:10:31.630
+memory of the computer, then you can't
+load it into memory.
+
+204
+00:10:31.630 --> 00:10:35.090
+And then therefore you can't do something
+in R with that object.
+
+205
+00:10:35.090 --> 00:10:37.430
+So there have been a lot of advancements
+to deal with this too.
+
+206
+00:10:37.430 --> 00:10:40.020
+Both in the R language and also
+
+207
+00:10:40.020 --> 00:10:42.470
+just in the hardware side there are
+computers now
+
+208
+00:10:42.470 --> 00:10:45.230
+that you can buy with tremendous amounts
+of memory.
+
+209
+00:10:45.230 --> 00:10:46.590
+And so some of those problems had been
+
+210
+00:10:46.590 --> 00:10:49.670
+resolved just by, kind of, improvements in
+technology.
+
+211
+00:10:49.670 --> 00:10:53.446
+But nevertheless, as we enter the, kind
+of, big data era where you have larger
+
+212
+00:10:53.446 --> 00:10:56.170
+and larger data sets, the model of
+loading
+
+213
+00:10:56.170 --> 00:11:00.020
+objects into physical memory can be a
+limitation.
+
+214
+00:11:00.020 --> 00:11:04.340
+And finally, I'll just say that R is not
+ideal for all possible situations.
+
+215
+00:11:04.340 --> 00:11:05.370
+And so many people,
+
+216
+00:11:05.370 --> 00:11:08.580
+I think, in ways is a good thing they have
+high expectations for R.
+
+217
+00:11:08.580 --> 00:11:10.180
+They expect it to be able to do
+everything.
+
+218
+00:11:11.360 --> 00:11:15.250
+But it doesn't do everything and so you
+should go into this knowing that fact.
+
+219
+00:11:16.820 --> 00:11:18.950
+So the basic R system is divided into
+
+220
+00:11:18.950 --> 00:11:21.440
+two, what you can think as two conceptual
+parts.
+
+221
+00:11:21.440 --> 00:11:23.888
+There is the base R system that you
+download
+
+222
+00:11:23.888 --> 00:11:27.235
+from a CRAN which is the comprehensive R
+archive network.
+
+223
+00:11:27.235 --> 00:11:30.940
+And that's kind of the go to place for all
+things R.
+
+224
+00:11:30.940 --> 00:11:32.460
+Then there's kind of everything else.
+
+225
+00:11:32.460 --> 00:11:37.890
+And so the base system contains what's
+called the base package which has all
+
+226
+00:11:37.890 --> 00:11:39.720
+the kind of low level fundamental
+functions
+
+227
+00:11:39.720 --> 00:11:41.270
+that you need to run the R system.
+
+228
+00:11:42.340 --> 00:11:44.040
+And then there are other packages
+contained in the
+
+229
+00:11:44.040 --> 00:11:48.160
+base system which includes for example
+util stats, data sets,
+
+230
+00:11:48.160 --> 00:11:50.830
+graphics and a bunch of other packages
+that are kind
+
+231
+00:11:50.830 --> 00:11:54.930
+of fundamental packages that more or less
+everyone might use.
+
+232
+00:11:54.930 --> 00:11:56.230
+And then there are a series
+
+233
+00:11:56.230 --> 00:12:00.460
+of recommended packages, so, boot for
+bootstrap, class for
+
+234
+00:12:00.460 --> 00:12:05.140
+classification, cluster, codetools,
+foreign, and a variety of other packages.
+
+235
+00:12:05.140 --> 00:12:08.740
+These are the commonly used packages, they
+may not
+
+236
+00:12:08.740 --> 00:12:12.000
+be critical packages, but they're commonly
+used by many people.
+
+237
+00:12:12.000 --> 00:12:14.890
+So all of these packages come with this,
+
+238
+00:12:14.890 --> 00:12:17.680
+the base R system that you download from
+CRAN.
+
+239
+00:12:20.860 --> 00:12:23.050
+Now, but there's much more than this
+obviously,
+
+240
+00:12:23.050 --> 00:12:25.140
+and on the, on CRAN, there are, right now
+
+241
+00:12:25.140 --> 00:12:27.220
+there are about 4,000 packages that have
+been
+
+242
+00:12:27.220 --> 00:12:29.920
+developed by users and programmers all
+around the world.
+
+243
+00:12:29.920 --> 00:12:31.740
+These packages are user contributed.
+
+244
+00:12:31.740 --> 00:12:33.990
+They're not controlled by the R core.
+
+245
+00:12:33.990 --> 00:12:39.670
+And they are uploaded to CRAN on a
+everyday on a periodic basis.
+
+246
+00:12:39.670 --> 00:12:41.400
+And the i-, and CRAN has a few, has a
+
+247
+00:12:41.400 --> 00:12:45.890
+number of restrictions and standards that
+have to be met in
+
+248
+00:12:45.890 --> 00:12:47.460
+order to get a package on to CRAN.
+
+249
+00:12:47.460 --> 00:12:50.550
+So, one of the nice things about CRAN is
+that there, that
+
+250
+00:12:50.550 --> 00:12:55.050
+the packages that you download have to
+meet a certain level of quality.
+
+251
+00:12:55.050 --> 00:12:56.530
+And so there have to be, for example there
+has
+
+252
+00:12:56.530 --> 00:12:59.190
+to be documentation for all the functions
+that are in
+
+253
+00:12:59.190 --> 00:13:01.800
+the package, and there has to be and they
+have
+
+254
+00:13:01.800 --> 00:13:03.990
+to make sure that they pass a certain
+number of tests.
+
+255
+00:13:03.990 --> 00:13:08.430
+So, so CRAN has, has a lot of different
+packages
+
+256
+00:13:08.430 --> 00:13:10.790
+written by users and the number is really
+increasing everyday.
+
+257
+00:13:10.790 --> 00:13:11.000
+So it's
+
+258
+00:13:11.000 --> 00:13:13.370
+very exciting to see all these packages on
+CRAN
+
+259
+00:13:13.370 --> 00:13:15.450
+and there, and to see new ones come up
+everyday.
+
+260
+00:13:16.650 --> 00:13:18.800
+There are also packages associated with
+the Bioconductor
+
+261
+00:13:18.800 --> 00:13:21.130
+project, which is a packaged, which is a
+
+262
+00:13:21.130 --> 00:13:26.460
+project designed to implement R software
+for, kind
+
+263
+00:13:26.460 --> 00:13:30.780
+of, genomic and, kind of, bio, biological
+data analysis.
+
+264
+00:13:30.780 --> 00:13:32.610
+and, of course, there are also all their
+packages
+
+265
+00:13:32.610 --> 00:13:35.580
+made that people make available on their
+personal websites.
+
+266
+00:13:35.580 --> 00:13:36.250
+And there's really no
+
+267
+00:13:36.250 --> 00:13:39.190
+reliable way to keep track of how many
+packages are available in this fashion.
+
+268
+00:13:39.190 --> 00:13:43.360
+So, there's really thousands of packages
+out there written by people.
+
+269
+00:13:43.360 --> 00:13:46.270
+That you can discover and use, to analyze
+data.
+
+270
+00:13:47.870 --> 00:13:50.880
+So there are a couple of documents that
+you can find on the R website.
+
+271
+00:13:50.880 --> 00:13:54.130
+As you're learning to use R, you then
+want to flip through some of these.
+
+272
+00:13:54.130 --> 00:13:57.450
+One is an introduction to R, which is a
+relatively long PDF
+
+273
+00:13:57.450 --> 00:14:01.360
+document now that kind of goes through the
+basics of how to use R,
+
+274
+00:14:01.360 --> 00:14:03.120
+how to use the language.
+
+275
+00:14:03.120 --> 00:14:06.310
+There's the Writing R Extensions manual
+which is really only
+
+276
+00:14:06.310 --> 00:14:09.710
+useful to read if you're thinking of
+developing R packages.
+
+277
+00:14:09.710 --> 00:14:13.000
+Which are these R extensions to the main
+system.
+
+278
+00:14:13.000 --> 00:14:15.300
+The R data import and export manual, which
+is useful
+
+279
+00:14:15.300 --> 00:14:18.540
+for getting R's data into R and the
+various different ways.
+
+280
+00:14:19.550 --> 00:14:23.340
+The R installation administration manual
+is, is most useful if you want to
+
+281
+00:14:23.340 --> 00:14:26.930
+build R from the source code, and I'll
+talk about that in another video.
+
+282
+00:14:26.930 --> 00:14:29.530
+And then the R internals manual.
+
+283
+00:14:29.530 --> 00:14:32.880
+Is is a really technical document for how
+R is designed.
+
+284
+00:14:32.880 --> 00:14:35.910
+How R is implemented at a very low level.
+
+285
+00:14:35.910 --> 00:14:37.870
+And it's not really for the faint of
+heart.
+
+286
+00:14:37.870 --> 00:14:40.590
+But if you're that kind of person, who
+wants to know how R
+
+287
+00:14:40.590 --> 00:14:43.830
+works at a very, very low level, this is
+the document for you.
+
+288
+00:14:44.830 --> 00:14:48.380
+So, I'm just going to end over here with a
+couple of texts
+
+289
+00:14:48.380 --> 00:14:51.430
+that are kind of standard or kind of
+classic texts in this area.
+
+290
+00:14:51.430 --> 00:14:52.110
+Of course
+
+291
+00:14:52.110 --> 00:14:54.520
+the books by John Chambers offers data
+analysis
+
+292
+00:14:54.520 --> 00:14:56.930
+and programming the data are both
+published by Springer.
+
+293
+00:14:58.150 --> 00:15:01.300
+And then there's two books by Bill
+Venables and Brian Ripley.
+
+294
+00:15:01.300 --> 00:15:02.990
+One is called Modern Applied Statistics
+with
+
+295
+00:15:02.990 --> 00:15:05.860
+S, and another one's called S Programing.
+
+296
+00:15:05.860 --> 00:15:08.810
+Although they have the, the, they talk
+about S in the title,
+
+297
+00:15:08.810 --> 00:15:13.310
+these books are all, are both very
+relevant for R programming too.
+
+298
+00:15:13.310 --> 00:15:16.440
+There's a book by Pinheiroand Base, which
+is Mixed Effects, Models in S and S-PLUS.
+
+299
+00:15:16.440 --> 00:15:17.210
+That's also
+
+300
+00:15:17.210 --> 00:15:20.950
+quite useful, for R programmers too.
+
+301
+00:15:20.950 --> 00:15:24.860
+And finally Paul Murrell who designed the
+R graphic system has written a
+
+302
+00:15:24.860 --> 00:15:28.850
+book called R Graphics and actually it's
+currently in its second edition right now.
+
+303
+00:15:28.850 --> 00:15:31.380
+So, a couple other resources, one is that
+
+304
+00:15:31.380 --> 00:15:33.270
+Springer, the publisher Springer has a
+series of books
+
+305
+00:15:33.270 --> 00:15:38.180
+called Use R, which is, which is a, a lot
+of very, kind of relatively short books.
+
+306
+00:15:38.180 --> 00:15:41.650
+How to use R for different types of
+topics, different application areas.
+
+307
+00:15:41.650 --> 00:15:42.430
+This is quite a nice
+
+308
+00:15:42.430 --> 00:15:44.610
+series of books that you may be interested
+in.
+
+309
+00:15:44.610 --> 00:15:48.280
+And there may be a book written for you
+particular area of application.
+
+310
+00:15:48.280 --> 00:15:51.820
+And there's a longer list of books on the
+R website.
+
+311
+00:15:51.820 --> 00:15:56.640
+So, that was a brief overview of R, and
+the history of how it kind of came to be.
+
+312
+00:15:56.640 --> 00:15:59.910
+and, starting with the next video, I'll
+start talking about the details of
+
+313
+00:15:59.910 --> 00:16:02.610
+the R programming language, and how we can
+use it to analyze data.
