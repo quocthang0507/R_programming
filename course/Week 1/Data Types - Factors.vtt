@@ -1,0 +1,369 @@
+WEBVTT
+
+1
+00:00:03.950 --> 00:00:07.925
+So factor is a special type of vector,
+which is used to create,
+
+2
+00:00:07.925 --> 00:00:10.650
+to represent categorical data.
+
+3
+00:00:10.650 --> 00:00:13.990
+So, and there's two types of factor,
+there is unordered or ordered, so
+
+4
+00:00:13.990 --> 00:00:16.840
+you can think of this as being,
+as storing data that are.
+
+5
+00:00:16.840 --> 00:00:20.180
+Have labels that are categorical but
+have no ordering, so for
+
+6
+00:00:20.180 --> 00:00:21.440
+example male and female.
+
+7
+00:00:22.650 --> 00:00:28.180
+Or you can have ordered factors which
+might represent things that are ranked.
+
+8
+00:00:28.180 --> 00:00:31.110
+So they have an order but they're
+not numerical for example you know,
+
+9
+00:00:31.110 --> 00:00:35.220
+in many universities you'll have assistant
+professors, associates professors, and
+
+10
+00:00:35.220 --> 00:00:36.150
+full professors.
+
+11
+00:00:36.150 --> 00:00:37.850
+Those are categorical but they're ordered.
+
+12
+00:00:39.470 --> 00:00:42.370
+So one, you can think of a factor
+as an integer vector where
+
+13
+00:00:42.370 --> 00:00:43.560
+each integer has a label.
+
+14
+00:00:43.560 --> 00:00:47.330
+So for example, you might, you can think
+of it as a vector as one two three,
+
+15
+00:00:47.330 --> 00:00:53.050
+where one represents you know,
+high, for example high value and
+
+16
+00:00:53.050 --> 00:00:56.310
+two represents a medium value and
+three represents a low value.
+
+17
+00:00:56.310 --> 00:01:00.350
+So you might have a, a variable
+that's called high, medium and low.
+
+18
+00:01:00.350 --> 00:01:03.110
+And underlying in R is represented
+by the numbers one, two, and three.
+
+19
+00:01:04.810 --> 00:01:09.030
+so, factors are important because they're
+treated specially by modeling functions
+
+20
+00:01:09.030 --> 00:01:11.090
+like lm and
+glm which we'll talk about later.
+
+21
+00:01:11.090 --> 00:01:13.939
+But these are functions for,
+for, for fitting linear models.
+
+22
+00:01:15.620 --> 00:01:19.000
+And factors are with labels generally
+speaking are better than using
+
+23
+00:01:19.000 --> 00:01:23.210
+simple integer vectors because the factors
+are, what are called self describing.
+
+24
+00:01:23.210 --> 00:01:26.780
+So having a variable that has
+values male and female is more
+
+25
+00:01:26.780 --> 00:01:31.400
+descriptive than having a variable that
+just, that just has ones and twos.
+
+26
+00:01:31.400 --> 00:01:34.250
+So for example,
+in many data sets you'll find that a var,
+
+27
+00:01:34.250 --> 00:01:38.590
+there will be a variable that's coded
+as one and two and it's, and it's not.
+
+28
+00:01:38.590 --> 00:01:42.590
+Easy to know whether that variable is
+really a numeric variable that only
+
+29
+00:01:42.590 --> 00:01:45.960
+takes values one and two, but the problem
+is that's not something that's coded in
+
+30
+00:01:45.960 --> 00:01:47.680
+the data set, so it's hard to tell.
+
+31
+00:01:47.680 --> 00:01:51.150
+If you use a factor variable then
+the coding for the labels is all,
+
+32
+00:01:51.150 --> 00:01:54.690
+is kind of built into the variable and
+it's much easier to understand.
+
+33
+00:01:57.450 --> 00:02:00.505
+So factors can be created
+with the factor function, and
+
+34
+00:02:00.505 --> 00:02:03.694
+the input into the factor
+function is a character vector.
+
+35
+00:02:03.694 --> 00:02:07.994
+So here, I'm just creating a simple factor
+with the which has what, two levels, and
+
+36
+00:02:07.994 --> 00:02:10.142
+the levels are yes and no.
+
+37
+00:02:10.142 --> 00:02:11.921
+And so x is a factor, you can see what,
+
+38
+00:02:11.921 --> 00:02:14.927
+it prints out a little bit
+differently from a character vector,
+
+39
+00:02:14.927 --> 00:02:18.348
+in the sense that it prints up the value,
+yes, yes, no, yes, no.
+
+40
+00:02:18.348 --> 00:02:22.460
+And then it has a separate attribute
+which is called the levels.
+
+41
+00:02:22.460 --> 00:02:25.530
+And so the levels of this
+factor are no and yes, okay.
+
+42
+00:02:25.530 --> 00:02:27.900
+So there's only two levels.
+
+43
+00:02:27.900 --> 00:02:30.680
+I can, I can call table on this factor and
+
+44
+00:02:30.680 --> 00:02:33.640
+it will give me a frequency count of
+how many of each level there are.
+
+45
+00:02:33.640 --> 00:02:36.050
+So for example,
+it'll tell me there are two nodes.
+
+46
+00:02:36.050 --> 00:02:36.956
+And there's three yeses.
+
+47
+00:02:36.956 --> 00:02:43.170
+Now, the un-class function strips
+out the class for fa, for a vector.
+
+48
+00:02:43.170 --> 00:02:46.597
+So for example, I can,
+if I call un-class on x it'll,
+
+49
+00:02:46.597 --> 00:02:51.944
+it'll kind of bring it down to an integer
+vector, and you can see that underlying.
+
+50
+00:02:51.944 --> 00:02:57.073
+The factors represent as 22121 so,
+yes, it's coded as two and
+
+51
+00:02:57.073 --> 00:02:58.937
+no, it's coded as one.
+
+52
+00:02:58.937 --> 00:03:02.150
+Now it's not really essential for
+you to know this because you can
+
+53
+00:03:02.150 --> 00:03:06.766
+just treat the factor as being a vector of
+yeses and nos but it's used sometimes it's
+
+54
+00:03:06.766 --> 00:03:10.990
+it's useful just to know under, underneath
+kind of how factors are represented by R.
+
+55
+00:03:10.990 --> 00:03:14.663
+And so you see, it's really
+an integer vector with the attribute,
+
+56
+00:03:14.663 --> 00:03:16.602
+the levels attribute of no and yes.
+
+57
+00:03:19.819 --> 00:03:22.347
+The order of the levels in the factor,
+
+58
+00:03:22.347 --> 00:03:25.380
+can be set using the levels
+argument in factors.
+
+59
+00:03:25.380 --> 00:03:29.410
+So for ex, and sometimes this is important
+because in modeling functions and
+
+60
+00:03:29.410 --> 00:03:32.200
+when you include a factor variable this,
+this,
+
+61
+00:03:32.200 --> 00:03:35.492
+sometimes it's important to know
+what the baseline level is.
+
+62
+00:03:35.492 --> 00:03:40.029
+And so the baseline level is just
+the first level in the factor, and
+
+63
+00:03:40.029 --> 00:03:43.120
+the way this is determined
+by NR is critical.
+
+64
+00:03:43.120 --> 00:03:46.730
+It's determined using alphabetical order,
+so for
+
+65
+00:03:46.730 --> 00:03:49.410
+example, if I create a factor variable.
+
+66
+00:03:49.410 --> 00:03:53.600
+With the, with the elements yes and
+no, then the base line level with be
+
+67
+00:03:53.600 --> 00:03:57.650
+the first level that's encountered and
+because no comes before yes in
+
+68
+00:03:57.650 --> 00:04:03.220
+the alphabet then no will be the base line
+level and yes will be the second level.
+
+69
+00:04:03.220 --> 00:04:06.410
+Now this may not be something
+that you want you might want for
+
+70
+00:04:06.410 --> 00:04:08.340
+example a yes to be
+the base line level and
+
+71
+00:04:08.340 --> 00:04:12.870
+no to be the second level and then in
+that case you have explicitly tell r.
+
+72
+00:04:12.870 --> 00:04:15.100
+That yes is going to
+be the first level and
+
+73
+00:04:15.100 --> 00:04:19.220
+you can view that using the levels
+argument to the factor function.
+
+74
+00:04:19.220 --> 00:04:23.630
+So now when I print out the x object you
+see that the elements are still the same,
+
+75
+00:04:23.630 --> 00:04:25.027
+still yes yes no, yes no.
+
+76
+00:04:25.027 --> 00:04:27.585
+But the levels attribute is reversed.
+
+77
+00:04:27.585 --> 00:04:30.720
+because yes is the first level and
+no is the second level.

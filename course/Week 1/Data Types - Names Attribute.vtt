@@ -1,0 +1,149 @@
+WEBVTT
+
+1
+00:00:04.706 --> 00:00:07.070
+R objects can also have names.
+
+2
+00:00:07.070 --> 00:00:08.730
+So this not true for just data frames.
+
+3
+00:00:08.730 --> 00:00:10.990
+It's true for all r objects.
+
+4
+00:00:10.990 --> 00:00:15.590
+And this can be very useful for writing
+readable code and self describing objects.
+
+5
+00:00:15.590 --> 00:00:20.060
+So for example, I'm creating a vector
+that's an integer sequence 1, 2,
+
+6
+00:00:20.060 --> 00:00:22.280
+3 and by default, there's no name.
+
+7
+00:00:22.280 --> 00:00:25.720
+So when I call the names function on x,
+it gives me a null value.
+
+8
+00:00:25.720 --> 00:00:30.840
+However, I can, I can give a name
+to each element of the vector x.
+
+9
+00:00:30.840 --> 00:00:33.580
+So for example, if I,
+I can say the first element's called food,
+
+10
+00:00:33.580 --> 00:00:37.090
+the second element's called bar, and
+the third element's called norf.
+
+11
+00:00:37.090 --> 00:00:41.450
+So now when I print out my x vector,
+I get a vector 1, 2, 3 but
+
+12
+00:00:41.450 --> 00:00:44.640
+then each one has a name over it,
+which is the name I just specified.
+
+13
+00:00:45.790 --> 00:00:49.220
+And so
+when I call the names function I get the,
+
+14
+00:00:49.220 --> 00:00:53.039
+the names that are associated with each
+element of the vector foo, bar, and norf.
+
+15
+00:00:55.230 --> 00:00:57.270
+Lists can also have names.
+
+16
+00:00:57.270 --> 00:01:00.330
+And so for example here I'm creating
+a list with the list function
+
+17
+00:01:00.330 --> 00:01:02.900
+where the first element is called a,
+the second element is called b, and
+
+18
+00:01:02.900 --> 00:01:05.440
+the third element is called c.
+
+19
+00:01:05.440 --> 00:01:08.840
+And so when I print out the list, it
+prints out the names of each element and
+
+20
+00:01:08.840 --> 00:01:10.350
+the values associated with those names.
+
+21
+00:01:12.480 --> 00:01:14.450
+Finally matrices can have names.
+
+22
+00:01:14.450 --> 00:01:16.630
+These are called dim names.
+
+23
+00:01:16.630 --> 00:01:19.420
+So here I created a matrix
+from the sequence 1 to 4.
+
+24
+00:01:19.420 --> 00:01:21.180
+It's a two by two matrix.
+
+25
+00:01:21.180 --> 00:01:26.830
+And so the, when, when I use the dim
+names function I pass it a list.
+
+26
+00:01:26.830 --> 00:01:29.360
+Excuse me, I assign it a list.
+
+27
+00:01:29.360 --> 00:01:33.510
+Where the first element of the list is
+the, is the vector of row names and
+
+28
+00:01:33.510 --> 00:01:36.260
+the second element of the list
+is a vector of column names.
+
+29
+00:01:36.260 --> 00:01:39.990
+So here I want to name the rows a and b,
+and I want to name the columns c and d.
+
+30
+00:01:39.990 --> 00:01:42.930
+So that's what I passed to
+the dim names function.
+
+31
+00:01:42.930 --> 00:01:45.380
+And now when I print out my matrix
+I can see that the row names and
+
+32
+00:01:45.380 --> 00:01:48.140
+the column names are labeled as I wanted.

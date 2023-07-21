@@ -1,0 +1,395 @@
+WEBVTT
+
+1
+00:00:00.278 --> 00:00:03.886
+In this lecture we're going to start
+getting into the nitty gritty and
+
+2
+00:00:03.886 --> 00:00:05.033
+the details of R.
+
+3
+00:00:05.033 --> 00:00:08.910
+In particular I'm going to talk about
+different data types that are used in R
+
+4
+00:00:08.910 --> 00:00:11.423
+and some basic operations
+on those data types.
+
+5
+00:00:11.423 --> 00:00:14.976
+So first it's important to kind of
+get the language right correctly.
+
+6
+00:00:14.976 --> 00:00:19.103
+So all the things that you manipulate in
+R, all the things that we encounter in R,
+
+7
+00:00:19.103 --> 00:00:22.869
+are what might be called objects
+objects can be all different kinds,
+
+8
+00:00:22.869 --> 00:00:25.630
+can contain all different kinds of data.
+
+9
+00:00:25.630 --> 00:00:28.210
+But everything in R, is an object.
+
+10
+00:00:28.210 --> 00:00:31.920
+So the R has five basic
+atomic classes of objects.
+
+11
+00:00:31.920 --> 00:00:33.765
+So these are kind of
+the very low level or,
+
+12
+00:00:33.765 --> 00:00:38.570
+or basic classes of objects and
+they are character, numeric.
+
+13
+00:00:38.570 --> 00:00:41.508
+So these are like real numbers or
+decimal numbers.
+
+14
+00:00:41.508 --> 00:00:44.300
+integers, complex numbers, and logicals.
+
+15
+00:00:44.300 --> 00:00:47.059
+So logicals are just
+true a false type things.
+
+16
+00:00:48.760 --> 00:00:52.420
+And so the most basic object
+in R is called a vector.
+
+17
+00:00:52.420 --> 00:00:53.480
+And a vector conta-,
+
+18
+00:00:53.480 --> 00:00:58.550
+Can contain multiple copies of, for
+example, of a single type of object.
+
+19
+00:00:58.550 --> 00:01:03.180
+So you can have a vector of characters or
+a vector of integers, one thing you cannot
+
+20
+00:01:03.180 --> 00:01:08.030
+do with a standard vector is have mixed
+types of objects you cannot have a vector
+
+21
+00:01:08.030 --> 00:01:12.570
+of characters and numerics, or numerics
+and integers, or integers and logicals.
+
+22
+00:01:12.570 --> 00:01:15.380
+It, everything in a vector
+has to be the same class.
+
+23
+00:01:16.590 --> 00:01:19.030
+Of course, with any great rule,
+there's always an exception, and
+
+24
+00:01:19.030 --> 00:01:21.100
+this, this one is no exception.
+
+25
+00:01:21.100 --> 00:01:24.110
+So, in this, with vectors,
+there's one type of vector that
+
+26
+00:01:24.110 --> 00:01:27.450
+can have multiple different types of
+classes, and that's called a list.
+
+27
+00:01:27.450 --> 00:01:31.900
+So a list is represent as a vector, so
+there's a se, it's a sequence of objects.
+
+28
+00:01:31.900 --> 00:01:34.680
+But each element of that
+vector can be a different,
+
+29
+00:01:34.680 --> 00:01:36.610
+can be an object of a different class.
+
+30
+00:01:36.610 --> 00:01:38.009
+So for example, you can have a list.
+
+31
+00:01:39.180 --> 00:01:43.970
+That has a character,
+that has a numeric, it has a logical.
+
+32
+00:01:43.970 --> 00:01:47.070
+You can have a list that's inside
+the list and one element of
+
+33
+00:01:47.070 --> 00:01:51.106
+the list can be a data frame so,
+any element of the list can be anything.
+
+34
+00:01:51.106 --> 00:01:53.460
+And that's an,
+actually why what makes list so useful.
+
+35
+00:01:54.680 --> 00:01:57.360
+So the list is the one
+exception to the ot to the.
+
+36
+00:01:57.360 --> 00:02:00.240
+General rule that a vectors can only
+contain elements of the same class.
+
+37
+00:02:01.320 --> 00:02:04.610
+So you can create an empty
+vector with the vector function.
+
+38
+00:02:04.610 --> 00:02:06.980
+And the vector function
+has two basic arguments.
+
+39
+00:02:06.980 --> 00:02:09.301
+The first argument is
+the class of the object, so
+
+40
+00:02:09.301 --> 00:02:11.801
+the type of object that you
+want to have in the vector.
+
+41
+00:02:11.801 --> 00:02:14.564
+And the second argument is
+the length of the vector itself.
+
+42
+00:02:17.769 --> 00:02:21.542
+Perhaps the most important type of
+object in R of course is the number.
+
+43
+00:02:21.542 --> 00:02:25.370
+So numbers in R are generally treated as
+what are called numeric objectsum, so
+
+44
+00:02:25.370 --> 00:02:29.310
+pretty much all numbers are treated as
+double number precision real numbers.
+
+45
+00:02:29.310 --> 00:02:33.440
+So, even if you are looking at a number
+that's like one or two, R thinks of those
+
+46
+00:02:33.440 --> 00:02:39.760
+numbers as numeric objects there is a way
+to explicitly say you want an integer and
+
+47
+00:02:39.760 --> 00:02:43.620
+you can specify the L subs, the L suf,
+the capital L suffix there.
+
+48
+00:02:43.620 --> 00:02:46.230
+So for example,
+if you just enter the number 1 in R,
+
+49
+00:02:46.230 --> 00:02:48.260
+that gives you a numeric object.
+
+50
+00:02:48.260 --> 00:02:53.330
+But entering 1 with a capital L next
+to it explicitly gives you an integer.
+
+51
+00:02:53.330 --> 00:02:56.030
+This distinction is not very
+important right now, but,
+
+52
+00:02:56.030 --> 00:02:58.350
+it will become important later.
+
+53
+00:02:58.350 --> 00:03:00.960
+There's also a special number called inf,
+which stands for
+
+54
+00:03:00.960 --> 00:03:06.020
+infinity and, and inf is like a real
+number it can be used in calculations and
+
+55
+00:03:06.020 --> 00:03:07.960
+you will get the expected result.
+
+56
+00:03:07.960 --> 00:03:10.100
+So, for example, if you take one,
+divide it by zero,
+
+57
+00:03:10.100 --> 00:03:14.750
+you'll get infinity and if you take 1 and
+divide it by infinity you'll get zero.
+
+58
+00:03:14.750 --> 00:03:18.580
+So, emphasis special number, and
+you can also have minus infinity, too.
+
+59
+00:03:20.070 --> 00:03:23.360
+There's another special
+value called NAN or Nan.
+
+60
+00:03:23.360 --> 00:03:26.970
+And this represents an undefined value so
+you can name it as not a number.
+
+61
+00:03:26.970 --> 00:03:30.840
+So, for example, if you take zero over
+zero that's not a number It's not defined
+
+62
+00:03:30.840 --> 00:03:35.420
+so you'll get a Nan back Nan can also
+be thought of as a missing value but
+
+63
+00:03:35.420 --> 00:03:39.380
+we'll talk a little bit more about
+missing values a little bit later so
+
+64
+00:03:39.380 --> 00:03:43.670
+another thing that, that comes with
+each object in R is an attribute.
+
+65
+00:03:43.670 --> 00:03:47.230
+So not every, object in R
+necessarily has attributes, but,
+
+66
+00:03:47.230 --> 00:03:51.160
+but they are, but
+attributes can be part of an object in R.
+
+67
+00:03:51.160 --> 00:03:52.580
+Some of the most common types of
+
+68
+00:03:52.580 --> 00:03:57.720
+attributes that we'll encounter are
+namesor dim names, or, or dimension names.
+
+69
+00:03:57.720 --> 00:04:00.550
+A dimension, so
+a matrix will have dimensions for
+
+70
+00:04:00.550 --> 00:04:03.800
+example it will have a number of rows and
+a number of columns if you
+
+71
+00:04:03.800 --> 00:04:06.629
+have a multidimensional array you'll
+have more than two dimensions.
+
+72
+00:04:07.700 --> 00:04:11.400
+The class of the object, so
+every object will have a class.
+
+73
+00:04:11.400 --> 00:04:14.650
+So for example,
+numeric objects their class is numeric and
+
+74
+00:04:14.650 --> 00:04:16.510
+integer objects, their class is integer.
+
+75
+00:04:17.630 --> 00:04:19.700
+Every object also has a length.
+
+76
+00:04:19.700 --> 00:04:22.590
+So for a vector it's quite simple
+the length of the object is
+
+77
+00:04:22.590 --> 00:04:25.210
+just the number of elements in the vector.
+
+78
+00:04:25.210 --> 00:04:27.690
+And then there may be other
+user-defined attributes or
+
+79
+00:04:27.690 --> 00:04:31.800
+metadatas which, so these are things
+that you can define separately, for
+
+80
+00:04:31.800 --> 00:04:35.000
+an object using various
+attribute functions.
+
+81
+00:04:35.000 --> 00:04:39.420
+There is a general function called
+attributes which allows you to set or
+
+82
+00:04:39.420 --> 00:04:42.120
+modify the attributes for an R object.

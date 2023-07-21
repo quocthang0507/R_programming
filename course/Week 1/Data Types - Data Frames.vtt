@@ -1,0 +1,218 @@
+WEBVTT
+
+1
+00:00:03.497 --> 00:00:07.320
+The last data type I'm going to
+talk about here is the data frame.
+
+2
+00:00:07.320 --> 00:00:12.470
+The data frame is a key data type used in
+R and it's used to store tabular data.
+
+3
+00:00:12.470 --> 00:00:16.000
+So of course, tabular data make up
+a lot of what we use in statistics.
+
+4
+00:00:16.000 --> 00:00:18.220
+Of course not all types
+of data are tabular.
+
+5
+00:00:18.220 --> 00:00:21.040
+But because so
+much data becomes a tabular form.
+
+6
+00:00:21.040 --> 00:00:23.942
+Data frames are very important in R.
+
+7
+00:00:23.942 --> 00:00:27.250
+So data frames are basically
+represented as a special type of list,
+
+8
+00:00:27.250 --> 00:00:30.520
+where every element of that
+list has the same length.
+
+9
+00:00:30.520 --> 00:00:34.222
+Right, so you can think of each column of
+the data frame as an element of the list,
+
+10
+00:00:34.222 --> 00:00:37.879
+and of course, in order to be a table,
+every column has to have the same length.
+
+11
+00:00:38.900 --> 00:00:41.740
+However, each column doesn't
+have to be the same type.
+
+12
+00:00:41.740 --> 00:00:45.250
+So the first column could be numbers,
+the second column could be factor,
+
+13
+00:00:45.250 --> 00:00:48.920
+the third column could be integers
+the fourth column could be logicals,
+
+14
+00:00:48.920 --> 00:00:52.577
+it doesn't matter what
+the different types are.
+
+15
+00:00:52.577 --> 00:00:56.090
+so, unlike matrices where, wh,
+
+16
+00:00:56.090 --> 00:01:00.260
+which have to store the same type of
+object in every single element of
+
+17
+00:01:00.260 --> 00:01:04.260
+the matrix, data frame can store your
+cla objects of different classes.
+
+18
+00:01:04.260 --> 00:01:07.220
+And so, data frames also have
+some special attributes.
+
+19
+00:01:07.220 --> 00:01:09.150
+First, the first special
+attribute is called a row name.
+
+20
+00:01:09.150 --> 00:01:12.460
+And so
+every row of a data frame has a name.
+
+21
+00:01:12.460 --> 00:01:15.650
+And this can be useful for
+kind of annotating the data.
+
+22
+00:01:15.650 --> 00:01:21.100
+So for example, each row re, might
+represent a subject enrolled in a study,
+
+23
+00:01:21.100 --> 00:01:23.750
+and then the row names would
+be the subject ID for example.
+
+24
+00:01:24.980 --> 00:01:27.900
+however, sometimes the row names
+are not interesting, and, and, and
+
+25
+00:01:27.900 --> 00:01:30.534
+often you'll just use row names of 1,
+2, 3, et cetera.
+
+26
+00:01:32.360 --> 00:01:37.700
+Data frames can be created by calling most
+often calling the read.table, the read.csv
+
+27
+00:01:37.700 --> 00:01:41.720
+function and we'll get into that a little
+bit when I talk about reading data into R.
+
+28
+00:01:41.720 --> 00:01:45.230
+And you can also create
+a matrix from a data frame by
+
+29
+00:01:45.230 --> 00:01:47.730
+calling the data.matrix a function.
+
+30
+00:01:47.730 --> 00:01:53.310
+Now, you can't if you have a data frame
+that has many different types of objects,
+
+31
+00:01:53.310 --> 00:01:57.320
+and then if you coerce that into a matrix,
+it's going to force so
+
+32
+00:01:57.320 --> 00:01:59.870
+each object to be coerced so
+that they're all the same.
+
+33
+00:01:59.870 --> 00:02:01.850
+So you may get something
+that's not exactly expected.
+
+34
+00:02:02.890 --> 00:02:06.851
+So, data frames can be created
+besides using read.table or
+
+35
+00:02:06.851 --> 00:02:10.800
+read.csv, you can use the data.frame
+function and here I've
+
+36
+00:02:10.800 --> 00:02:14.810
+created a very simple data frame where
+the first the first column is called,
+
+37
+00:02:14.810 --> 00:02:18.640
+is the foo variable, and
+the second column is the bar variable.
+
+38
+00:02:18.640 --> 00:02:21.707
+The foo variable is an integer
+sequence from one to four, and
+
+39
+00:02:21.707 --> 00:02:25.420
+the bar variable is a logical vector
+with two trues and two falses.
+
+40
+00:02:25.420 --> 00:02:29.250
+So when I autoprint the data
+frame out you'll see the,
+
+41
+00:02:29.250 --> 00:02:33.550
+it prints out the two columns and here
+the row names since I didn't specify any
+
+42
+00:02:33.550 --> 00:02:38.490
+special row names, just defaults to 1,
+2, 3, 4, because there's four rows.
+
+43
+00:02:38.490 --> 00:02:40.920
+And then when I call
+the nrow function on x,
+
+44
+00:02:40.920 --> 00:02:44.580
+I see that there's four rows in the ncall
+function, shows me that there are two rows

@@ -1,0 +1,55 @@
+WEBVTT
+
+1
+00:00:03.044 --> 00:00:07.550
+So, that's kind of a whirlwind tour of
+the different basic data types in R.
+
+2
+00:00:07.550 --> 00:00:10.030
+So far, we've talked about
+the atomic classes in numeric,
+
+3
+00:00:10.030 --> 00:00:13.610
+logical, character, integer,
+and complex vectors.
+
+4
+00:00:13.610 --> 00:00:17.310
+We talked about how vectors can only
+have elements of the same class and
+
+5
+00:00:17.310 --> 00:00:21.720
+the main exception to that is lists which
+can have elements of different classes.
+
+6
+00:00:21.720 --> 00:00:26.610
+There are factors which are used for, for
+coding categorical data, with ordered and
+
+7
+00:00:26.610 --> 00:00:27.990
+unordered data.
+
+8
+00:00:27.990 --> 00:00:31.830
+There are missing values that
+are represented by NAs, and NANs.
+
+9
+00:00:31.830 --> 00:00:37.070
+Data frames are used to store tabular data
+or each COM can be of a different class.
+
+10
+00:00:37.070 --> 00:00:40.710
+And finally, all our R objects
+can have names which mean usul,
+
+11
+00:00:40.710 --> 00:00:43.120
+which can be useful for
+creating self-describing data.

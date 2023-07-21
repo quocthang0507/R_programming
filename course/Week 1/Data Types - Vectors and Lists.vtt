@@ -1,0 +1,483 @@
+WEBVTT
+
+1
+00:00:04.780 --> 00:00:08.930
+So the c function is another function that
+can be used to create vectors of objects,
+
+2
+00:00:08.930 --> 00:00:10.990
+and you can think of c as standing for
+
+3
+00:00:10.990 --> 00:00:15.090
+concatenate because it can be used to
+kind of concatenate things together.
+
+4
+00:00:15.090 --> 00:00:19.930
+So, for example, I can create an object
+called x by concatenating 0.5 and 0.6 and
+
+5
+00:00:19.930 --> 00:00:24.960
+that will give me a numeric vector of
+lenght 2 for the first element is .5 and
+
+6
+00:00:24.960 --> 00:00:26.710
+the second element is .6.
+
+7
+00:00:26.710 --> 00:00:29.980
+In the second example here, I've got
+a logical vector, we are concatenating
+
+8
+00:00:29.980 --> 00:00:34.360
+through true and false, so shorthand for
+true and false, you can use t and
+
+9
+00:00:34.360 --> 00:00:39.710
+f, capital T and capital F, so
+these 2 lines give you the same objectum,
+
+10
+00:00:39.710 --> 00:00:43.480
+you can create a character vector by
+concatenating a bunch of characters.
+
+11
+00:00:43.480 --> 00:00:47.300
+You can create integer vector by creating
+a sequence with colon operator, and
+
+12
+00:00:47.300 --> 00:00:52.810
+you can also create a vector of complex
+numbers where the i is a special symbol,
+
+13
+00:00:52.810 --> 00:00:55.600
+which indicates the imaginary
+part of the complex number.
+
+14
+00:00:56.630 --> 00:00:59.460
+So using the vector function
+you can also create,
+
+15
+00:00:59.460 --> 00:01:03.540
+a vector of a certain type and
+a certain length.
+
+16
+00:01:03.540 --> 00:01:06.239
+So here, I'm going to create
+a numeric vector of length 10.
+
+17
+00:01:07.340 --> 00:01:11.940
+And by default it will initialize
+the vector, with a default value for
+
+18
+00:01:11.940 --> 00:01:13.720
+numeric vectors the default value is zero.
+
+19
+00:01:17.790 --> 00:01:20.190
+So what happens if you take
+a vect you create a vector and
+
+20
+00:01:20.190 --> 00:01:25.490
+you mix two different types of objects and
+so the general it that is that r.
+
+21
+00:01:25.490 --> 00:01:30.210
+Will kind of create the least common
+denominator vector so, will not give you
+
+22
+00:01:30.210 --> 00:01:34.200
+an error but what will happen is that
+it will coerce the vector to be the,
+
+23
+00:01:34.200 --> 00:01:36.510
+the class that's kind of
+the least common denominator.
+
+24
+00:01:36.510 --> 00:01:41.441
+So here, in the first example, I've got
+in trouble concatenating number 1.7 and
+
+25
+00:01:41.441 --> 00:01:46.530
+letter a, so clearly these are not in
+the same class one is numeric, and
+
+26
+00:01:46.530 --> 00:01:47.270
+the other is character.
+
+27
+00:01:47.270 --> 00:01:50.950
+So the least common denominator here,
+is going to be character.
+
+28
+00:01:50.950 --> 00:01:55.380
+And so we're, so what you're going to
+get is that y is going to be
+
+29
+00:01:55.380 --> 00:01:59.520
+a character vector, where the first
+element is going to be the string 1.7 and
+
+30
+00:01:59.520 --> 00:02:04.480
+the second element's going to be the, the
+letter A so in the second example here,
+
+31
+00:02:04.480 --> 00:02:08.190
+I've got concatenating true, which is
+a logical, and a two, which is numeric.
+
+32
+00:02:10.070 --> 00:02:13.540
+And so what's going to happen here is that
+you're going to get a numeric vector and
+
+33
+00:02:13.540 --> 00:02:16.600
+the true is going to be
+converted into a number.
+
+34
+00:02:16.600 --> 00:02:21.860
+And so how's that happen, so and
+the, and by the convention in R
+
+35
+00:02:21.860 --> 00:02:26.410
+true is represented as the number one and
+false is represented as the number zero.
+
+36
+00:02:27.660 --> 00:02:30.960
+And so what you're going to get here,
+is a vector 1,2.
+
+37
+00:02:30.960 --> 00:02:34.990
+Lastly this last example here I
+am calculating the letter A, and
+
+38
+00:02:34.990 --> 00:02:36.310
+the logical true and so
+
+39
+00:02:36.310 --> 00:02:40.220
+here the least common denominator
+is again going to be character.
+
+40
+00:02:40.220 --> 00:02:45.203
+And so the vector that you end up with is
+a vector where the first element is A and
+
+41
+00:02:45.203 --> 00:02:48.363
+the second element is the string true,
+so T R U E.
+
+42
+00:02:48.363 --> 00:02:50.304
+It's not going to be illogical so
+
+43
+00:02:50.304 --> 00:02:54.945
+you need to be a little bit aware, of the
+types of coercion that can occur in our,
+
+44
+00:02:54.945 --> 00:02:58.940
+when you mix different types
+of elements in a vector.
+
+45
+00:02:58.940 --> 00:03:02.030
+And because you won't get an error,
+but, but
+
+46
+00:03:02.030 --> 00:03:03.660
+the coercion will happen
+behind the scenes.
+
+47
+00:03:07.960 --> 00:03:12.050
+that, in the previous slide we talked
+about kind of a implicit coercion that
+
+48
+00:03:12.050 --> 00:03:16.060
+occurs behind the scenes, but
+you can explicitly coerce objects from one
+
+49
+00:03:16.060 --> 00:03:19.840
+class to another using functions
+that usually start with the word as.
+
+50
+00:03:19.840 --> 00:03:24.390
+So for example, if you want to convert
+something to a numeric you can use
+
+51
+00:03:24.390 --> 00:03:26.238
+the function called as.numeric.
+
+52
+00:03:26.238 --> 00:03:29.150
+If you want to convert something
+into character you can use
+
+53
+00:03:29.150 --> 00:03:33.013
+the function as.character now if you
+apply these functions, so if you apply
+
+54
+00:03:33.013 --> 00:03:37.592
+as.numeric to a numeric vector nothing
+will happen so, here in this example I'm
+
+55
+00:03:37.592 --> 00:03:41.475
+starting off by creating an object called
+x which is a sequence of zero to six.
+
+56
+00:03:41.475 --> 00:03:45.537
+So this is going to, this is an integer
+sequence as you could see when I
+
+57
+00:03:45.537 --> 00:03:49.290
+call class on the object but
+I convert it into a numeric sequence.
+
+58
+00:03:50.430 --> 00:03:53.840
+And so I can call as.numeric on x,
+and you can see that it prints out 0,
+
+59
+00:03:53.840 --> 00:03:57.570
+1, through 6,
+which look like an integer object but
+
+60
+00:03:57.570 --> 00:04:02.890
+it's actually going to be numeric or
+I can convert it into a logical and so
+
+61
+00:04:02.890 --> 00:04:05.060
+I can say as.logical on it,
+and what happens?
+
+62
+00:04:05.060 --> 00:04:07.480
+Well, as you can see,
+the convention is that 0 is false.
+
+63
+00:04:08.560 --> 00:04:12.290
+And any number that's greater than zero
+is going to be true so here I've got a,
+
+64
+00:04:12.290 --> 00:04:17.175
+when I convert to logical I get false and
+then everything else is true when I call
+
+65
+00:04:17.175 --> 00:04:21.610
+as.character on X it takes all the numbers
+and, and converts them into characters.
+
+66
+00:04:21.610 --> 00:04:26.860
+So now I've got the string zero,
+the string one, two ect and finally when,
+
+67
+00:04:26.860 --> 00:04:32.190
+if I call as.complex this is fairly
+straightforward because you can all it
+
+68
+00:04:32.190 --> 00:04:35.990
+does is says that you have a complex
+number where all the imaginary components
+
+69
+00:04:39.060 --> 00:04:42.590
+are zero, now coercion we'll
+notice always doesn't work.
+
+70
+00:04:42.590 --> 00:04:45.330
+And when it doesn't work you
+get what are called NA values.
+
+71
+00:04:45.330 --> 00:04:47.680
+So non sensical coercion
+will result in NAs.
+
+72
+00:04:47.680 --> 00:04:50.018
+So for example if I take the vector ABC.
+
+73
+00:04:50.018 --> 00:04:51.920
+And call as.numeric.
+
+74
+00:04:51.920 --> 00:04:55.820
+Well there's really no way to
+convert the letters a, b, and
+
+75
+00:04:55.820 --> 00:04:59.643
+c to numerical variables so
+what you get is a vector of NAs and
+
+76
+00:04:59.643 --> 00:05:04.921
+plus a warning similarly if you call
+as.logical on x, you're going to get
+
+77
+00:05:04.921 --> 00:05:10.440
+a vector of NAs The next data type
+I'm going to talk about is the list.
+
+78
+00:05:10.440 --> 00:05:14.020
+Now I mentioned lists a little bit
+earlier in this lecture and the idea is
+
+79
+00:05:14.020 --> 00:05:18.580
+that they're, they're like a vector except
+that every element of a list could be a,
+
+80
+00:05:18.580 --> 00:05:22.450
+an object of a different class and so
+that makes lists very, very handy for
+
+81
+00:05:22.450 --> 00:05:24.720
+kind of carrying around
+different types of data.
+
+82
+00:05:25.840 --> 00:05:29.990
+And they're very useful in R and
+they become very common especially when in
+
+83
+00:05:29.990 --> 00:05:32.770
+conjunction with other types of functions
+that we're going to learn about.
+
+84
+00:05:32.770 --> 00:05:36.590
+So here I'm creating a list called x
+by using the list function which is a,
+
+85
+00:05:36.590 --> 00:05:38.680
+which can be used to construct the list.
+
+86
+00:05:38.680 --> 00:05:42.290
+And the first element is a numeric value,
+numeric object of one.
+
+87
+00:05:42.290 --> 00:05:45.020
+The second element is a character,
+letter a.
+
+88
+00:05:45.020 --> 00:05:47.720
+Third is illogical and
+the fourth is a complex number.
+
+89
+00:05:47.720 --> 00:05:50.040
+So this is not a problem with lists and
+
+90
+00:05:50.040 --> 00:05:53.780
+when I autoprint the list you'll see that
+it prints out a little bit differently It
+
+91
+00:05:53.780 --> 00:05:57.150
+doesn't print out like a vector
+because every element is different.
+
+92
+00:05:57.150 --> 00:06:01.030
+So you can see that in the double brackets
+here so the, the elements are indexed by
+
+93
+00:06:01.030 --> 00:06:03.710
+double brackets so
+the first element is the vector 1.
+
+94
+00:06:03.710 --> 00:06:06.570
+The second element is a vector with A.
+
+95
+00:06:06.570 --> 00:06:09.950
+The third element is a vector with true
+and the fourth element is a vector.
+
+96
+00:06:09.950 --> 00:06:13.940
+With the complex number 1 + (4i).
+
+97
+00:06:13.940 --> 00:06:19.320
+So lists are indexed you'll notice that
+el, elements of a list will have double
+
+98
+00:06:19.320 --> 00:06:24.020
+brackets around them elements of other
+vectors just have the single brackets, so
+
+99
+00:06:24.020 --> 00:06:26.880
+that's one way to separate a list
+from other types of vectors

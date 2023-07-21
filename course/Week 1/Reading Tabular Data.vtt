@@ -1,0 +1,480 @@
+WEBVTT
+
+1
+00:00:00.950 --> 00:00:04.320
+This lectures going to talk about
+reading and writing data in R.
+
+2
+00:00:04.320 --> 00:00:07.110
+So there's a few different types of
+ways you can do this and I want to talk
+
+3
+00:00:07.110 --> 00:00:12.120
+about some of the primary functions
+that use an R to read and write data.
+
+4
+00:00:12.120 --> 00:00:15.640
+So there are a few principle functions
+that we're going to talk about for
+
+5
+00:00:15.640 --> 00:00:16.750
+reading into R.
+
+6
+00:00:16.750 --> 00:00:22.740
+The first two are read.table and read.csv
+and these are for reading tabular data.
+
+7
+00:00:22.740 --> 00:00:25.920
+And they are probably the two
+most commonly used functions for
+
+8
+00:00:25.920 --> 00:00:27.430
+reading data into R.
+
+9
+00:00:27.430 --> 00:00:31.890
+These functions read text files that,
+that contain data that are stored in
+
+10
+00:00:31.890 --> 00:00:36.198
+kind of rows and columns type of
+format and return a data frame in R.
+
+11
+00:00:36.198 --> 00:00:42.141
+The function read lines is for reading
+lines of a text file so this, this can
+
+12
+00:00:42.141 --> 00:00:48.720
+be any type of file really, it just gives
+you text in a, as a character vector in R.
+
+13
+00:00:48.720 --> 00:00:52.960
+The source function is important for
+reading R code, so if you have R code, for
+
+14
+00:00:52.960 --> 00:00:55.610
+example functions or
+anything written get written to
+
+15
+00:00:55.610 --> 00:00:58.930
+a file the source function will
+read all that code into R.
+
+16
+00:01:00.230 --> 00:01:04.550
+The dget function is also for
+reading R code files but it's for
+
+17
+00:01:04.550 --> 00:01:09.570
+reading R objects that have
+been dparsed into text files.
+
+18
+00:01:09.570 --> 00:01:11.812
+We'll talk a little more about this later.
+
+19
+00:01:11.812 --> 00:01:16.040
+The low and unserialized functions are for
+reading binary objects into R.
+
+20
+00:01:18.189 --> 00:01:23.452
+So the analogous functions for writing
+data are write.table, writeLines, dump,
+
+21
+00:01:23.452 --> 00:01:29.228
+dput, save and serialize and those kind
+of pair up with their reading analog.
+
+22
+00:01:29.228 --> 00:01:33.460
+So, the read.table function is
+the most commonly used function for
+
+23
+00:01:33.460 --> 00:01:35.130
+reading data into R.
+
+24
+00:01:35.130 --> 00:01:37.790
+It's important that you know kind of,
+how the arguments work,
+
+25
+00:01:37.790 --> 00:01:39.670
+what the arguments are and
+understand what they mean.
+
+26
+00:01:39.670 --> 00:01:43.520
+So the first argument is pretty obvious,
+it's name of a file or
+
+27
+00:01:43.520 --> 00:01:46.850
+the name of a connection,
+which we'll get to a little bit later.
+
+28
+00:01:46.850 --> 00:01:49.580
+Usually you're going to give this a file
+name, it's going to be a string and
+
+29
+00:01:49.580 --> 00:01:52.380
+it's going to be a path to
+a certain file in your computer.
+
+30
+00:01:52.380 --> 00:01:55.870
+The header is a logical flag indicating
+whether the first line is a header line,
+
+31
+00:01:55.870 --> 00:02:00.050
+so if the first line for example it
+has all the variable names in it,
+
+32
+00:02:00.050 --> 00:02:03.930
+then that's not really a piece of data,
+that's just a line that has labels on it.
+
+33
+00:02:03.930 --> 00:02:07.750
+So you want to tell the read.table
+function whether the first line contains
+
+34
+00:02:07.750 --> 00:02:11.180
+the variable names or not or whether
+the line just, right away contains data.
+
+35
+00:02:12.750 --> 00:02:15.255
+The sep argument stands for separator.
+
+36
+00:02:15.255 --> 00:02:17.950
+it's, it's a string that indicates
+how the columns are separated.
+
+37
+00:02:17.950 --> 00:02:21.990
+So for example if you have a file that's
+separated by commas then the separator
+
+38
+00:02:21.990 --> 00:02:23.030
+has a comma.
+
+39
+00:02:23.030 --> 00:02:27.490
+You may sometimes files are separated
+by semicolons or by tabs or by spaces.
+
+40
+00:02:27.490 --> 00:02:31.115
+And so you want to tell read.table
+what the separator is going to be.
+
+41
+00:02:31.115 --> 00:02:34.910
+ColClasses is a character vector
+which indi wh, wh, which,
+
+42
+00:02:34.910 --> 00:02:38.190
+whose length is the same length as
+the number of columns the data set.
+
+43
+00:02:38.190 --> 00:02:40.670
+And the character vector indicates what,
+
+44
+00:02:40.670 --> 00:02:43.170
+what is the class of
+each column the data set.
+
+45
+00:02:43.170 --> 00:02:45.450
+So, for example, is the,
+if the first column is numeric and
+
+46
+00:02:45.450 --> 00:02:49.320
+the second column is logical, and
+the third column is a factor, et cetera.
+
+47
+00:02:49.320 --> 00:02:54.350
+And so the colClass is a vector,
+which is not required but it,
+
+48
+00:02:54.350 --> 00:02:58.660
+it tells the, it tells read.table what
+the class of the data is for each column.
+
+49
+00:02:58.660 --> 00:03:01.560
+End rows is the number of rows in
+the data set, this is not required but
+
+50
+00:03:01.560 --> 00:03:02.885
+it it can be used.
+
+51
+00:03:02.885 --> 00:03:07.700
+Comment.char is the character string that
+indicates what's the comments character So
+
+52
+00:03:07.700 --> 00:03:12.430
+the default, for example, is the pound
+symbol or the sharp symbol and anything
+
+53
+00:03:12.430 --> 00:03:16.510
+after, anything to the right of that
+symbol is ignored the comment character.
+
+54
+00:03:16.510 --> 00:03:21.690
+So you can specify other characters to
+be comment characters, and the lines,
+
+55
+00:03:21.690 --> 00:03:25.622
+lines of the file that begin with that
+comment character will be ignored.
+
+56
+00:03:25.622 --> 00:03:27.500
+Skip is the number of lines
+to skip from the beginning.
+
+57
+00:03:27.500 --> 00:03:30.990
+So sometimes there may be some header
+information or some non-data region at
+
+58
+00:03:30.990 --> 00:03:34.910
+the beginning of the file, and
+you want to skip right over that.
+
+59
+00:03:34.910 --> 00:03:38.100
+And so you can tell the read.table
+function to skip the say the first ten
+
+60
+00:03:38.100 --> 00:03:41.520
+lines of the first 100 lines and
+then only start reading data after that.
+
+61
+00:03:42.890 --> 00:03:46.780
+Last argument is strings as
+factors this defaults to true.
+
+62
+00:03:46.780 --> 00:03:48.080
+And the idea is that it,
+
+63
+00:03:48.080 --> 00:03:52.250
+the question is whether you want to
+encode character variables as factors.
+
+64
+00:03:52.250 --> 00:03:52.948
+So by default.
+
+65
+00:03:52.948 --> 00:03:56.622
+Anytime our read.table encounters
+a column of data that looks like
+
+66
+00:03:56.622 --> 00:04:00.426
+it's a character variable,
+it will call, it will assume that what,
+
+67
+00:04:00.426 --> 00:04:03.220
+what you mean to read in,
+is a factor variable.
+
+68
+00:04:03.220 --> 00:04:05.720
+If you don't me,
+mean to read this in as a factor variable,
+
+69
+00:04:05.720 --> 00:04:07.920
+then you can set strings
+as factors equal to false.
+
+70
+00:04:11.240 --> 00:04:12.290
+So for small and
+
+71
+00:04:12.290 --> 00:04:15.050
+kind of moderately sized data sets it has
+computers are going to get better and
+
+72
+00:04:15.050 --> 00:04:19.750
+better everyday, the definition of
+small and moderate is kind of growing.
+
+73
+00:04:19.750 --> 00:04:22.668
+But you can use read.table
+usually without specifying any of
+
+74
+00:04:22.668 --> 00:04:24.756
+the other arguments besides the file name.
+
+75
+00:04:24.756 --> 00:04:28.675
+So you can say read.table on, say foo dot
+text so this is just the name of the file,
+
+76
+00:04:28.675 --> 00:04:32.114
+and it will automatically take care of
+figuring out, you know, what the c,
+
+77
+00:04:32.114 --> 00:04:35.824
+classes of the different columns are,
+it'll figure out how many rows there are,
+
+78
+00:04:35.824 --> 00:04:36.410
+et cetera.
+
+79
+00:04:36.410 --> 00:04:39.940
+So you don't have to specify any of that
+information if you don't feel like it.
+
+80
+00:04:39.940 --> 00:04:43.440
+And, and then, and then, this will return
+an object here ca, that I call data, and
+
+81
+00:04:43.440 --> 00:04:45.260
+that would be a data frame.
+
+82
+00:04:45.260 --> 00:04:49.140
+So it'll automatically skip any lines and
+begin with the comment symbol.
+
+83
+00:04:49.140 --> 00:04:51.700
+It will figure out how many
+rows there are and, agai,
+
+84
+00:04:51.700 --> 00:04:55.400
+and again it'll figure out what type of
+variable is in each column of the table.
+
+85
+00:04:55.400 --> 00:05:00.920
+So, tell it you can, that you can tell R
+all these things and if you want to and
+
+86
+00:05:00.920 --> 00:05:04.600
+the reason you might do that is to make
+it run faster and more efficiently.
+
+87
+00:05:04.600 --> 00:05:08.730
+So with small and moderate size datasets
+its really not much advantage to doing
+
+88
+00:05:08.730 --> 00:05:14.070
+that because because it'll be pretty
+fast and pretty efficient as it is.
+
+89
+00:05:14.070 --> 00:05:17.460
+The read.csv function is identical
+to read.table, except for
+
+90
+00:05:17.460 --> 00:05:21.730
+the key differences that the, the default
+separator for the read.csv function is
+
+91
+00:05:21.730 --> 00:05:26.440
+the comma, whereas the default
+separator for read.table is the space.
+
+92
+00:05:26.440 --> 00:05:30.530
+So parti, so read.csv is useful for
+reading csv files,
+
+93
+00:05:30.530 --> 00:05:34.070
+this, this can usually,
+this stands for comma separated value.
+
+94
+00:05:34.070 --> 00:05:36.790
+It's usually something that you
+get from a spreadsheet program,
+
+95
+00:05:36.790 --> 00:05:39.400
+like Microsoft Excel or
+something similar to that.
+
+96
+00:05:39.400 --> 00:05:42.670
+So csv is a very common format
+that most spreadsheet types of
+
+97
+00:05:42.670 --> 00:05:44.540
+programs will understand.
+
+98
+00:05:44.540 --> 00:05:47.930
+The other thing that read.csv specifies
+is that it always specified header to
+
+99
+00:05:47.930 --> 00:05:48.610
+be equal to true.

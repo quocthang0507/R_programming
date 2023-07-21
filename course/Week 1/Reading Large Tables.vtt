@@ -1,0 +1,662 @@
+WEBVTT
+
+1
+00:00:04.519 --> 00:00:07.986
+So with larger data sets of
+beyond the small to moderate,
+
+2
+00:00:07.986 --> 00:00:12.070
+then there are a couple of things you
+can do when reading in tabular data.
+
+3
+00:00:12.070 --> 00:00:14.790
+That will make your life a lot easier, and
+
+4
+00:00:14.790 --> 00:00:17.900
+more importantly it will
+prevent R from totally choking.
+
+5
+00:00:17.900 --> 00:00:21.400
+So first you should read the help page for
+read.table.
+
+6
+00:00:21.400 --> 00:00:23.170
+In fact,
+you should probably have it memorized.
+
+7
+00:00:23.170 --> 00:00:26.100
+There is a lot of key
+hints in that help page.
+
+8
+00:00:26.100 --> 00:00:28.039
+Lot of useful information.
+
+9
+00:00:28.039 --> 00:00:32.459
+And in my opinion not enough people
+read this help page carefully enough.
+
+10
+00:00:32.459 --> 00:00:35.360
+So that they can kind of
+recite in their sleep.
+
+11
+00:00:35.360 --> 00:00:38.130
+And if I, so there's a lot of so
+once you've read that you'll see
+
+12
+00:00:38.130 --> 00:00:41.670
+there's a lot of important information for
+kind of how to optimize read.table.
+
+13
+00:00:41.670 --> 00:00:43.590
+In particular for large data sets.
+
+14
+00:00:43.590 --> 00:00:45.362
+And so one of the things
+you're going to want to do
+
+15
+00:00:45.362 --> 00:00:46.710
+is to make a very rough calculation.
+
+16
+00:00:46.710 --> 00:00:51.818
+Of how much memory you need to store
+the data set you're about to read.
+
+17
+00:00:51.818 --> 00:00:54.431
+And so
+that way you can get a sense of well,
+
+18
+00:00:54.431 --> 00:00:58.260
+is there enough memory on my
+computer to store this data set?
+
+19
+00:00:58.260 --> 00:00:59.540
+Because if you recall correctly,.
+
+20
+00:01:00.700 --> 00:01:01.430
+R will have to,
+
+21
+00:01:01.430 --> 00:01:05.050
+R is going to store your entire dataset
+in memory unless you do otherwise.
+
+22
+00:01:05.050 --> 00:01:06.700
+So when you call read.table or
+
+23
+00:01:06.700 --> 00:01:11.228
+read.csv, it's reading your entire
+dataset into the RAM of the computer.
+
+24
+00:01:11.228 --> 00:01:12.772
+And so you need to know,
+
+25
+00:01:12.772 --> 00:01:17.218
+roughly speaking, how much RAM
+this datasets going to require.
+
+26
+00:01:17.218 --> 00:01:20.080
+And we'll talk about how to
+calculate that in a second.
+
+27
+00:01:20.080 --> 00:01:21.392
+So another opti,
+
+28
+00:01:21.392 --> 00:01:26.029
+easy optimization you can say is if
+there's no comment lines in your file.
+
+29
+00:01:26.029 --> 00:01:29.510
+Then just set the comment char to be
+the comment.char is meant to be blank.
+
+30
+00:01:29.510 --> 00:01:31.080
+So just an empty quote there.
+
+31
+00:01:32.698 --> 00:01:35.810
+The call classes argument
+is actually very important.
+
+32
+00:01:35.810 --> 00:01:39.910
+Because it whe, if you don't specify
+it then what R does by default is it
+
+33
+00:01:39.910 --> 00:01:41.610
+goes through every column of your dataset.
+
+34
+00:01:41.610 --> 00:01:44.750
+And tries to figure out
+what type of data it is.
+
+35
+00:01:44.750 --> 00:01:48.039
+Now, that's all fine, well I'm fine
+when the dataset is small to moderate.
+
+36
+00:01:48.039 --> 00:01:51.204
+But reading each of these columns and
+trying to figure out what type of data it
+
+37
+00:01:51.204 --> 00:01:54.640
+is takes time, it takes memory, and
+it can generally slow things down.
+
+38
+00:01:54.640 --> 00:01:58.460
+If you can tell R, what type of data,
+is in each column,
+
+39
+00:01:58.460 --> 00:02:02.090
+then R doesn't have to spend the time
+to figure it out on its own.
+
+40
+00:02:02.090 --> 00:02:06.450
+And so, it'll, it'll generally
+make read.table run a lot faster.
+
+41
+00:02:06.450 --> 00:02:08.150
+So you can save yourself a lot of time.
+
+42
+00:02:08.150 --> 00:02:11.430
+So if you, if,
+if you have a few columns in your dataset,
+
+43
+00:02:11.430 --> 00:02:15.480
+then then you can usually just say what,
+what the classes are.
+
+44
+00:02:15.480 --> 00:02:18.350
+But if you have, or
+if they are all the same, so for
+
+45
+00:02:18.350 --> 00:02:19.730
+example if all the columns are numeric.
+
+46
+00:02:19.730 --> 00:02:22.710
+You can just say, you can just set
+call classes equal to numeric.
+
+47
+00:02:22.710 --> 00:02:25.093
+And if you only sent,
+you give it a single value,
+
+48
+00:02:25.093 --> 00:02:27.959
+it will just assume that every
+column has that same value.
+
+49
+00:02:27.959 --> 00:02:31.508
+So if you just say numeric it will
+assume that every column is numeric.
+
+50
+00:02:31.508 --> 00:02:33.915
+Otherwise what you can do if
+you have a huge data set,
+
+51
+00:02:33.915 --> 00:02:37.226
+you can read in maybe the first 100 or
+first 1,000 rows.
+
+52
+00:02:37.226 --> 00:02:40.400
+By specifying the nrows argument.
+
+53
+00:02:40.400 --> 00:02:46.880
+And then going through each of the looping
+over each of the columns using sapply and
+
+54
+00:02:46.880 --> 00:02:48.700
+calling the class function.
+
+55
+00:02:48.700 --> 00:02:49.960
+So the class function will give you,
+
+56
+00:02:49.960 --> 00:02:53.416
+will tell you what class
+of data is in each column.
+
+57
+00:02:53.416 --> 00:02:56.820
+And then you can use this, and
+then you can save, store this information.
+
+58
+00:02:56.820 --> 00:03:01.669
+And then read the entire data set after
+by specifying the call classes argument.
+
+59
+00:03:02.860 --> 00:03:06.270
+So the n rows argument is
+actually very useful too.
+
+60
+00:03:06.270 --> 00:03:08.710
+It doesn't necessarily
+make R run any faster, but
+
+61
+00:03:08.710 --> 00:03:10.540
+it does help with memory usage.
+
+62
+00:03:10.540 --> 00:03:14.610
+And so, if you can tell R how many
+rows are going to be read in to,
+
+63
+00:03:14.610 --> 00:03:17.160
+to the, in to, in to R.
+
+64
+00:03:17.160 --> 00:03:19.410
+Then it can calculate the memory
+that's going to be required.
+
+65
+00:03:19.410 --> 00:03:21.920
+And not have to kind of
+figure it out on the go.
+
+66
+00:03:21.920 --> 00:03:25.430
+So even if you mildly overestimate how
+many rows there are in the data set,
+
+67
+00:03:25.430 --> 00:03:27.100
+that's okay.
+
+68
+00:03:27.100 --> 00:03:30.330
+Because it won't make a difference, it'll
+still read the correct number of rows.
+
+69
+00:03:34.250 --> 00:03:37.300
+So in general, when you're using
+R with large data sets, and
+
+70
+00:03:37.300 --> 00:03:40.370
+there's lots of large data
+sets out there nowadays.
+
+71
+00:03:40.370 --> 00:03:43.710
+It's useful to have a few things,
+a few bits of information on hand.
+
+72
+00:03:43.710 --> 00:03:45.890
+So, for example,
+how much memory does your computer have?
+
+73
+00:03:45.890 --> 00:03:48.960
+How much physical RAM is there?
+
+74
+00:03:48.960 --> 00:03:52.280
+These days in most computers will have
+on the order of a few gigabytes up
+
+75
+00:03:52.280 --> 00:03:54.840
+to many gigabytes of physical RAM.
+
+76
+00:03:54.840 --> 00:03:56.270
+What other applications are in use?
+
+77
+00:03:56.270 --> 00:03:59.310
+So are there other applications that are
+running on your computer that are eating
+
+78
+00:03:59.310 --> 00:04:03.110
+up some processor time or memory?
+
+79
+00:04:03.110 --> 00:04:06.780
+If you're on a multi-use system, are there
+other users logged into the system.
+
+80
+00:04:06.780 --> 00:04:09.750
+Are they using up some of
+the resources on the computer?
+
+81
+00:04:09.750 --> 00:04:11.580
+What is the operating system for
+your computer?
+
+82
+00:04:11.580 --> 00:04:12.380
+So, is it a Mac?
+
+83
+00:04:12.380 --> 00:04:12.960
+Is it Windows?
+
+84
+00:04:12.960 --> 00:04:13.570
+Is it Unix?
+
+85
+00:04:13.570 --> 00:04:14.070
+Is it Linux?
+
+86
+00:04:14.070 --> 00:04:15.510
+Is it something like that?
+
+87
+00:04:15.510 --> 00:04:17.842
+And then,
+also it's useful to know whether the O,
+
+88
+00:04:17.842 --> 00:04:21.107
+the operating system that you're
+running is 32-bit or 64-bit.
+
+89
+00:04:21.107 --> 00:04:25.466
+On a 64-bit system there,
+there, you'll generally be
+
+90
+00:04:25.466 --> 00:04:29.540
+able to access more memory if
+the computer has a lot more memory.
+
+91
+00:04:31.580 --> 00:04:36.020
+So if you want to do a rough calculation
+before you read in a table into R,
+
+92
+00:04:36.020 --> 00:04:39.040
+using the read.table or
+the read.csv function.
+
+93
+00:04:39.040 --> 00:04:40.700
+You can just do a very quick calculation.
+
+94
+00:04:40.700 --> 00:04:41.200
+So here is,
+
+95
+00:04:41.200 --> 00:04:46.240
+suppose I have a data frame here,
+with 1.5 million rows and 120 columns.
+
+96
+00:04:46.240 --> 00:04:49.830
+So this is not a particularly big
+data set but it's reasonable.
+
+97
+00:04:49.830 --> 00:04:52.950
+so, suppose that all of the nu,
+all the columns are numeric.
+
+98
+00:04:52.950 --> 00:04:54.530
+So, I don't have to worry
+about different types of data.
+
+99
+00:04:54.530 --> 00:04:56.220
+They're all, all the columns are numeric.
+
+100
+00:04:57.240 --> 00:05:00.262
+The question is how much memory is
+required to store this data frame in
+
+101
+00:05:00.262 --> 00:05:01.650
+memory, okay?
+
+102
+00:05:01.650 --> 00:05:03.130
+So, I can do a simple calculation.
+
+103
+00:05:03.130 --> 00:05:06.440
+So, the num, the number of elements
+in this data, in this data
+
+104
+00:05:06.440 --> 00:05:12.350
+frame is going to be 1.5 million times
+120, right, because it's a square object.
+
+105
+00:05:12.350 --> 00:05:16.110
+And so that's, so that's the number
+of elements in the data frame.
+
+106
+00:05:16.110 --> 00:05:20.061
+Now, if it's a numeric all
+the data are numeric then each
+
+107
+00:05:20.061 --> 00:05:23.250
+number requires eight
+bytes of memory to store.
+
+108
+00:05:23.250 --> 00:05:26.598
+Because the, because the numbers
+are stored using 64-bit numbers and
+
+109
+00:05:26.598 --> 00:05:28.009
+there's eight bits per byte.
+
+110
+00:05:28.009 --> 00:05:31.990
+So that's eight bytes of
+memory per numeric object.
+
+111
+00:05:31.990 --> 00:05:32.590
+So that's going to,
+
+112
+00:05:32.590 --> 00:05:38.820
+so here's the number of bytes, now
+there's two to the 20 bytes per megabyte.
+
+113
+00:05:38.820 --> 00:05:41.500
+So I can divide that,
+the number of bytes by 2 to the 20, and
+
+114
+00:05:41.500 --> 00:05:44.020
+that's how many megabytes I got.
+
+115
+00:05:44.020 --> 00:05:46.790
+So it's got, I've got 1,373.29 megabytes.
+
+116
+00:05:46.790 --> 00:05:51.840
+And I can divide that again by 2 to
+the 10 to get the number of gigabytes,
+
+117
+00:05:51.840 --> 00:05:53.730
+that's going to be roughly 1.34 gigabytes.
+
+118
+00:05:53.730 --> 00:06:00.359
+So the, the raw storage for this data
+frame, is roughly 1.34 gigabytes.
+
+119
+00:06:00.359 --> 00:06:03.455
+now, you're actually going to need
+a little bit more memory than that to
+
+120
+00:06:03.455 --> 00:06:04.250
+read the data in.
+
+121
+00:06:04.250 --> 00:06:07.760
+Because there's a little bit of,
+overhead required for reading the data in.
+
+122
+00:06:07.760 --> 00:06:11.730
+And so, and so the rule of thumb,
+is to, is that you're going to need
+
+123
+00:06:11.730 --> 00:06:17.040
+almost twice as much memory to read
+this dataset into R using read.table.
+
+124
+00:06:17.040 --> 00:06:19.580
+Then the, then the object itself requires.
+
+125
+00:06:19.580 --> 00:06:23.002
+So if your computer only has,
+let's say two gigabytes of RAM eh, and
+
+126
+00:06:23.002 --> 00:06:26.024
+you're trying to read in
+this 1.34 gigabyte table.
+
+127
+00:06:26.024 --> 00:06:27.960
+You might want to think
+twice about trying to do it.
+
+128
+00:06:27.960 --> 00:06:32.250
+Because it, you're going to be pushing
+the boundaries of of memory that,
+
+129
+00:06:32.250 --> 00:06:33.880
+that is required to read this dataset n.
+
+130
+00:06:33.880 --> 00:06:37.320
+Of course, if your computer has like
+four or eight or 16 gigabytes of RAM,
+
+131
+00:06:37.320 --> 00:06:41.130
+then you should have no problem in
+terms of the memory requirements.
+
+132
+00:06:41.130 --> 00:06:45.710
+It will still take some time just to
+read it in just because it takes time to
+
+133
+00:06:45.710 --> 00:06:48.310
+read in all the data, but
+you won't be running out of memory.
+
+134
+00:06:48.310 --> 00:06:51.400
+So doing this kind of calculation is
+enormously useful when you're reading in
+
+135
+00:06:51.400 --> 00:06:52.570
+large data sets.
+
+136
+00:06:52.570 --> 00:06:55.540
+Because it can give you a sense of
+you know do I have enough memory.
+
+137
+00:06:55.540 --> 00:06:57.670
+Is the reason, if you grunt any errors,
+
+138
+00:06:57.670 --> 00:07:01.240
+you'll know whether the error is because
+of memory, running out of memory or not.
+
+139
+00:07:01.240 --> 00:07:02.000
+So I encourage you to do
+
+140
+00:07:02.000 --> 00:07:04.670
+this kind of calculation when you're
+going to be reading in large data sets.
+
+141
+00:07:04.670 --> 00:07:07.410
+And you, and you, and you know in
+advance kind of how big it's going to be

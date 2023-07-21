@@ -1,0 +1,51 @@
+Matrices are a special
+type of vector in R. So there's, they're not a spe,
+a different, a separate class of objects. But they're basically
+vectors that have a sp, an attribute called the di,
+called the dimension. And so the dimension attribute is
+an integer vector of length two. Where the first number is
+the number of rows the matrix, and the second number is
+the number of columns. And so, if I can create a matrix empty
+matrix with the matrix function, and I can explicitly say how many rows and
+how many columns there are. This is not the only way to create
+a matrix, but it's one way. And so when I auto print the matrix
+by typing the, the object m and hitting Enter,
+you'll see that it'll show me that, first of all the matrix is full,
+is initialized with NA values. There's no values in here. And you can see that there's two rows and three columns and they're labeled
+by the numbers in the brackets. If I call the dim function on m,
+it'll give me the dimension attribute, which in this case it says there
+are two rows and three columns, because the first rows are number rows and
+the second number, sorry excuse me. The first number is the number of rows and the second number is
+the number of columns. If I call the attributes function on m,
+you'll see it returns a list where the first element is
+the dim element and it has the vector 2,3. So these are all aspects
+of a matrix which is a vector that has
+a dimension attribute to it. Matrices are constructed column wise. So you can think of the matrix
+taking a vector and all the numbers are inserted
+into the matrix by, by column. So the first column gets filled and then
+when you hit the number of maximum number of rows, then the second column gets
+filled and the third column et cetera. So if I create a matrix by taking
+the sequence 1 to 6 and then I say, I specifies that it has two rows and
+three columns. Well, how does this
+matrix get constructed? So the way,
+it gets constructed column wise. So the first thing it
+happens is it takes 1, 2, and now there's only two rows,
+so it can only go to 2. And then that makes the first column. The second column is made up of 3, 4. And then the third column
+is made up of 5 and 6. You can also create a matrix by creating
+the dimension attribute on a vector. So, for example, I can take, I can create
+a vector that's a sequence 1 to 10. And then add the dimension
+attribute to it. So here, I'm using the dim function, but I'm assigning a value to
+the dim attribute of m. So here I'm assigning the vector 2,5. So what I'm saying is,
+I want to take this vector and transform it into a matrix that
+is two rows and five columns. And so now after I've done that, I've
+got a matrix m, which has two rows and five columns and
+it's filled in the matrix column wise. Another way to create a matrix, and this is a common way,
+is by binding columns or binding rows. And so you, this is column, column binding
+and row binding can be achieved by the fu, the functions c-bind and r-bind. So for example,
+suppose I have the two objects x, which is sequenced from 1 to 3 and y,
+which is a sequence from 10 to 12. If I cbind those two objects,
+then I'll get a, I'll get a matrix where the first column is 1 to 3,
+and the second column is 10 to 12. So this is kind of what you
+might expect would happen. If I rbind those two objects, then the first row will be 1 to 3, and
+the second row will be 10 through 12. So cbind-ing and rbind--ing is
+another way to create a matrix.

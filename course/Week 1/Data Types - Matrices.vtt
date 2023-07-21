@@ -1,0 +1,295 @@
+WEBVTT
+
+1
+00:00:04.100 --> 00:00:06.670
+Matrices are a special
+type of vector in R.
+
+2
+00:00:06.670 --> 00:00:10.940
+So there's, they're not a spe,
+a different, a separate class of objects.
+
+3
+00:00:10.940 --> 00:00:12.600
+But they're basically
+vectors that have a sp,
+
+4
+00:00:12.600 --> 00:00:15.530
+an attribute called the di,
+called the dimension.
+
+5
+00:00:15.530 --> 00:00:19.420
+And so the dimension attribute is
+an integer vector of length two.
+
+6
+00:00:19.420 --> 00:00:22.080
+Where the first number is
+the number of rows the matrix, and
+
+7
+00:00:22.080 --> 00:00:24.570
+the second number is
+the number of columns.
+
+8
+00:00:24.570 --> 00:00:29.110
+And so, if I can create a matrix empty
+matrix with the matrix function, and
+
+9
+00:00:29.110 --> 00:00:32.570
+I can explicitly say how many rows and
+how many columns there are.
+
+10
+00:00:32.570 --> 00:00:34.600
+This is not the only way to create
+a matrix, but it's one way.
+
+11
+00:00:34.600 --> 00:00:38.910
+And so when I auto print the matrix
+by typing the, the object m and
+
+12
+00:00:38.910 --> 00:00:41.590
+hitting Enter,
+you'll see that it'll show me that,
+
+13
+00:00:41.590 --> 00:00:44.600
+first of all the matrix is full,
+is initialized with NA values.
+
+14
+00:00:44.600 --> 00:00:46.390
+There's no values in here.
+
+15
+00:00:46.390 --> 00:00:47.640
+And you can see that there's two rows and
+
+16
+00:00:47.640 --> 00:00:51.860
+three columns and they're labeled
+by the numbers in the brackets.
+
+17
+00:00:51.860 --> 00:00:55.120
+If I call the dim function on m,
+it'll give me the dimension attribute,
+
+18
+00:00:55.120 --> 00:00:57.760
+which in this case it says there
+are two rows and three columns,
+
+19
+00:00:57.760 --> 00:01:02.160
+because the first rows are number rows and
+the second number, sorry excuse me.
+
+20
+00:01:02.160 --> 00:01:03.670
+The first number is the number of rows and
+
+21
+00:01:03.670 --> 00:01:05.780
+the second number is
+the number of columns.
+
+22
+00:01:05.780 --> 00:01:09.150
+If I call the attributes function on m,
+you'll see it
+
+23
+00:01:09.150 --> 00:01:14.450
+returns a list where the first element is
+the dim element and it has the vector 2,3.
+
+24
+00:01:14.450 --> 00:01:18.220
+So these are all aspects
+of a matrix which is
+
+25
+00:01:18.220 --> 00:01:20.390
+a vector that has
+a dimension attribute to it.
+
+26
+00:01:22.360 --> 00:01:24.450
+Matrices are constructed column wise.
+
+27
+00:01:24.450 --> 00:01:27.880
+So you can think of the matrix
+taking a vector and
+
+28
+00:01:27.880 --> 00:01:31.640
+all the numbers are inserted
+into the matrix by, by column.
+
+29
+00:01:31.640 --> 00:01:35.180
+So the first column gets filled and then
+when you hit the number of maximum number
+
+30
+00:01:35.180 --> 00:01:38.390
+of rows, then the second column gets
+filled and the third column et cetera.
+
+31
+00:01:38.390 --> 00:01:42.954
+So if I create a matrix by taking
+the sequence 1 to 6 and then I say,
+
+32
+00:01:42.954 --> 00:01:46.100
+I specifies that it has two rows and
+three columns.
+
+33
+00:01:46.100 --> 00:01:48.730
+Well, how does this
+matrix get constructed?
+
+34
+00:01:48.730 --> 00:01:51.340
+So the way,
+it gets constructed column wise.
+
+35
+00:01:51.340 --> 00:01:53.450
+So the first thing it
+happens is it takes 1, 2, and
+
+36
+00:01:53.450 --> 00:01:56.630
+now there's only two rows,
+so it can only go to 2.
+
+37
+00:01:56.630 --> 00:01:58.360
+And then that makes the first column.
+
+38
+00:01:58.360 --> 00:02:00.660
+The second column is made up of 3, 4.
+
+39
+00:02:00.660 --> 00:02:02.410
+And then the third column
+is made up of 5 and 6.
+
+40
+00:02:05.929 --> 00:02:10.980
+You can also create a matrix by creating
+the dimension attribute on a vector.
+
+41
+00:02:10.980 --> 00:02:16.560
+So, for example, I can take, I can create
+a vector that's a sequence 1 to 10.
+
+42
+00:02:16.560 --> 00:02:20.250
+And then add the dimension
+attribute to it.
+
+43
+00:02:20.250 --> 00:02:21.810
+So here, I'm using the dim function, but
+
+44
+00:02:21.810 --> 00:02:26.130
+I'm assigning a value to
+the dim attribute of m.
+
+45
+00:02:26.130 --> 00:02:28.280
+So here I'm assigning the vector 2,5.
+
+46
+00:02:28.280 --> 00:02:30.837
+So what I'm saying is,
+I want to take this vector and
+
+47
+00:02:30.837 --> 00:02:33.880
+transform it into a matrix that
+is two rows and five columns.
+
+48
+00:02:34.920 --> 00:02:39.037
+And so now after I've done that, I've
+got a matrix m, which has two rows and
+
+49
+00:02:39.037 --> 00:02:41.420
+five columns and
+it's filled in the matrix column wise.
+
+50
+00:02:44.540 --> 00:02:45.720
+Another way to create a matrix, and
+
+51
+00:02:45.720 --> 00:02:49.240
+this is a common way,
+is by binding columns or binding rows.
+
+52
+00:02:50.260 --> 00:02:54.060
+And so you, this is column, column binding
+and row binding can be achieved by the fu,
+
+53
+00:02:54.060 --> 00:02:56.640
+the functions c-bind and r-bind.
+
+54
+00:02:56.640 --> 00:02:59.150
+So for example,
+suppose I have the two objects x,
+
+55
+00:02:59.150 --> 00:03:03.660
+which is sequenced from 1 to 3 and y,
+which is a sequence from 10 to 12.
+
+56
+00:03:03.660 --> 00:03:06.790
+If I cbind those two objects,
+then I'll get a, I'll get a matrix
+
+57
+00:03:07.920 --> 00:03:11.430
+where the first column is 1 to 3,
+and the second column is 10 to 12.
+
+58
+00:03:11.430 --> 00:03:14.670
+So this is kind of what you
+might expect would happen.
+
+59
+00:03:14.670 --> 00:03:15.920
+If I rbind those two objects,
+
+60
+00:03:15.920 --> 00:03:20.416
+then the first row will be 1 to 3, and
+the second row will be 10 through 12.
+
+61
+00:03:20.416 --> 00:03:23.660
+So cbind-ing and rbind--ing is
+another way to create a matrix.

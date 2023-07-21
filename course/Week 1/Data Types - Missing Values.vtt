@@ -1,0 +1,189 @@
+WEBVTT
+
+1
+00:00:03.723 --> 00:00:07.530
+So there's a special type of object that
+we haven't talked too much about yet.
+
+2
+00:00:07.530 --> 00:00:09.120
+And these are missing values.
+
+3
+00:00:09.120 --> 00:00:15.430
+Missing values in R are denoted by either
+NA or NAN which we talked about before.
+
+4
+00:00:15.430 --> 00:00:18.627
+NAN is used for
+undefined mathematical operations.
+
+5
+00:00:18.627 --> 00:00:21.109
+And NA is pretty much used for
+everything else.
+
+6
+00:00:22.110 --> 00:00:26.897
+And so, there's a function in R called
+is.na which is used to test objects to
+
+7
+00:00:26.897 --> 00:00:28.085
+see if they are NA.
+
+8
+00:00:28.085 --> 00:00:30.850
+To see if they are missing
+values in that object.
+
+9
+00:00:30.850 --> 00:00:34.880
+There's another function called is.nan
+which is used to test for NANs.
+
+10
+00:00:34.880 --> 00:00:36.912
+So, NA values can have a class, too.
+
+11
+00:00:36.912 --> 00:00:39.564
+So you can have missing integer val,
+values or
+
+12
+00:00:39.564 --> 00:00:43.587
+you can have missing character values or
+missing numeric values etc.
+
+13
+00:00:43.587 --> 00:00:46.860
+And so
+even though it looks like it's all NAs,
+
+14
+00:00:46.860 --> 00:00:50.650
+the NAs can have different
+classes potentially.
+
+15
+00:00:50.650 --> 00:00:55.310
+And then it's an NA, an NAN value
+is considered to be also NA, so for
+
+16
+00:00:55.310 --> 00:00:58.150
+example, an NAN value,
+a NAN value, is missing.
+
+17
+00:00:59.790 --> 00:01:00.870
+Is considered to be missing.
+
+18
+00:01:00.870 --> 00:01:02.490
+So, but the reverse is not true.
+
+19
+00:01:02.490 --> 00:01:05.857
+So an NA value is not necessarily,
+an NAN value.
+
+20
+00:01:05.857 --> 00:01:09.160
+I've got a few different types
+of missing values listed here.
+
+21
+00:01:09.160 --> 00:01:13.640
+So, here I created a vector x
+which is 1,2, NA, 10, and 3.
+
+22
+00:01:13.640 --> 00:01:16.000
+So, now, this is a numeric vector.
+
+23
+00:01:16.000 --> 00:01:19.540
+And the NA value in here's going to
+be a numeric missing value.
+
+24
+00:01:19.540 --> 00:01:24.019
+So when I call is.na on x,
+what it returns is a, is a logical vector.
+
+25
+00:01:24.019 --> 00:01:28.138
+And the logical vector indicates
+whether each element of the vector x
+
+26
+00:01:28.138 --> 00:01:29.283
+is missing or not.
+
+27
+00:01:29.283 --> 00:01:32.104
+And so, there's only one missing
+element in this vector, and so
+
+28
+00:01:32.104 --> 00:01:33.450
+that's the third element.
+
+29
+00:01:33.450 --> 00:01:36.430
+So you can see that the,
+that the logical vector that's returned.
+
+30
+00:01:36.430 --> 00:01:39.030
+The first two are false,
+the third is true, and the fourth and
+
+31
+00:01:39.030 --> 00:01:39.950
+the fifth are false.
+
+32
+00:01:39.950 --> 00:01:45.018
+So the, the, the element that's true
+indicated where the missing value is.
+
+33
+00:01:45.018 --> 00:01:46.616
+If I call is.NaN on this vector,
+
+34
+00:01:46.616 --> 00:01:49.308
+you'll see that vector that's
+returned is all false.
+
+35
+00:01:49.308 --> 00:01:51.257
+Because there aren't any NaN values, or
+
+36
+00:01:51.257 --> 00:01:55.290
+their aren't any MAN values in
+this vector so everything's false.
+
+37
+00:01:55.290 --> 00:01:59.870
+Of course, if I create a vector that
+has an end, a NAN value and an, and
+
+38
+00:01:59.870 --> 00:02:01.560
+an NA value in it.
+
+39
+00:02:01.560 --> 00:02:04.024
+You'll see that is.na returns true for
+both of them.
+
+40
+00:02:04.024 --> 00:02:08.310
+But is.nan only returns true for
+the for the value that's actually NAN.
