@@ -1,0 +1,390 @@
+WEBVTT
+
+1
+00:00:04.550 --> 00:00:07.887
+There are other types of formats
+that you can save data in
+
+2
+00:00:07.887 --> 00:00:12.117
+beyond the tabular format, beyond,
+or the CSV file or text file.
+
+3
+00:00:12.117 --> 00:00:16.008
+These are also textual formats, but
+they are a little bit different for,
+
+4
+00:00:16.008 --> 00:00:19.740
+from the tabular data that
+we've talked about before.
+
+5
+00:00:19.740 --> 00:00:24.390
+And the two main functions for writing
+out data and f, are dumping and dputing.
+
+6
+00:00:24.390 --> 00:00:28.730
+So, and, and the idea behind these types
+of formats is they're text formats, but
+
+7
+00:00:28.730 --> 00:00:33.090
+they're not really, they're not
+really formatted in a way that's,
+
+8
+00:00:33.090 --> 00:00:36.460
+in the same as like a table because they
+contain a little bit more meta-data.
+
+9
+00:00:36.460 --> 00:00:37.910
+So data about, for example,
+
+10
+00:00:37.910 --> 00:00:42.940
+the type of the data in,
+in each class, object for example.
+
+11
+00:00:42.940 --> 00:00:46.590
+So if you, if you dump or
+dput a data frame.
+
+12
+00:00:46.590 --> 00:00:51.232
+It will include in the output, that the
+class of each column, of the data frame,
+
+13
+00:00:51.232 --> 00:00:54.275
+so that you don't have to
+specify it when you read it in.
+
+14
+00:00:54.275 --> 00:00:58.302
+And so the advantage of, of doing, using
+this type of mechanism to store data or
+
+15
+00:00:58.302 --> 00:01:00.883
+to read, or to read data,
+is that you don't have,
+
+16
+00:01:00.883 --> 00:01:05.751
+it's still a textual format, which can be
+useful, but it also contains metadata, so
+
+17
+00:01:05.751 --> 00:01:09.153
+that you don't have to specify it
+every single time you read it in.
+
+18
+00:01:09.153 --> 00:01:10.732
+Because that, if you don't, ca,
+
+19
+00:01:10.732 --> 00:01:14.418
+if the metadata do not get carried with
+the data set itself, then it, they ca,
+
+20
+00:01:14.418 --> 00:01:17.421
+they can get lost if you,
+if they get transferred somewhere else and
+
+21
+00:01:17.421 --> 00:01:20.635
+if you don't remember what the metadata
+are, for example the classes of
+
+22
+00:01:20.635 --> 00:01:24.240
+the different columns, then you kind of
+have to reconstruct that from scratch.
+
+23
+00:01:25.690 --> 00:01:28.880
+So that's one advantage of using,
+using a function like dump or
+
+24
+00:01:28.880 --> 00:01:32.330
+dput to, to output data from R.
+
+25
+00:01:32.330 --> 00:01:37.620
+And similarly the, the, the,
+the functions for reading data using, fr,
+
+26
+00:01:37.620 --> 00:01:41.390
+that haven't been outputted from dump or
+dput are source and, dget.
+
+27
+00:01:42.430 --> 00:01:48.110
+So in general, the textual formats
+are very nice formats for storing data
+
+28
+00:01:48.110 --> 00:01:52.750
+because, there's a number of different
+types of, different advantages to them.
+
+29
+00:01:52.750 --> 00:01:56.370
+First of all, they're editable, so
+you can, if you want to you can edit them.
+
+30
+00:01:56.370 --> 00:01:59.850
+I wouldn't say this is something
+that I would advice, but
+
+31
+00:01:59.850 --> 00:02:01.810
+because of you wanted
+something that's reproducible.
+
+32
+00:02:01.810 --> 00:02:06.590
+But, for example if something gets
+corrupted then you can look at the file
+
+33
+00:02:06.590 --> 00:02:09.220
+to see if it's possible to recover it.
+
+34
+00:02:09.220 --> 00:02:13.050
+So textual formats can be a little longer
+lived, if you're going to be storing data
+
+35
+00:02:13.050 --> 00:02:18.400
+for a long time, sometimes it's useful to,
+if it's possible to use a type of textual
+
+36
+00:02:18.400 --> 00:02:23.110
+format so that you can avoid problem,
+potential problems with corruption.
+
+37
+00:02:23.110 --> 00:02:25.700
+Textual formats can also work better
+if you're using like a version control
+
+38
+00:02:25.700 --> 00:02:30.810
+program, like subversion or git, where
+you're tracking changes between documents.
+
+39
+00:02:30.810 --> 00:02:34.190
+and, and those types of programs
+tend to be much more useful with
+
+40
+00:02:34.190 --> 00:02:38.280
+textual data rather than binary data, so
+that you can track changes meaningfully.
+
+41
+00:02:39.770 --> 00:02:43.210
+Textual formats adhere to the general
+kind of Unix philosophy, which is to
+
+42
+00:02:43.210 --> 00:02:47.130
+store all kinds of data, which generally
+stores all kinds of data in text.
+
+43
+00:02:47.130 --> 00:02:50.990
+But the one downside of textual formats is
+that they tend not to be space efficient,
+
+44
+00:02:50.990 --> 00:02:55.070
+so they tend to, they tend to
+take up a lot of space, and so,
+
+45
+00:02:55.070 --> 00:02:56.790
+it often need to be compressed.
+
+46
+00:02:58.200 --> 00:03:04.050
+So, d, the dput function takes
+an arbitrary R object, and
+
+47
+00:03:04.050 --> 00:03:08.490
+it will, use, it will take most types of R
+objects except for some more exotic ones,
+
+48
+00:03:08.490 --> 00:03:14.330
+and it will create some R code that will
+essentially reconstruct the object in R.
+
+49
+00:03:14.330 --> 00:03:16.010
+So here's I'm creating a small data frame,
+
+50
+00:03:16.010 --> 00:03:20.470
+it's got two columns, the first column is
+called A the second column is called B,
+
+51
+00:03:20.470 --> 00:03:22.220
+and then I'm going to
+dput this data frame.
+
+52
+00:03:22.220 --> 00:03:23.297
+And you'll see the out,
+
+53
+00:03:23.297 --> 00:03:26.179
+if you discall dput it'll just
+output the results to the console.
+
+54
+00:03:26.179 --> 00:03:27.890
+And you can see that
+what I've done is that.
+
+55
+00:03:27.890 --> 00:03:31.352
+What it does, it, it's re,
+it's constructed some R code.
+
+56
+00:03:31.352 --> 00:03:34.666
+For example, it's creating this list
+that has these two elements in it.
+
+57
+00:03:34.666 --> 00:03:39.740
+And you can see that each element
+has has the data that's in it.
+
+58
+00:03:39.740 --> 00:03:43.870
+And it has the names embedded here,
+it's got the row names here.
+
+59
+00:03:43.870 --> 00:03:46.950
+And it has the class of the object which,
+in this case, is the data frame.
+
+60
+00:03:46.950 --> 00:03:49.060
+And so, all the metadata
+here like the row names and
+
+61
+00:03:49.060 --> 00:03:51.460
+the names and
+the class are all included in the output.
+
+62
+00:03:51.460 --> 00:03:54.231
+Now, of course, you generally don't
+want to print this to the console,
+
+63
+00:03:54.231 --> 00:03:56.848
+that's not particularly useful,
+you probably want to save it to a file.
+
+64
+00:03:56.848 --> 00:04:00.814
+So you can dput the file to a file and
+then later on, you can read it into R
+
+65
+00:04:00.814 --> 00:04:04.783
+using dget, and when you dget the object,
+you will get this object and
+
+66
+00:04:04.783 --> 00:04:09.540
+you will see that it's, you have kind of
+reconstructed the object from before.
+
+67
+00:04:09.540 --> 00:04:11.400
+So the dput function,
+
+68
+00:04:11.400 --> 00:04:16.300
+essentially writes R code, which can
+be used to reconstruct an R object.
+
+69
+00:04:18.300 --> 00:04:21.120
+The dump function is
+a lot like dget however,
+
+70
+00:04:21.120 --> 00:04:25.045
+the difference is that dget can
+only be used on a single R object.
+
+71
+00:04:25.045 --> 00:04:29.690
+Whereas dump can be used on multiple
+R objects and so what you do is what
+
+72
+00:04:29.690 --> 00:04:33.390
+you pass a dump is the character vector
+which contains the names of the objects.
+
+73
+00:04:33.390 --> 00:04:35.460
+So here I created two
+objects one called x,
+
+74
+00:04:35.460 --> 00:04:38.810
+the other called y and
+when I pass the dump.
+
+75
+00:04:38.810 --> 00:04:40.510
+Is are the names of those objects?
+
+76
+00:04:40.510 --> 00:04:41.920
+The names are X and Y.
+
+77
+00:04:41.920 --> 00:04:45.472
+And I give it a file, that I want
+to store the da, the objects in.
+
+78
+00:04:45.472 --> 00:04:49.660
+And then I can remove them if I want to,
+but to read those objects back into R,
+
+79
+00:04:49.660 --> 00:04:53.913
+I can call the source function on that
+file and you'll see that the Y object and
+
+80
+00:04:53.913 --> 00:04:56.093
+the X object have been reconstructed.

@@ -1,0 +1,382 @@
+WEBVTT
+
+1
+00:00:05.366 --> 00:00:10.327
+So there are a variety of ways that
+you can interface between R, R,
+
+2
+00:00:10.327 --> 00:00:13.140
+wi, with the outside world.
+
+3
+00:00:13.140 --> 00:00:18.120
+And generally speaking there are functions
+that, that are used to kind of open up
+
+4
+00:00:18.120 --> 00:00:20.520
+the what are called connections
+to the outside world.
+
+5
+00:00:21.530 --> 00:00:23.990
+Usually you want to, the most
+common type of connection is to me,
+
+6
+00:00:23.990 --> 00:00:28.390
+is to a file, so for example if you
+want to read a file then you can,
+
+7
+00:00:28.390 --> 00:00:30.982
+you can create a file connection,
+you might want to for example o,
+
+8
+00:00:30.982 --> 00:00:34.190
+or read a compressed file, or
+that's a slight variation on that.
+
+9
+00:00:34.190 --> 00:00:37.080
+And most functions will do this in
+the background without you having to
+
+10
+00:00:37.080 --> 00:00:38.080
+know what's going on.
+
+11
+00:00:38.080 --> 00:00:40.920
+So for example,
+when you call read.table with it and
+
+12
+00:00:40.920 --> 00:00:44.590
+you pass it the name of a file,
+what it does behind the scenes is it
+
+13
+00:00:44.590 --> 00:00:49.050
+opens up a file connection to that file,
+and then reads from that file connection.
+
+14
+00:00:49.050 --> 00:00:52.810
+The connection can be made to
+other types of objects too.
+
+15
+00:00:52.810 --> 00:00:57.640
+For example, you can open a connection
+to a webpage using the URL function.
+
+16
+00:00:57.640 --> 00:00:59.800
+And so,
+when you open a connection to a webpage,
+
+17
+00:00:59.800 --> 00:01:04.440
+you can read data from that
+webpage using the URL connection.
+
+18
+00:01:04.440 --> 00:01:07.310
+And so, the idea behind the connection
+interface is, is that it kind of,
+
+19
+00:01:07.310 --> 00:01:09.420
+that it abstracts out.
+
+20
+00:01:09.420 --> 00:01:13.100
+The mechanism for connecting to different
+types of objects that are external to R,
+
+21
+00:01:13.100 --> 00:01:16.080
+whether they be files, or
+webpages, or whatever.
+
+22
+00:01:16.080 --> 00:01:20.960
+So the file function is the function
+that opens a connection to
+
+23
+00:01:20.960 --> 00:01:23.640
+a standard uncompressed file.
+
+24
+00:01:23.640 --> 00:01:24.860
+So this, this can be useful for
+
+25
+00:01:24.860 --> 00:01:28.370
+text files, for, for
+reading in other types of text files.
+
+26
+00:01:28.370 --> 00:01:33.860
+Gzfile and bzfile, are used for opening
+connections to compressed data files.
+
+27
+00:01:33.860 --> 00:01:38.830
+So gz file i, are, is used for files that
+are compressed with the gzip algorithm and
+
+28
+00:01:38.830 --> 00:01:40.260
+bz files used for, is for
+
+29
+00:01:40.260 --> 00:01:44.020
+opening connections to files
+compressed with the bzip2 algorithm.
+
+30
+00:01:44.020 --> 00:01:48.110
+Files that are compressed with gzip
+usually have a gz extension and
+
+31
+00:01:48.110 --> 00:01:51.990
+files compressed with bzip2
+usually have a bz2 extension.
+
+32
+00:01:55.430 --> 00:01:57.470
+So the file function
+here has a few arguments,
+
+33
+00:01:57.470 --> 00:02:01.660
+the description argument is the name of
+the file and there's a flag that's called,
+
+34
+00:02:01.660 --> 00:02:05.320
+that goes to the open argument and
+you have to know what the codes are, but
+
+35
+00:02:05.320 --> 00:02:09.340
+basically r is for reading, w is for
+writing, a is for appending, and then rb,
+
+36
+00:02:09.340 --> 00:02:13.410
+wb and ab are for reading, writing,
+and appending on binary files.
+
+37
+00:02:13.410 --> 00:02:16.170
+The other options for file are not
+particularly important at this time.
+
+38
+00:02:17.390 --> 00:02:21.560
+So, connections can be very powerful and
+they can let you navigate files and
+
+39
+00:02:21.560 --> 00:02:24.220
+other external objects in a more
+sophisticated way than just,
+
+40
+00:02:24.220 --> 00:02:26.050
+like, reading the whole thing,
+for example.
+
+41
+00:02:27.080 --> 00:02:31.000
+And generally you don't have to deal with
+the connect interface in many cases, but
+
+42
+00:02:31.000 --> 00:02:31.910
+sometimes it's useful.
+
+43
+00:02:31.910 --> 00:02:35.220
+So for example, so here I've got
+a simple example or opening a fi, a file
+
+44
+00:02:35.220 --> 00:02:39.690
+connection to some file called foo.text,
+I'm going to open it for reading.
+
+45
+00:02:39.690 --> 00:02:42.280
+I can call read.csv on the connection, and
+
+46
+00:02:42.280 --> 00:02:46.530
+that by default will just read the entire
+file then I can close the connection.
+
+47
+00:02:46.530 --> 00:02:51.740
+So that three line process is the same
+as just calling read.csv on the file.
+
+48
+00:02:51.740 --> 00:02:57.590
+So in this case there was no need to
+use the connection to read the file.
+
+49
+00:02:57.590 --> 00:03:00.600
+However, sometimes a connection can be
+useful if you want to read parts of
+
+50
+00:03:00.600 --> 00:03:01.710
+a file.
+
+51
+00:03:01.710 --> 00:03:02.260
+So for example,
+
+52
+00:03:02.260 --> 00:03:07.160
+here I've got the readLines function
+which just reads lines from a text file.
+
+53
+00:03:07.160 --> 00:03:09.260
+And I'm going to open
+up this words.gz file.
+
+54
+00:03:09.260 --> 00:03:13.870
+So, this is a file that has words in
+it for it's like a dictionary file.
+
+55
+00:03:13.870 --> 00:03:16.280
+And it's compressed using the gz,
+the gzip algorithm.
+
+56
+00:03:16.280 --> 00:03:20.090
+So I'm going to be using the gz file
+function to open a connection to that.
+
+57
+00:03:20.090 --> 00:03:21.740
+And I'm just going to
+read the first ten lines.
+
+58
+00:03:21.740 --> 00:03:22.519
+So now I'm going to re,
+
+59
+00:03:22.519 --> 00:03:25.870
+use this connection, and
+to read the first ten lines.
+
+60
+00:03:25.870 --> 00:03:27.850
+And here,
+the first ten lines are printed out here
+
+61
+00:03:28.890 --> 00:03:31.430
+as you can see these are the first
+top ten words in the file.
+
+62
+00:03:31.430 --> 00:03:33.528
+And similarly, write lines is a,
+
+63
+00:03:33.528 --> 00:03:37.780
+is a function that can be used to
+write out lines of text to a file.
+
+64
+00:03:37.780 --> 00:03:41.140
+And each, and what you do is pass
+write lines of character vector and
+
+65
+00:03:41.140 --> 00:03:43.840
+each element of the character vector
+becomes a line in the text file.
+
+66
+00:03:46.870 --> 00:03:51.190
+You can also use readLines to read
+elements from a web page, so for example,
+
+67
+00:03:51.190 --> 00:03:55.752
+you can use the URL function to
+create a connection to a website, so
+
+68
+00:03:55.752 --> 00:03:59.530
+this website here is the Johns Hopkins
+School of Public Health website.
+
+69
+00:03:59.530 --> 00:04:01.170
+And I'm going to open
+the connection there for
+
+70
+00:04:01.170 --> 00:04:04.040
+reading, and then I'm going to
+read lines from this connection.
+
+71
+00:04:05.130 --> 00:04:08.460
+And so and I'm, and then and
+so the lines of text that come
+
+72
+00:04:08.460 --> 00:04:11.600
+from the connection are going to be
+stored in this character vector x.
+
+73
+00:04:11.600 --> 00:04:14.170
+So when I look at the first
+couple of lines from x you can
+
+74
+00:04:14.170 --> 00:04:17.840
+see that it looks like HTML which
+is kind of what you would expect.
+
+75
+00:04:17.840 --> 00:04:20.330
+And so the URL function is useful for
+
+76
+00:04:20.330 --> 00:04:23.990
+creating a connection to
+a kind of a non file object.
+
+77
+00:04:23.990 --> 00:04:28.610
+and then using read.lines is useful to
+read the text from that connection.
+
+78
+00:04:28.610 --> 00:04:32.378
+So this is another way to read
+data beyond using functions like
+
+79
+00:04:32.378 --> 00:04:35.799
+read.table or read.csv
