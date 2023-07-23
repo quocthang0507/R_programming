@@ -1,0 +1,210 @@
+WEBVTT
+
+1
+00:00:04.790 --> 00:00:09.290
+Matrices can be subsetted, in the kind
+of the, the way that you would expect.
+
+2
+00:00:09.290 --> 00:00:13.910
+So the first index is going to be, the,
+the row index, the second index is
+
+3
+00:00:13.910 --> 00:00:17.510
+going to be the column index, and
+we can use numbers for this too.
+
+4
+00:00:17.510 --> 00:00:21.560
+So, so for example, x is a matrix, it's
+a two by three matrix with the numbers one
+
+5
+00:00:21.560 --> 00:00:26.860
+through six in it, if I take x with the,
+with the [1, 2] that gives me
+
+6
+00:00:26.860 --> 00:00:31.240
+the first row second column, and so that's
+going to be the, the number three, and
+
+7
+00:00:31.240 --> 00:00:36.620
+then the, the second row first column
+is going to be the number two.
+
+8
+00:00:36.620 --> 00:00:40.840
+You don't have to always specify both
+indices when subsetting a matrix, So for
+
+9
+00:00:40.840 --> 00:00:46.060
+example if I say x bracket 1, comma and
+then blank for the second index,
+
+10
+00:00:46.060 --> 00:00:49.460
+that's in, that notation indicates that
+I want the first row of the matrix,
+
+11
+00:00:49.460 --> 00:00:52.360
+in which case the,
+this is a vector one, three, five.
+
+12
+00:00:52.360 --> 00:00:56.167
+If I wanted the second column of the
+matrix I could just leave the first index
+
+13
+00:00:56.167 --> 00:00:57.496
+blank and say x bracket and
+
+14
+00:00:57.496 --> 00:01:01.265
+then comma two, that gives me
+the second column which is three, four.
+
+15
+00:01:04.170 --> 00:01:08.055
+So by default when a single
+element of a matrix is retrieved,
+
+16
+00:01:08.055 --> 00:01:12.170
+is returned to vector of length one,
+rather than a one by one matrix.
+
+17
+00:01:12.170 --> 00:01:16.520
+So remember I said that before, the si,
+the single square operator always
+
+18
+00:01:16.520 --> 00:01:20.750
+returns an object of the same class,
+so, the one that's, that sometimes is
+
+19
+00:01:20.750 --> 00:01:25.300
+a little bit unexpected, is that if I
+subset out, a single element of a matrix,
+
+20
+00:01:25.300 --> 00:01:28.890
+I don't get back a matrix, what I get back
+is just a vector with that number in it,
+
+21
+00:01:28.890 --> 00:01:33.300
+so if I say x, one, two, that gives
+the first row second column of the matrix,
+
+22
+00:01:33.300 --> 00:01:36.235
+that's just a number three, and
+what I get back is a number three,
+
+23
+00:01:36.235 --> 00:01:39.593
+[COUGH] not a one by one matrix,
+with the number three in it.
+
+24
+00:01:39.593 --> 00:01:44.180
+This is usually what you want, although
+sometimes it can cause problems, and so
+
+25
+00:01:44.180 --> 00:01:47.920
+you can turn off this default behavior
+by adding an extra argument to
+
+26
+00:01:47.920 --> 00:01:50.870
+the subsetting operation,
+which is called drop.
+
+27
+00:01:50.870 --> 00:01:53.490
+And the idea is that by default,
+drop is equal to true, and
+
+28
+00:01:53.490 --> 00:01:57.280
+it drops the dimension, and so rather than
+getting a two dimensional object back,
+
+29
+00:01:57.280 --> 00:01:59.800
+you, you typically get a one
+dimensional object back.
+
+30
+00:01:59.800 --> 00:02:03.104
+However if you want to preserve
+the dimensions of the object,
+
+31
+00:02:03.104 --> 00:02:06.663
+you can say drop equal to false and
+when I subset out the first row,
+
+32
+00:02:06.663 --> 00:02:11.100
+second column, what I get back is a one by
+one matrix with the element three in it.
+
+33
+00:02:15.293 --> 00:02:17.444
+Now also when you subset
+a single column or
+
+34
+00:02:17.444 --> 00:02:21.930
+a single row, you don't, you, you by
+default, you don't get a matrix back, so
+
+35
+00:02:21.930 --> 00:02:26.111
+for example, if I subset out the first
+row here you might think that, well,
+
+36
+00:02:26.111 --> 00:02:30.353
+what should be returned, is really a one
+by three matrix where there's one row and
+
+37
+00:02:30.353 --> 00:02:33.710
+three columns, and
+the elements are one, three, five.
+
+38
+00:02:33.710 --> 00:02:35.010
+Well that's not actually
+what you get back,
+
+39
+00:02:35.010 --> 00:02:39.000
+what you get back, is a vector with
+the elements one, three, five.
+
+40
+00:02:39.000 --> 00:02:42.520
+Usually this is what you want, and
+it's okay, but if it's not, then you can
+
+41
+00:02:42.520 --> 00:02:47.180
+always set the drop equal to false
+argument when you subset the matrix, and
+
+42
+00:02:47.180 --> 00:02:49.900
+then you get a one by three matrix with
+the elements one, three, and five in it.

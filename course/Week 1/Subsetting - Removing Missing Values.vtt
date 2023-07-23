@@ -1,0 +1,332 @@
+WEBVTT
+
+1
+00:00:03.883 --> 00:00:06.992
+Last thing I want to talk about
+is removing missing values or
+
+2
+00:00:06.992 --> 00:00:08.480
+NA values from an object.
+
+3
+00:00:08.480 --> 00:00:10.490
+This is a very common operation in, in,
+
+4
+00:00:10.490 --> 00:00:16.380
+in data analysis because most realistic
+data have lots of missing values.
+
+5
+00:00:16.380 --> 00:00:19.380
+And so the way you can do this for,
+of either a vector, or
+
+6
+00:00:19.380 --> 00:00:24.100
+a matrix, or a data frame is you want to
+create a logical vector which tells you
+
+7
+00:00:24.100 --> 00:00:29.250
+where the NA's are and so
+that you can remove them by sub-setting.
+
+8
+00:00:29.250 --> 00:00:32.570
+So here I've got a, a vector x,
+this is a very simple example.
+
+9
+00:00:32.570 --> 00:00:34.850
+Which has the numbers 1, 2 and 4 and 5.
+
+10
+00:00:34.850 --> 00:00:38.640
+But then there are missing elements
+NA in the third position and
+
+11
+00:00:38.640 --> 00:00:39.980
+in the fifth position.
+
+12
+00:00:39.980 --> 00:00:43.090
+So what I want to do is I want to get a
+vector back that's just one two four five,
+
+13
+00:00:43.090 --> 00:00:44.160
+the non missing values.
+
+14
+00:00:44.160 --> 00:00:48.650
+And I want to strip out the missing value
+so I can maybe do some computation.
+
+15
+00:00:48.650 --> 00:00:52.342
+So, what I, the first thing I do
+is I use the is.na function to,
+
+16
+00:00:52.342 --> 00:00:55.529
+to go through the vector and
+tell me which elements are NA and
+
+17
+00:00:55.529 --> 00:00:59.210
+I create a new vector called,
+which I called bad here.
+
+18
+00:00:59.210 --> 00:01:02.745
+So, bad is going to be a logical
+vector which tells, which,
+
+19
+00:01:02.745 --> 00:01:07.080
+which is true if the element is
+missing and false if it's not missing.
+
+20
+00:01:07.080 --> 00:01:12.620
+So, even though I haven't printed it here
+the, the, the bad vector is going to
+
+21
+00:01:12.620 --> 00:01:16.800
+be a logical vector that has false,
+false, true, false, true, false.
+
+22
+00:01:16.800 --> 00:01:19.330
+Right, because the third and
+the fifth elements are missing.
+
+23
+00:01:19.330 --> 00:01:20.180
+So, when I.
+
+24
+00:01:21.350 --> 00:01:23.940
+Now that tells me which ones
+are missing but actually I
+
+25
+00:01:23.940 --> 00:01:26.990
+don't want the ones that are missing,
+I want the ones that are non missing.
+
+26
+00:01:26.990 --> 00:01:29.590
+So I need to take the kind of
+the opposite of bad which I
+
+27
+00:01:29.590 --> 00:01:32.310
+can use with the bang operator or
+exclamation point.
+
+28
+00:01:32.310 --> 00:01:34.899
+So now I take x single
+bracket bang bad and
+
+29
+00:01:34.899 --> 00:01:39.100
+that gives me the good elements
+which are 1, 2, 4 and 5.
+
+30
+00:01:41.650 --> 00:01:46.050
+So what if there are a multiple vectors or
+multiple objects and you want to take and
+
+31
+00:01:46.050 --> 00:01:49.540
+each one has a kind of missing values in
+slightly different places and you kind of,
+
+32
+00:01:49.540 --> 00:01:52.360
+you want to take the subset
+of all the objects that have
+
+33
+00:01:52.360 --> 00:01:53.370
+no missing values, all right?
+
+34
+00:01:53.370 --> 00:01:55.650
+So here I created an x, a vector called x.
+
+35
+00:01:57.556 --> 00:02:02.040
+Which is 1, 2, 4 and 5, and
+missing values scattered about.
+
+36
+00:02:02.040 --> 00:02:06.580
+And then y is, is a character vector
+with also some missing values in it.
+
+37
+00:02:06.580 --> 00:02:11.080
+So I can use the complete cases
+function on both vectors which will
+
+38
+00:02:11.080 --> 00:02:15.170
+give me a vector that tells me which of,
+of, of the two different vectors,
+
+39
+00:02:15.170 --> 00:02:17.030
+which ones had were, which, which are,
+
+40
+00:02:17.030 --> 00:02:20.890
+which positions are there that
+have both elements non missing.
+
+41
+00:02:20.890 --> 00:02:23.170
+So you can see the first two are,
+are both non missing.
+
+42
+00:02:23.170 --> 00:02:26.600
+I got 1, 2, in the first one,
+and a, b in the second one.
+
+43
+00:02:26.600 --> 00:02:29.710
+The third one's missing,
+the fourth one is non missing the,
+
+44
+00:02:29.710 --> 00:02:32.430
+the fifth one is missing and
+the sixth one is non missing.
+
+45
+00:02:32.430 --> 00:02:35.440
+So, of, for the both, for
+both vectors x and y,
+
+46
+00:02:35.440 --> 00:02:39.100
+I want the first, the second,
+the fourth, and the sixth elements.
+
+47
+00:02:39.100 --> 00:02:43.297
+So now when I subset x, I get the good
+elements of that, and when I subset y,
+
+48
+00:02:43.297 --> 00:02:45.850
+I also get the good elements of that.
+
+49
+00:02:45.850 --> 00:02:48.930
+So that's how I can look
+at multiple objects and
+
+50
+00:02:48.930 --> 00:02:51.800
+kind of subset all the missing
+values out to get the good elements.
+
+51
+00:02:53.490 --> 00:02:56.810
+You could also remove you can
+also use complete cases to
+
+52
+00:02:56.810 --> 00:02:58.940
+remove missing values from data frames.
+
+53
+00:02:58.940 --> 00:03:02.510
+So here I've got a simple data frame
+where I'm showing the first six rows.
+
+54
+00:03:02.510 --> 00:03:06.640
+As you can see there are six columns to
+this data frame so there's six variables.
+
+55
+00:03:06.640 --> 00:03:09.752
+And there's some missing values
+in the ozone variable and
+
+56
+00:03:09.752 --> 00:03:12.584
+there's some missing values
+in the solar.r variable.
+
+57
+00:03:12.584 --> 00:03:15.263
+And so all I want is the is the, is the,
+
+58
+00:03:15.263 --> 00:03:19.980
+are the rows of the data frame where
+all the values are non missing, right?
+
+59
+00:03:19.980 --> 00:03:23.690
+So in this simple example,
+the rows that I want are rows 1 through 4.
+
+60
+00:03:23.690 --> 00:03:27.300
+So I can use complete cases on air,
+on the airquality data frame.
+
+61
+00:03:27.300 --> 00:03:30.320
+And I create a, a logical vector
+that I called good here, so
+
+62
+00:03:30.320 --> 00:03:33.560
+the logical vector here tells
+me which rows are complete.
+
+63
+00:03:33.560 --> 00:03:39.800
+And then when I subset out
+the air quality matrix take and
+
+64
+00:03:39.800 --> 00:03:42.250
+take out the first couple of
+rows you can see that I now,
+
+65
+00:03:42.250 --> 00:03:44.520
+that none of the rows have
+any missing values in them.
+
+66
+00:03:45.860 --> 00:03:48.520
+So that's subsetting out missing values.
+
+67
+00:03:48.520 --> 00:03:52.150
+And there, in complete cases of
+very handy function which is when,
+
+68
+00:03:52.150 --> 00:03:53.886
+when you have multiple sets of vectors or
+
+69
+00:03:53.886 --> 00:03:57.160
+dat, or large data frames or you want to
+subset all out, all the missing values.
