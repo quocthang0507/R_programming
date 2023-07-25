@@ -1,0 +1,348 @@
+WEBVTT
+
+1
+00:00:04.682 --> 00:00:06.417
+So the next contract is a for loop.
+
+2
+00:00:06.417 --> 00:00:09.322
+So this is probably the most
+common type of loop oper,
+
+3
+00:00:09.322 --> 00:00:12.380
+operator that you're going to use in r.
+
+4
+00:00:12.380 --> 00:00:16.130
+The basic idea is that you have a loop
+index which is typically called i,
+
+5
+00:00:16.130 --> 00:00:19.750
+but if you have many loops you
+might say j, k, l, et cetera.
+
+6
+00:00:19.750 --> 00:00:22.590
+And a loop index is going to go from,
+
+7
+00:00:22.590 --> 00:00:25.610
+it's going to cover a sequence
+of numbers typically in.
+
+8
+00:00:25.610 --> 00:00:26.470
+integers.
+
+9
+00:00:26.470 --> 00:00:28.812
+So for example here I've got a for loop.
+
+10
+00:00:28.812 --> 00:00:30.820
+And it's looping over
+the numbers 1 through 10.
+
+11
+00:00:30.820 --> 00:00:33.278
+So I've created the sequence of
+colon operator 1 through 10.
+
+12
+00:00:33.278 --> 00:00:36.390
+And this for loop is not doing
+anything particularly interesting,
+
+13
+00:00:36.390 --> 00:00:39.980
+it's just printing out the numbers so
+printing out i at each iteration.
+
+14
+00:00:41.660 --> 00:00:45.040
+After the loop is finished it continues
+on to the next block of code.
+
+15
+00:00:47.180 --> 00:00:51.180
+So there's different ways to use a for
+loop and the r
+
+16
+00:00:51.180 --> 00:00:56.390
+is pretty flexible in how you can kind of
+index the different type of r objects.
+
+17
+00:00:56.390 --> 00:01:01.390
+So here I've created a vector a character
+with the letters a b c d in it.
+
+18
+00:01:01.390 --> 00:01:03.410
+And all these four loops are equivalent.
+
+19
+00:01:03.410 --> 00:01:08.330
+So for example, in the first one, I kind
+of done what you might commonly see in
+
+20
+00:01:08.330 --> 00:01:10.780
+other languages like C
+that have four looping.
+
+21
+00:01:10.780 --> 00:01:14.440
+Here I have an indexed i that I
+sequenced through 1 through 4,
+
+22
+00:01:14.440 --> 00:01:16.200
+I create an imager sequence.
+
+23
+00:01:16.200 --> 00:01:19.780
+Then I print the i'th element of x,
+each time.
+
+24
+00:01:19.780 --> 00:01:21.810
+So here this loop just prints out a,
+b, c, d.
+
+25
+00:01:23.100 --> 00:01:28.560
+Another thing I could do is use the seek
+along function, so seek_along what
+
+26
+00:01:28.560 --> 00:01:34.120
+it does is it takes a vector as an input
+and it creates an integer sequence that's.
+
+27
+00:01:34.120 --> 00:01:35.740
+That's equal to the length of that vector.
+
+28
+00:01:35.740 --> 00:01:38.060
+So this is a vector of length 4, so
+
+29
+00:01:38.060 --> 00:01:40.770
+it's going to create an integer
+sequence 1 through 4.
+
+30
+00:01:40.770 --> 00:01:46.990
+It's exactly the same as, as the previous
+sequence where I've got the sequence 1:4.
+
+31
+00:01:46.990 --> 00:01:52.120
+However, here I generate the sequence
+based on the length of the variable x.
+
+32
+00:01:52.120 --> 00:01:55.030
+So now I'm, my index serial i
+is going through this sequence.
+
+33
+00:01:55.030 --> 00:01:58.740
+It's printing out the i filament of x and
+exactly the same behavior occurs.
+
+34
+00:01:58.740 --> 00:02:00.170
+I print out a, b, c and d.
+
+35
+00:02:01.210 --> 00:02:05.090
+The third example here, I'm,
+I've got a different index variable,
+
+36
+00:02:05.090 --> 00:02:09.440
+I'm calling it letter, and the index
+variable is actually going to be index,
+
+37
+00:02:09.440 --> 00:02:11.790
+is going to be taking values
+from the vector itself.
+
+38
+00:02:11.790 --> 00:02:14.890
+So there's no reason why the index
+variable has to be an integer.
+
+39
+00:02:14.890 --> 00:02:17.870
+It can take elements from
+any arbitrary vector.
+
+40
+00:02:17.870 --> 00:02:22.200
+So now the for loop is going through
+this vector of letters, a,b,c,d.
+
+41
+00:02:22.200 --> 00:02:25.290
+An it's just going to print out the letter
+itself, so now I'm printing out the index
+
+42
+00:02:25.290 --> 00:02:28.660
+variable, which happens to be equal
+to the letters in the vector.
+
+43
+00:02:30.720 --> 00:02:34.970
+And so these three for
+loops are exactly the same so far.
+
+44
+00:02:34.970 --> 00:02:39.420
+The last version here is, is the,
+is the same as the first one except I
+
+45
+00:02:39.420 --> 00:02:43.378
+haven't included the curly braces,
+and so for a single expression if you.
+
+46
+00:02:43.378 --> 00:02:46.490
+If the for loop only has a single
+expression in this body you can
+
+47
+00:02:46.490 --> 00:02:48.930
+omit the curly braces and
+put everything on one line,
+
+48
+00:02:48.930 --> 00:02:52.640
+which maybe useful sometimes because
+it's a little bit more compact.
+
+49
+00:02:52.640 --> 00:02:54.216
+But it's not my particular style.
+
+50
+00:02:54.216 --> 00:02:56.816
+For for loops, I generally like
+to put the curly braces in,
+
+51
+00:02:56.816 --> 00:02:58.953
+regardless of how many
+elements are in the body.
+
+52
+00:03:02.376 --> 00:03:06.387
+For loops can be nested so you can have
+a for loop inside of a for loop, so
+
+53
+00:03:06.387 --> 00:03:11.038
+the common thing for example, and and is,
+is with a matrix that has two dimensions
+
+54
+00:03:11.038 --> 00:03:15.410
+and then you might want to loop over
+the rows and then loop over the columns.
+
+55
+00:03:15.410 --> 00:03:21.450
+So here the outer loop the ought with the
+i index is seek, is looping over the rose.
+
+56
+00:03:21.450 --> 00:03:26.490
+And I'm using a function that's called
+seq_len, so, the idea is that,
+
+57
+00:03:26.490 --> 00:03:31.560
+it takes, in, seq_len takes an integer,
+which in this case happens to
+
+58
+00:03:31.560 --> 00:03:35.980
+be the number of rows in x, and then it
+creates an integer sequence out of that.
+
+59
+00:03:35.980 --> 00:03:38.810
+So this particular matrix has two rows, so
+
+60
+00:03:38.810 --> 00:03:41.460
+it's going to create
+the sequence of 1 to 2.
+
+61
+00:03:41.460 --> 00:03:46.270
+For example, similarly the the nested loop
+with the j index is using the number of
+
+62
+00:03:46.270 --> 00:03:49.650
+columns to create a sequence so
+this matrix has three columns, and so
+
+63
+00:03:49.650 --> 00:03:54.210
+the seq_len function is going to
+create an integer sequence 1 through 3.
+
+64
+00:03:54.210 --> 00:03:55.990
+So the, so this doubling nested for
+
+65
+00:03:55.990 --> 00:03:59.450
+loop, is basically printing out
+all the elements of the matrix.
+
+66
+00:04:01.080 --> 00:04:03.380
+So one thing to be careful with,
+with nested for
+
+67
+00:04:03.380 --> 00:04:08.080
+loops is that it's going beyond
+2-to-3 levels, while it's
+
+68
+00:04:09.220 --> 00:04:13.690
+theoretically okay in r, it makes reading
+the code a little bit difficult to do.
+
+69
+00:04:13.690 --> 00:04:15.320
+And so
+if you're reading code that has three or
+
+70
+00:04:15.320 --> 00:04:19.390
+four nested for loops it gets difficult
+to understand what's, what's going on.
+
+71
+00:04:19.390 --> 00:04:21.650
+Sometimes that's the logical thing to do,
+but
+
+72
+00:04:21.650 --> 00:04:24.970
+many a times there's ways to get around
+that, for example, by using functions.

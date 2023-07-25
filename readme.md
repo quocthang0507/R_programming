@@ -24,5 +24,6 @@ The book [R Programming for Data Science](http://bit.ly/rprogrammingcoursera) co
 |---|---|---|---|
 |1|0|Background Material||
 |1|0.1|Welcome to R Programming|[link](tutorial/Week1/1.md)|
-|1|0.2|Getting Started and R Nuts and Bolts|[link](tutorial/Week1/2.md)|
-|1|0.2|Subsettings|[link](tutorial/Week1/2_subsettings.md)|
+|1|1|Getting Started and R Nuts and Bolts|[link](tutorial/Week1/2.md)|
+|1|1.1|Subsettings|[link](tutorial/Week1/2_subsettings.md)|
+|2|2.1|Programming with R|[link](tutorial/Week2/1.md)|

@@ -1,0 +1,78 @@
+WEBVTT
+
+1
+00:00:01.060 --> 00:00:05.380
+Control structures in R allow you to
+control the flow of an R program.
+
+2
+00:00:05.380 --> 00:00:08.020
+And are very similar to the control
+structures that you might see in
+
+3
+00:00:08.020 --> 00:00:10.550
+other types of programming languages.
+
+4
+00:00:10.550 --> 00:00:16.660
+The basic constructs are things like,
+if else for testing logical conditions.
+
+5
+00:00:16.660 --> 00:00:20.110
+The four for
+executing a loop a fixed number of times.
+
+6
+00:00:20.110 --> 00:00:24.270
+While executes a loop
+while a condition is true.
+
+7
+00:00:24.270 --> 00:00:27.240
+Repeat is a, is a construct
+that allows you to just simp,
+
+8
+00:00:27.240 --> 00:00:29.580
+to immediately execute an infinite loop.
+
+9
+00:00:29.580 --> 00:00:32.320
+Break allows you to break
+out of any type of loop.
+
+10
+00:00:33.380 --> 00:00:35.474
+And next,
+skips to the iteration we will loop and
+
+11
+00:00:35.474 --> 00:00:37.780
+return allows you to exit a function.
+
+12
+00:00:37.780 --> 00:00:41.056
+So, most of these control structures
+are not things that you use in
+
+13
+00:00:41.056 --> 00:00:45.345
+interactive sessions and not like, while
+you are typing at the command line in R.
+
+14
+00:00:45.345 --> 00:00:48.232
+These are the kinds of things
+that typically you would use
+
+15
+00:00:48.232 --> 00:00:51.330
+when you are writing a R program or
+an R function.
+
+16
+00:00:51.330 --> 00:00:53.340
+It's a little bit more
+of a structured format.

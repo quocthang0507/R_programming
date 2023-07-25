@@ -1,0 +1,987 @@
+WEBVTT
+
+1
+00:00:00.680 --> 00:00:03.230
+In this lecture, I just want to get
+everyone on board with writing
+
+2
+00:00:03.230 --> 00:00:05.030
+functions, because functions play a
+critical
+
+3
+00:00:05.030 --> 00:00:07.610
+role in any R programming and you
+
+4
+00:00:07.610 --> 00:00:09.600
+tend to write a lot of them when you're
+writing doing a
+
+5
+00:00:09.600 --> 00:00:13.450
+lot of data analysis or doing a lot of
+kind of statistical analysis.
+
+6
+00:00:13.450 --> 00:00:15.820
+And so I just want to make sure that
+everyone can kind of get started writing
+
+7
+00:00:15.820 --> 00:00:18.630
+functions and and particularly for those
+who
+
+8
+00:00:18.630 --> 00:00:21.528
+are less familiar with programming
+languages in general.
+
+9
+00:00:21.528 --> 00:00:24.130
+So this is just going to be about writing
+your first function.
+
+10
+00:00:24.130 --> 00:00:26.580
+It's kind of like the hello world so to
+speak of R.
+
+11
+00:00:26.580 --> 00:00:30.823
+So the first thing you're going to want to
+do is you
+
+12
+00:00:30.823 --> 00:00:34.070
+going to want to write the function in a
+text file, all right.
+
+13
+00:00:34.070 --> 00:00:36.790
+It's possible to write functions on the
+command
+
+14
+00:00:36.790 --> 00:00:40.300
+line in R, but it usually no preferrable.
+
+15
+00:00:40.300 --> 00:00:43.880
+So usually you're going to want to put
+your functions, in a separate file,
+
+16
+00:00:43.880 --> 00:00:47.430
+separate from any interactive stuff that
+you're doing in the command line.
+
+17
+00:00:47.430 --> 00:00:49.560
+In the future you'll want to put your
+functions in
+
+18
+00:00:49.560 --> 00:00:51.130
+an R package, which is a kind of a more
+
+19
+00:00:51.130 --> 00:00:56.330
+structured type of kind of, kind of
+environment with
+
+20
+00:00:56.330 --> 00:00:59.110
+documentation and everything, but we won't
+talk about that now.
+
+21
+00:00:59.110 --> 00:01:00.390
+Right now the first thing you're going to
+want to
+
+22
+00:01:00.390 --> 00:01:02.895
+do is put your functions in a text file.
+
+23
+00:01:02.895 --> 00:01:06.020
+Okay, so the first thing we're going to
+want to do is open up our studio.
+
+24
+00:01:06.020 --> 00:01:06.920
+So lets do that.
+
+25
+00:01:11.880 --> 00:01:14.040
+And so you can see here in R Studio
+there's some there's
+
+26
+00:01:14.040 --> 00:01:17.440
+some stuff going on here from a previous
+project that I'm working on.
+
+27
+00:01:17.440 --> 00:01:20.150
+So you, that may happen to you, and
+generally you
+
+28
+00:01:20.150 --> 00:01:22.060
+can either close it or you can just ignore
+it.
+
+29
+00:01:22.060 --> 00:01:24.810
+I wanted to create a new R script here, so
+
+30
+00:01:24.810 --> 00:01:29.040
+let's create a clean script here to put
+our code into.
+
+31
+00:01:30.060 --> 00:01:32.280
+So the first function I'm going to write
+is really simple
+
+32
+00:01:32.280 --> 00:01:34.930
+it's just going to take two numbers and
+add them together.
+
+33
+00:01:34.930 --> 00:01:39.340
+So this function obviously doesn't have a
+real point to it but it shows you how
+
+34
+00:01:39.340 --> 00:01:43.070
+to use the function syntax, how to specify
+the arguments and how to return the value.
+
+35
+00:01:43.070 --> 00:01:46.060
+So the function that adds two values I'm
+just going to call it add two.
+
+36
+00:01:47.810 --> 00:01:51.870
+And and so you get it you use the function
+directive to start it off.
+
+37
+00:01:51.870 --> 00:01:54.245
+Now it's going to take it's going to add
+two values so it has to take
+
+38
+00:01:54.245 --> 00:01:57.650
+two arguments so I'm just going call the
+two arguments x and y and then
+
+39
+00:01:57.650 --> 00:02:02.120
+I'm going to take the two arguments and
+add them together with the plus operator
+
+40
+00:02:02.120 --> 00:02:05.580
+alright x plus y and then I close out the
+function with the curly brace.
+
+41
+00:02:05.580 --> 00:02:06.910
+So you can see that I didn't have to
+
+42
+00:02:06.910 --> 00:02:11.300
+do anything special to return the value
+that that's the
+
+43
+00:02:11.300 --> 00:02:13.970
+sum of the two elements because the or any
+R
+
+44
+00:02:13.970 --> 00:02:17.980
+function, the, the function returns
+whatever the last expression was.
+
+45
+00:02:17.980 --> 00:02:20.470
+So here there's only really one
+expression.
+
+46
+00:02:20.470 --> 00:02:25.030
+So therefore its the last expression and,
+and it equals the sum of x and y.
+
+47
+00:02:25.030 --> 00:02:28.450
+So here I can, I can highlight this guy
+and run it
+
+48
+00:02:28.450 --> 00:02:31.630
+in the console, and you can see now I've
+got my function here.
+
+49
+00:02:31.630 --> 00:02:36.820
+I can say add two, and lets give it say
+three and five and hopefully I get eight.
+
+50
+00:02:36.820 --> 00:02:37.750
+Yes that's a good sign.
+
+51
+00:02:37.750 --> 00:02:41.020
+So it adds the two numbers together, and
+that's that.
+
+52
+00:02:41.020 --> 00:02:45.440
+So it's a very simple function, and and,
+
+53
+00:02:45.440 --> 00:02:47.175
+you've now written your first function in
+R.
+
+54
+00:02:47.175 --> 00:02:49.680
+S the next function that I want to
+
+55
+00:02:49.680 --> 00:02:52.020
+talk about is a little slightly more
+complicated.
+
+56
+00:02:52.020 --> 00:02:56.370
+It's going to take a vector of numbers,
+it's going to, it's going to return
+
+57
+00:02:56.370 --> 00:03:00.270
+the subset of the vector, that's, that's
+above the vector value of ten.
+
+58
+00:03:00.270 --> 00:03:03.639
+So any number that's bigger than ten, it's
+going to return those numbers for you.
+
+59
+00:03:04.690 --> 00:03:06.190
+so, let's bring back our original
+function.
+
+60
+00:03:06.190 --> 00:03:08.020
+We'll call this one, above ten.
+
+61
+00:03:09.120 --> 00:03:11.388
+Just because it gives you any number
+that's above ten.
+
+62
+00:03:11.388 --> 00:03:16.300
+snd, it's going to take a vector here,
+we'll call it x,
+
+63
+00:03:16.300 --> 00:03:18.410
+you don't have to call it x, I'm just
+calling it that.
+
+64
+00:03:18.410 --> 00:03:22.010
+And I like to open and close the curly
+braces right away, just
+
+65
+00:03:22.010 --> 00:03:23.879
+so you know where the beginning and the
+end of the function is.
+
+66
+00:03:25.470 --> 00:03:28.790
+If you happen to have a lot of code in,
+you know, in, in a single file.
+
+67
+00:03:28.790 --> 00:03:31.500
+So the first thing I'm going to want to do
+is I want to construct a logical
+
+68
+00:03:31.500 --> 00:03:34.760
+statement that figures out which elements
+of
+
+69
+00:03:34.760 --> 00:03:37.600
+this vector x are, are greater than ten.
+
+70
+00:03:37.600 --> 00:03:37.900
+All right?
+
+71
+00:03:37.900 --> 00:03:39.890
+So I'm going to assign an object.
+
+72
+00:03:39.890 --> 00:03:43.210
+I'll call it use because these are, these
+are the numbers that I'm going to use.
+
+73
+00:03:43.210 --> 00:03:44.540
+And I'll say x greater than ten.
+
+74
+00:03:44.540 --> 00:03:44.720
+All right?
+
+75
+00:03:44.720 --> 00:03:48.540
+So this'll return a logical vector, of
+trues and falses
+
+76
+00:03:48.540 --> 00:03:50.870
+to indicating which element of x is
+greater than ten.
+
+77
+00:03:51.900 --> 00:03:55.400
+And then I'm going to subset the vector x
+with this logical vector.
+
+78
+00:03:55.400 --> 00:04:01.880
+So now this function returns, the subset
+of the vector x that is bigger than ten.
+
+79
+00:04:01.880 --> 00:04:03.910
+Of course if there are no elements of x
+that are
+
+80
+00:04:03.910 --> 00:04:06.350
+bigger than ten, that it will return an
+empty numeric vector.
+
+81
+00:04:07.560 --> 00:04:10.738
+Now of course, there's really nothing
+special about the number ten.
+
+82
+00:04:10.738 --> 00:04:13.560
+I just kind of made that up, and so you
+may want to created a
+
+83
+00:04:13.560 --> 00:04:18.130
+function that allows people to sub, to
+kind of extract the elements of a vector.
+
+84
+00:04:18.130 --> 00:04:20.290
+That are above an arbitrary other number,
+right?
+
+85
+00:04:20.290 --> 00:04:21.580
+And so, so it could be ten, it could
+
+86
+00:04:21.580 --> 00:04:23.400
+be 12, it could be five, it could be
+anything.
+
+87
+00:04:23.400 --> 00:04:26.720
+So maybe you'll want to allow the user to
+specify that number.
+
+88
+00:04:26.720 --> 00:04:29.446
+So I'll just call, I'll create a new
+function here.
+
+89
+00:04:29.446 --> 00:04:30.552
+Call above.
+
+90
+00:04:30.552 --> 00:04:33.350
+So it doesn't have the ten encoded in it.
+
+91
+00:04:33.350 --> 00:04:35.230
+I'll use the function directive, and I'll
+have a
+
+92
+00:04:35.230 --> 00:04:37.890
+second arbitrary called n, which can be
+any number really.
+
+93
+00:04:37.890 --> 00:04:40.920
+[SOUND] So let's start it off, we'll get
+the curly braces in there,
+
+94
+00:04:40.920 --> 00:04:44.630
+and now I'll create a logical statement
+that x is greater than n.
+
+95
+00:04:44.630 --> 00:04:44.790
+Right?
+
+96
+00:04:44.790 --> 00:04:48.930
+And then I'll subset the vector x based on
+that logical statement.
+
+97
+00:04:48.930 --> 00:04:50.618
+So now if I can source this into R.
+
+98
+00:04:50.618 --> 00:04:56.820
+Oops, and I can run my function here.
+
+99
+00:04:56.820 --> 00:04:59.410
+So I'll just create a vector.
+
+100
+00:04:59.410 --> 00:05:01.981
+Let's say x is one through 20.
+
+101
+00:05:03.030 --> 00:05:05.800
+And I'll say above x.
+
+102
+00:05:06.975 --> 00:05:10.320
+Oh I, you see, so I didn't specify the
+number n, so it's not going to know
+
+103
+00:05:10.320 --> 00:05:14.008
+what to cut it off at, so I need to
+specify the threshold, so let's do ah,12.
+
+104
+00:05:14.008 --> 00:05:16.740
+And you can see it returned all the
+numbers that are greater than 12.
+
+105
+00:05:16.740 --> 00:05:20.940
+So that's kind of as we expected, and so
+the function appears to be working well.
+
+106
+00:05:20.940 --> 00:05:22.720
+Now let's suppose that maybe there is
+something
+
+107
+00:05:22.720 --> 00:05:25.210
+special about the number ten, and maybe
+it's
+
+108
+00:05:25.210 --> 00:05:27.790
+something that people are going to be
+kind of be
+
+109
+00:05:27.790 --> 00:05:30.340
+doing very often and it's a very common
+number.
+
+110
+00:05:30.340 --> 00:05:32.130
+So you might you want to specify a default
+
+111
+00:05:32.130 --> 00:05:33.850
+argument so you might want to the default
+to
+
+112
+00:05:33.850 --> 00:05:35.720
+be ten, so remember when I ran the
+
+113
+00:05:35.720 --> 00:05:39.060
+function before and I didn't specify the
+number n.
+
+114
+00:05:39.060 --> 00:05:40.560
+It gave me an error or maybe you don't
+want
+
+115
+00:05:40.560 --> 00:05:43.390
+people to have to encounter that error,
+and so you'll specify
+
+116
+00:05:43.390 --> 00:05:46.390
+a default value n equals ten so people
+don't specify
+
+117
+00:05:46.390 --> 00:05:49.680
+the cutoff value n, it will just
+automatically default to ten.
+
+118
+00:05:49.680 --> 00:05:53.620
+So now I can run this in R and now if I
+
+119
+00:05:53.620 --> 00:05:57.020
+do above, which is x, you see I don't get
+the error anymore.
+
+120
+00:05:57.020 --> 00:06:00.280
+It automatically gives you all the numbers
+that are bigger than ten.
+
+121
+00:06:00.280 --> 00:06:02.180
+So it's kind of nice in R when you're
+writing functions
+
+122
+00:06:02.180 --> 00:06:05.430
+to be able to specify default values like
+this that make the
+
+123
+00:06:05.430 --> 00:06:08.300
+life of the user just a little bit easier,
+specially for very
+
+124
+00:06:08.300 --> 00:06:12.210
+common cases, where it's not important
+that the user specify an argument.
+
+125
+00:06:13.500 --> 00:06:17.260
+So those are some very simple functions,
+in R that can be used
+
+126
+00:06:17.260 --> 00:06:21.660
+to kind of process data or make do simple
+calculations, like adding two numbers.
+
+127
+00:06:21.660 --> 00:06:24.300
+The next function I want to talk about is,
+is just going to take
+
+128
+00:06:24.300 --> 00:06:28.010
+a matrix or a dataframe and calculate the
+mean of each column.
+
+129
+00:06:28.010 --> 00:06:30.090
+Right, so this is slightly more
+complicated
+
+130
+00:06:30.090 --> 00:06:31.410
+you, you have to take your argument and
+
+131
+00:06:31.410 --> 00:06:34.640
+then you have to loop through each column
+to calculate the mean of each one, right.
+
+132
+00:06:34.640 --> 00:06:37.440
+So this is going to involve using a
+for-loop
+
+133
+00:06:37.440 --> 00:06:39.750
+and, and so we'll talk about it here.
+
+134
+00:06:39.750 --> 00:06:44.310
+So let's call this function column mean,
+because that's what it does,
+
+135
+00:06:46.270 --> 00:06:48.850
+and I'll use the function directive here,
+now it's going to take an argument.
+
+136
+00:06:48.850 --> 00:06:50.370
+I like to call my arguments x, you don't
+have
+
+137
+00:06:50.370 --> 00:06:52.460
+to so why don't we just call it y for fun.
+
+138
+00:06:53.520 --> 00:06:57.170
+And so y is going to be a data frame or a
+matrix, and we're going to go
+
+139
+00:06:57.170 --> 00:06:58.650
+through the columns of this data frame or
+
+140
+00:06:58.650 --> 00:07:01.020
+matrix and calculate the mean of each
+column.
+
+141
+00:07:01.020 --> 00:07:02.390
+So the first thing I need to figure out is
+how
+
+142
+00:07:02.390 --> 00:07:05.180
+many columns does this thing have, and
+that can be easily done.
+
+143
+00:07:05.180 --> 00:07:09.430
+I'll call it n c for number of columns and
+we can use the n call function for that.
+
+144
+00:07:10.440 --> 00:07:12.990
+That will calculate the number of columns,
+and, and then I need to
+
+145
+00:07:12.990 --> 00:07:16.990
+initialize a vector that's going to that's
+going to store the means for each column.
+
+146
+00:07:16.990 --> 00:07:19.470
+The length of this vector has to equal the
+number of columns, right.
+
+147
+00:07:19.470 --> 00:07:23.700
+So I'll just call it means, and it'll be a
+numeric vector
+
+148
+00:07:23.700 --> 00:07:25.800
+equal to the length of the number, equal
+to the number of columns.
+
+149
+00:07:25.800 --> 00:07:27.130
+So this is just an empty vector.
+
+150
+00:07:27.130 --> 00:07:28.610
+It doesn't, it's going to have, it's
+going to
+
+151
+00:07:28.610 --> 00:07:30.680
+be initialized to, to be all zeros.
+
+152
+00:07:30.680 --> 00:07:32.500
+But we're going to fill it as we go
+through the column.
+
+153
+00:07:32.500 --> 00:07:34.720
+So now we want to for-loop through the
+columns.
+
+154
+00:07:34.720 --> 00:07:40.520
+And I'll say i is in and then I'll say one
+through nc.
+
+155
+00:07:40.520 --> 00:07:43.900
+So this creates a, an integer vector
+starts
+
+156
+00:07:43.900 --> 00:07:46.180
+a one and ends at the number of columns,
+
+157
+00:07:46.180 --> 00:07:48.720
+and then I'm going to for-loop through and
+for each
+
+158
+00:07:48.720 --> 00:07:52.230
+I, I'm just going to assign to my means
+vector.
+
+159
+00:07:52.230 --> 00:07:55.900
+The mean of x bracket I, right.
+
+160
+00:07:55.900 --> 00:07:57.570
+Oh sorry that's called y here now.
+
+161
+00:08:01.220 --> 00:08:03.600
+And that's it, and then so for I, I
+haven't returned
+
+162
+00:08:03.600 --> 00:08:06.590
+anything yet, so right now this function
+doesn't do anything particularly useful.
+
+163
+00:08:06.590 --> 00:08:08.330
+But what I want to do is return the vector
+
+164
+00:08:08.330 --> 00:08:11.660
+of means and so I'm just going to return
+that.
+
+165
+00:08:11.660 --> 00:08:13.070
+And that's, since that's the last
+expression
+
+166
+00:08:13.070 --> 00:08:15.330
+in the function that what will get
+returned.
+
+167
+00:08:16.530 --> 00:08:19.080
+So I can source this into R,
+
+168
+00:08:22.390 --> 00:08:25.320
+and I'll just find some arbitrary dataset.
+
+169
+00:08:25.320 --> 00:08:27.330
+We can use the air quality dataset I
+guess.
+
+170
+00:08:27.330 --> 00:08:31.200
+I'll just take the column means of that,
+and see how it works.
+
+171
+00:08:34.220 --> 00:08:35.880
+Okay, so I, there are six, I think there
+are
+
+172
+00:08:35.880 --> 00:08:37.960
+six columns in this dataset, so it gave me
+six means.
+
+173
+00:08:37.960 --> 00:08:40.910
+Now you can see that the first two columns
+have NAs.
+
+174
+00:08:40.910 --> 00:08:43.160
+And that's because it, if the, if the
+vector has
+
+175
+00:08:43.160 --> 00:08:45.510
+an na in it, then you can't calculate the
+mean.
+
+176
+00:08:45.510 --> 00:08:48.810
+And so the one thing you might want to do,
+is, by default, is throw
+
+177
+00:08:48.810 --> 00:08:49.810
+out all of the missing values and
+
+178
+00:08:49.810 --> 00:08:52.750
+just calculate the mean amongst the
+observed values.
+
+179
+00:08:52.750 --> 00:08:55.760
+And so, you'll notice that a lot of
+functions have a feature where it's like,
+
+180
+00:08:55.760 --> 00:08:59.200
+where they, you can, you can choose
+whether you want to remove the nas or not.
+
+181
+00:08:59.200 --> 00:09:01.560
+But let me just add up an argument here,
+it's called [UNKNOWN] na.
+
+182
+00:09:01.560 --> 00:09:05.100
+And it will default to true, right.
+
+183
+00:09:05.100 --> 00:09:07.150
+And then I'll pass this argument to the
+mean function.
+
+184
+00:09:07.150 --> 00:09:12.060
+So the mean has an na.rm argument, and
+I'll pass at this value.
+
+185
+00:09:13.900 --> 00:09:20.520
+And so now I can default or remove the
+na's when I, calculate my column mean.
+
+186
+00:09:20.520 --> 00:09:26.580
+So sources send to R and with the run in
+the console column mean, and
+
+187
+00:09:28.900 --> 00:09:30.980
+so now the default will be now I get my
+means
+
+188
+00:09:30.980 --> 00:09:33.870
+for those columns because the default was
+to remove the na's.
+
+189
+00:09:33.870 --> 00:09:38.010
+I could say false here, and then my na's
+will come back.
+
+190
+00:09:38.010 --> 00:09:41.080
+So I can always choose to kind of go back
+to the old behavior if I wanted to.
+
+191
+00:09:42.080 --> 00:09:43.680
+So the last thing you want to do any time
+you're writing a
+
+192
+00:09:43.680 --> 00:09:46.700
+function the most important thing of
+course is to save your file.
+
+193
+00:09:46.700 --> 00:09:48.080
+So right now this file is unsaved.
+
+194
+00:09:48.080 --> 00:09:50.530
+If you don't save it and R Studio crashes
+or something
+
+195
+00:09:50.530 --> 00:09:54.070
+happens you'll lose all your work and so
+you want to go
+
+196
+00:09:54.070 --> 00:09:59.110
+to the save I meant save as menu, and just
+save
+
+197
+00:09:59.110 --> 00:10:01.729
+your file as, you know, functions or
+whatever you want to call it.
+
+198
+00:10:03.460 --> 00:10:08.140
+And give it the .r extension, and now
+you're code is saved to a file.
+
+199
+00:10:09.360 --> 00:10:10.930
+So that should get you started, just
+writing
+
+200
+00:10:10.930 --> 00:10:13.590
+some simple functions in R, for your
+programming
+
+201
+00:10:13.590 --> 00:10:15.730
+assignment you'll have to write a few
+functions
+
+202
+00:10:15.730 --> 00:10:18.160
+that kind of go through and look at data.
+
+203
+00:10:18.160 --> 00:10:19.900
+But I just wanted to get you started
+writing your first
+
+204
+00:10:19.900 --> 00:10:22.890
+functions so that you know kind of how the
+directive, the function directive
+
+205
+00:10:22.890 --> 00:10:25.580
+works, how the arguments work, and you can
+play around a little
+
+206
+00:10:25.580 --> 00:10:28.610
+bit with with more complicated ideas as
+you work through the assignments.

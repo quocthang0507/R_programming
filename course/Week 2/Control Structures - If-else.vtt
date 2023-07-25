@@ -1,0 +1,156 @@
+WEBVTT
+
+1
+00:00:04.186 --> 00:00:08.411
+So the first structure is if, so this is
+a, this, the, the if combined with else
+
+2
+00:00:08.411 --> 00:00:12.762
+allows you to test logic conditions, and
+to let the r program do something, give,
+
+3
+00:00:12.762 --> 00:00:16.590
+whether or not, depending on whether
+that conditions is true or false.
+
+4
+00:00:16.590 --> 00:00:20.870
+So if the condition is true then you do
+something else you do something else.
+
+5
+00:00:20.870 --> 00:00:22.910
+That's the typical kind of construct.
+
+6
+00:00:22.910 --> 00:00:24.400
+The else part is optional, so
+
+7
+00:00:24.400 --> 00:00:27.140
+you could just have an if statement
+to do something if something is true.
+
+8
+00:00:28.250 --> 00:00:32.540
+But you can have the else part if you
+wanted to do something alternatively.
+
+9
+00:00:32.540 --> 00:00:36.330
+If you want to do more, there's more
+than one possible type of condition you
+
+10
+00:00:36.330 --> 00:00:38.200
+can tick, you, you want to check.
+
+11
+00:00:38.200 --> 00:00:41.340
+You can say if, and then,
+else, if and then, else.
+
+12
+00:00:41.340 --> 00:00:42.940
+else, if there can be any number of else,
+
+13
+00:00:42.940 --> 00:00:47.590
+if conditions in a constraint like this
+and the else one has to be at the end.
+
+14
+00:00:49.910 --> 00:00:54.580
+So there are a couple of different ways
+that you can formulate the if else
+
+15
+00:00:54.580 --> 00:00:58.110
+construct in r, it's a little, this is a
+little bit different from other languages.
+
+16
+00:00:58.110 --> 00:00:59.830
+Case you haven't seen something like this.
+
+17
+00:00:59.830 --> 00:01:03.030
+So the first is pretty standard if x,
+if the con,
+
+18
+00:01:03.030 --> 00:01:08.920
+if sorry if the symbol x is greater than
+3 then you select, you set y equal to 10.
+
+19
+00:01:08.920 --> 00:01:11.435
+If it's not greater than 3
+then you set y equal to 0.
+
+20
+00:01:12.470 --> 00:01:16.180
+So that's inside the if-else construct,
+there's, there's an assignment of y
+
+21
+00:01:16.180 --> 00:01:21.250
+to a specific type of value depending
+on what the value of 3, of x if.
+
+22
+00:01:21.250 --> 00:01:24.210
+But however in r you can do it
+a different way you can say y is
+
+23
+00:01:24.210 --> 00:01:26.620
+equal to the entire if else construct.
+
+24
+00:01:26.620 --> 00:01:28.636
+So if x is greater than 3, 10 or
+
+25
+00:01:28.636 --> 00:01:30.980
+0 depending on whether that
+conditions true or not.
+
+26
+00:01:30.980 --> 00:01:34.040
+So this is a valid formulation also.
+
+27
+00:01:34.040 --> 00:01:35.080
+Sometimes it's, it's,
+
+28
+00:01:35.080 --> 00:01:40.190
+it's useful to read this type of
+writing because it, it allows you to
+
+29
+00:01:40.190 --> 00:01:44.850
+realize that the entire if else construct
+is all about assigning a value to y.
+
+30
+00:01:47.810 --> 00:01:50.620
+So as I said before the else clause
+is not really necessary you can
+
+31
+00:01:50.620 --> 00:01:51.740
+always test the condition and
+
+32
+00:01:51.740 --> 00:01:55.740
+do something and then do nothing if
+that condition happens to be false.
+
+33
+00:01:55.740 --> 00:01:58.310
+So you can and you can just test
+multiple conditions in a row if you want
