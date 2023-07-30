@@ -1,0 +1,843 @@
+WEBVTT
+
+1
+00:00:00.720 --> 00:00:04.710
+So far, we've talked about functions and
+the scoping rules in R, and
+
+2
+00:00:04.710 --> 00:00:07.460
+you might be wondering why any of this
+information is at all useful.
+
+3
+00:00:07.460 --> 00:00:09.870
+So, in addition to just writing regular
+functions
+
+4
+00:00:09.870 --> 00:00:13.690
+for manipulating data or for doing
+calculations, there's one
+
+5
+00:00:13.690 --> 00:00:17.430
+combination of the scoping rules and
+functions which can
+
+6
+00:00:17.430 --> 00:00:20.400
+be very useful in statistics, and that's
+for optimization.
+
+7
+00:00:20.400 --> 00:00:25.840
+So there are a few optimization routines
+in R called optim and nlm and another one
+
+8
+00:00:25.840 --> 00:00:27.090
+called optimize.
+
+9
+00:00:27.090 --> 00:00:28.950
+And they all require that you pass a
+
+10
+00:00:28.950 --> 00:00:32.690
+function to those functions, whose
+argument is vector parameters.
+
+11
+00:00:32.690 --> 00:00:33.800
+So for example there's going to be some
+
+12
+00:00:33.800 --> 00:00:36.040
+function that you want to minimize or
+maximize.
+
+13
+00:00:37.230 --> 00:00:42.850
+and, over range of parameters, and
+functions like Optum and lmand take,
+
+14
+00:00:42.850 --> 00:00:48.660
+take that kind of objective function, and
+try to find the minimum or the maximum.
+
+15
+00:00:48.660 --> 00:00:51.380
+so, the idea is that, but in statistics
+
+16
+00:00:51.380 --> 00:00:55.690
+this objective function that we're trying
+to minimize or maximize, just like a log
+
+17
+00:00:55.690 --> 00:00:58.710
+likelihood, is going to depend on other
+things,
+
+18
+00:00:58.710 --> 00:01:01.360
+besides just the parameters that you're
+maximizing over.
+
+19
+00:01:01.360 --> 00:01:03.940
+So, for, in particular, it's going to
+depend on things like data.
+
+20
+00:01:03.940 --> 00:01:06.620
+And so, the question is, well, how do you
+specify a function.
+
+21
+00:01:06.620 --> 00:01:10.570
+Depend, depends on parameters and data and
+perhaps many, many other things.
+
+22
+00:01:11.940 --> 00:01:16.710
+In a clean, way and to, to write it in a,
+in a, in kind of readable
+
+23
+00:01:16.710 --> 00:01:19.350
+programming style and make it easier for
+the
+
+24
+00:01:19.350 --> 00:01:21.680
+user to kind of use these types of
+functions.
+
+25
+00:01:22.840 --> 00:01:23.480
+And so.
+
+26
+00:01:23.480 --> 00:01:25.380
+And further more, when you're doing these
+kinds of
+
+27
+00:01:25.380 --> 00:01:27.860
+optimizations in many cases it's useful to
+hold certain
+
+28
+00:01:27.860 --> 00:01:30.870
+parameters fixed and for example, fix a
+parameter to
+
+29
+00:01:30.870 --> 00:01:32.930
+a certain value then optimize over the
+other parameters.
+
+30
+00:01:34.480 --> 00:01:37.630
+So, the basic idea with any optimization
+problem in
+
+31
+00:01:37.630 --> 00:01:42.040
+r is you can create a contructor function
+which
+
+32
+00:01:42.040 --> 00:01:44.740
+constructs the objective function.
+
+33
+00:01:44.740 --> 00:01:47.720
+And then once the ob, and the objective
+function idea, that idea is that it would
+
+34
+00:01:47.720 --> 00:01:51.090
+have all of the data, and all of the other
+things that it depends on would
+
+35
+00:01:51.090 --> 00:01:53.760
+be kind of included in the defining
+environment
+
+36
+00:01:53.760 --> 00:01:55.240
+of that function, so that it would kind
+
+37
+00:01:55.240 --> 00:01:57.870
+of carry along those other things like
+baggage,
+
+38
+00:01:57.870 --> 00:02:00.880
+you know, in its, in its enclosing
+environment.
+
+39
+00:02:00.880 --> 00:02:02.480
+And so that way you don't have to
+
+40
+00:02:02.480 --> 00:02:05.020
+specify those things every time you call
+the function.
+
+41
+00:02:05.020 --> 00:02:07.180
+The only thing that you need to specify is
+the value
+
+42
+00:02:07.180 --> 00:02:08.310
+of the parameter.
+
+43
+00:02:08.310 --> 00:02:10.080
+So, for here I've got, I've written
+
+44
+00:02:10.080 --> 00:02:13.660
+a constructor function that creates a
+negative log-likelihood.
+
+45
+00:02:13.660 --> 00:02:16.450
+So just as a note, most of the functions
+in like optim and
+
+46
+00:02:16.450 --> 00:02:21.830
+anolam and optimize and, in R, they all
+attempt to minimize functions by default.
+
+47
+00:02:21.830 --> 00:02:24.560
+And so when you write your objective
+functions
+
+48
+00:02:24.560 --> 00:02:26.430
+if they're designed to be maximized, then
+you
+
+49
+00:02:26.430 --> 00:02:28.100
+have to kind of take the, the negative of
+
+50
+00:02:28.100 --> 00:02:29.400
+those functions so that you can minimize
+them.
+
+51
+00:02:30.900 --> 00:02:32.260
+So another thing is that all
+
+52
+00:02:32.260 --> 00:02:35.520
+the code in this example all, will be on
+the website so you can
+
+53
+00:02:35.520 --> 00:02:38.220
+take a look at the code and try to run it
+yourself if you want.
+
+54
+00:02:38.220 --> 00:02:40.950
+So here I've got a constructor function
+that's making a
+
+55
+00:02:40.950 --> 00:02:42.570
+negative log-likelihood because I want
+
+56
+00:02:42.570 --> 00:02:45.370
+to minimize the negative log-likelihood
+function.
+
+57
+00:02:45.370 --> 00:02:46.700
+So this is my objective function.
+
+58
+00:02:46.700 --> 00:02:49.740
+It's going to depend on some data and so
+that's the argument.
+
+59
+00:02:49.740 --> 00:02:53.860
+So the data is the first argument to this
+make.makelike function.
+
+60
+00:02:53.860 --> 00:02:57.590
+The second argument is a logical vector
+called fixed and
+
+61
+00:02:57.590 --> 00:03:02.020
+it determines whether or not I want to
+have, want to fix some of the parameters.
+
+62
+00:03:03.090 --> 00:03:06.620
+So, now ins- inside the constructor
+function I have to find another
+
+63
+00:03:06.620 --> 00:03:10.720
+function which is it takes an argument
+called p for the parameters.
+
+64
+00:03:10.720 --> 00:03:14.340
+And this is going to be the parameter
+vector that I want to optimize over.
+
+65
+00:03:14.340 --> 00:03:15.530
+So basically what this function's going to
+do
+
+66
+00:03:15.530 --> 00:03:18.050
+is going to return log-likelihood for a
+normal
+
+67
+00:03:18.050 --> 00:03:19.660
+distribution and I'm go- I'm going to
+want to
+
+68
+00:03:19.660 --> 00:03:22.050
+fit my data to this normal distribution.
+
+69
+00:03:22.050 --> 00:03:22.620
+And so we know that
+
+70
+00:03:22.620 --> 00:03:24.360
+a normal distribution has two parameters,
+the
+
+71
+00:03:24.360 --> 00:03:27.400
+mean, mu, and a standard deviation, sigma.
+
+72
+00:03:27.400 --> 00:03:30.030
+So those are going to be the two
+parameters that I want to optimize over.
+
+73
+00:03:31.080 --> 00:03:34.900
+And so here I'm just defining, the law of
+likelihood,
+
+74
+00:03:34.900 --> 00:03:37.120
+and taking the negative of it, so I can
+minimize it.
+
+75
+00:03:37.120 --> 00:03:39.130
+And, what, what the constructor function
+does
+
+76
+00:03:39.130 --> 00:03:42.530
+is returns the function as the return
+value.
+
+77
+00:03:42.530 --> 00:03:46.460
+[NOISE]
+
+78
+00:03:46.460 --> 00:03:47.840
+So, here I'm going to simulate
+
+79
+00:03:47.840 --> 00:03:51.679
+some normal random variables, mean 1 and
+vari, and sorry, mean 2.
+
+80
+00:03:51.679 --> 00:03:54.620
+And, and then I'm going to make my
+constructor function,
+
+81
+00:03:54.620 --> 00:03:58.940
+I'm going to call my constructor function
+with these random variables.
+
+82
+00:03:58.940 --> 00:04:02.225
+And create my NLL or Negative Log
+Likelihood function.
+
+83
+00:04:02.225 --> 00:04:05.067
+So,when I print out this function here,you
+will see that
+
+84
+00:04:05.067 --> 00:04:07.213
+it, I see the body of the function looks
+like
+
+85
+00:04:07.213 --> 00:04:10.055
+the code for the normal distribution.Its
+just like in the
+
+86
+00:04:10.055 --> 00:04:13.419
+construction function before, but if you
+look at the environment,
+
+87
+00:04:13.419 --> 00:04:17.011
+you will see this little tag that at the
+bottom that says environment.
+
+88
+00:04:17.011 --> 00:04:20.621
+And that's the enclosing environment for
+this function.
+
+89
+00:04:20.621 --> 00:04:25.431
+And so normally because when you define a
+function in the global environment,
+
+90
+00:04:25.431 --> 00:04:30.290
+that it would just you, there wouldn't be
+a special environment tag down here.
+
+91
+00:04:30.290 --> 00:04:33.980
+However, when you define a function inside
+of another function that and there has
+
+92
+00:04:33.980 --> 00:04:38.770
+to be a pointer to the, to that defining
+environment so that R can remember
+
+93
+00:04:38.770 --> 00:04:40.950
+kind of what the values of all the free
+parameters are going to be.
+
+94
+00:04:41.970 --> 00:04:49.490
+And so, if you look at, this, this is, 0 x
+16 5 b 1 a 4.
+
+95
+00:04:49.490 --> 00:04:51.910
+That is the hexadecimal of.
+
+96
+00:04:51.910 --> 00:04:53.810
+A number which gives the address of
+
+97
+00:04:53.810 --> 00:04:56.640
+where the defining environment is located
+in memory.
+
+98
+00:04:56.640 --> 00:04:59.650
+So if you look at the body of the nl
+function here, you'll see
+
+99
+00:04:59.650 --> 00:05:03.770
+that pretty much everything here is either
+a local variable or its a param-,
+
+100
+00:05:03.770 --> 00:05:05.780
+it comes with a parameter vector p.
+
+101
+00:05:05.780 --> 00:05:09.250
+However, there was one argument, th-,
+sorry, there's one variable here, the data
+
+102
+00:05:09.250 --> 00:05:12.550
+variable, which is not an argument to the
+function And it's not a
+
+103
+00:05:12.550 --> 00:05:19.480
+local variable, so it's a free variable
+but the data come from the make neglog
+
+104
+00:05:19.480 --> 00:05:23.280
+like functions or constructor function
+which originally pass the data to that.
+
+105
+00:05:23.280 --> 00:05:26.040
+And so the data can be looked up in the
+environment that the function
+
+106
+00:05:26.040 --> 00:05:29.020
+is defined and it knows what the data are,
+you don't have to tell
+
+107
+00:05:29.020 --> 00:05:31.290
+what the data are it's already fixed in
+the function.
+
+108
+00:05:31.290 --> 00:05:35.790
+So if you look at the environment for this
+negative log-likelihood function by
+
+109
+00:05:35.790 --> 00:05:41.570
+calling LS, you'll see that the the data
+variables there.
+
+110
+00:05:41.570 --> 00:05:44.160
+The fixed variable there which indicates
+which parameter should
+
+111
+00:05:44.160 --> 00:05:48.090
+be fixed, and then there's also the params
+variable there.
+
+112
+00:05:48.090 --> 00:05:51.830
+So those are all.
+Those three things are all free variables.
+
+113
+00:05:51.830 --> 00:05:54.200
+Inside this negative log likelihood
+function,
+
+114
+00:05:54.200 --> 00:05:56.400
+but they're defined in the defining
+environment.
+
+115
+00:05:57.610 --> 00:06:01.080
+So now I can call optim on my NLL function
+and I'm
+
+116
+00:06:01.080 --> 00:06:04.140
+going to pass some initial values for
+musing to zero and sigma to
+
+117
+00:06:04.140 --> 00:06:08.410
+one, and it'll run and you'll see that
+when it optimizes the
+
+118
+00:06:08.410 --> 00:06:13.980
+function the estimates turn out to be 1.2
+for muand 1.78 for sigma.
+
+119
+00:06:13.980 --> 00:06:17.440
+So pretty close to the truth, remember,
+which was one and two.
+
+120
+00:06:17.440 --> 00:06:19.480
+Now I could, if I wanted to, I could fix
+sigma
+
+121
+00:06:19.480 --> 00:06:22.300
+to be equal to its true value and then
+just optimize
+
+122
+00:06:22.300 --> 00:06:25.450
+over mu to get the mean, and so when I
+call make.
+
+123
+00:06:25.450 --> 00:06:30.582
+So I need to reconstruct my optim, my
+objective function by calling make.neg log
+
+124
+00:06:30.582 --> 00:06:35.570
+like, and here I set the fixed variable to
+be false from U.
+
+125
+00:06:35.570 --> 00:06:36.720
+And then two for Sigma.
+
+126
+00:06:36.720 --> 00:06:40.870
+So I'm setting Sigma to be equal to two,
+and I'm letting U be three.
+
+127
+00:06:40.870 --> 00:06:41.320
+So here.
+
+128
+00:06:41.320 --> 00:06:44.540
+Now I can just call, optimize, because
+optimize will minimize the function of
+
+129
+00:06:44.540 --> 00:06:45.610
+a single variable only.
+
+130
+00:06:45.610 --> 00:06:47.640
+And because I only have a single variable
+in
+
+131
+00:06:47.640 --> 00:06:49.670
+this, function, I can use, I can use
+optimize.
+
+132
+00:06:49.670 --> 00:06:52.010
+And you can see that it, it, it estimates
+made
+
+133
+00:06:52.010 --> 00:06:56.254
+to be about 1.21 so slightly different
+from the previous optimization.
+
+134
+00:06:56.254 --> 00:07:00.707
+I can also fix mu to be one and try to
+optimize over over sigma and but in
+
+135
+00:07:00.707 --> 00:07:02.824
+order, in order to do that I have to
+
+136
+00:07:02.824 --> 00:07:07.630
+construct another function for
+optimization call optimize on that.
+
+137
+00:07:07.630 --> 00:07:09.580
+Here I get my f cent of sigma
+
+138
+00:07:09.580 --> 00:07:11.140
+to be about 1.8.
+If
+
+139
+00:07:14.450 --> 00:07:18.780
+I want, I can plot the likelihood, or the
+log likelihood, and this is very easy
+
+140
+00:07:18.780 --> 00:07:22.800
+to do when I have a function that doesn't
+depend on a lot of other parameters.
+
+141
+00:07:22.800 --> 00:07:24.890
+So here I'm going to make the neg, the
+negative log likelihood.
+
+142
+00:07:24.890 --> 00:07:27.460
+I'm going to fix mu to be equal to one and
+I'm
+
+143
+00:07:27.460 --> 00:07:32.420
+going to plot the negative log likelihood
+as a function of sigma.
+
+144
+00:07:32.420 --> 00:07:34.980
+And so I construct my function here, in
+LL.
+
+145
+00:07:34.980 --> 00:07:39.840
+I I construct a sequence of grid values
+for the X coordinate, and then I
+
+146
+00:07:39.840 --> 00:07:45.730
+apply my NLL function to all those grid
+points, and create my Y variable.
+
+147
+00:07:45.730 --> 00:07:49.330
+So, now I can just plot this as a, as a, I
+can plot
+
+148
+00:07:49.330 --> 00:07:53.690
+the Xs and the Ys and connect the dots
+using the type equal to L.
+
+149
+00:07:53.690 --> 00:07:58.400
+Similarly I can plot the negative
+likelihood as a function of the
+
+150
+00:07:58.400 --> 00:08:02.920
+mean by fixing sigma to equal to two and
+letting mu vary.
+
+151
+00:08:02.920 --> 00:08:04.860
+And similarly, I create another grid of
+
+152
+00:08:04.860 --> 00:08:07.600
+points another set of grid points and I
+evaluate at the
+
+153
+00:08:07.600 --> 00:08:10.040
+NLL function on those grid points and then
+make a plot.
+
+154
+00:08:11.680 --> 00:08:14.910
+So, the nice thing about lexical scoping
+in R is that, if
+
+155
+00:08:14.910 --> 00:08:18.730
+you're doing minimization or optimization
+of some sort, you can build these
+
+156
+00:08:18.730 --> 00:08:23.040
+objective functions, which contain all the
+necessary data, and all the other
+
+157
+00:08:23.040 --> 00:08:27.940
+kind of bells and whistles that are
+required, to evaluate that function.
+
+158
+00:08:27.940 --> 00:08:29.760
+Into the closing environment of the
+function.
+
+159
+00:08:29.760 --> 00:08:32.420
+So that when you call the objective
+function, you don't need
+
+160
+00:08:32.420 --> 00:08:35.600
+to specify the data, and all those other
+things every single time.
+
+161
+00:08:35.600 --> 00:08:38.070
+They're kind of built in to the
+environment and
+
+162
+00:08:38.070 --> 00:08:40.650
+they'll be automatically looked up in the
+right place.
+
+163
+00:08:40.650 --> 00:08:43.010
+So you don't have to carry on these long
+argument lists.
+
+164
+00:08:44.070 --> 00:08:46.710
+That in order to evaluate the function
+every single time.
+
+165
+00:08:46.710 --> 00:08:48.690
+So this can be very useful for interactive
+work,
+
+166
+00:08:48.690 --> 00:08:52.360
+and for exploratory work like for example
+making these plots.
+
+167
+00:08:52.360 --> 00:08:55.040
+And this can so the code for these types
+of functions
+
+168
+00:08:55.040 --> 00:08:58.700
+can be very simple and kind of clean
+because
+
+169
+00:08:58.700 --> 00:09:01.130
+you don't have to carry on these large
+argument lists.
+
+170
+00:09:01.130 --> 00:09:05.450
+So just for reference, the main reference
+for this type of Lexical
+
+171
+00:09:05.450 --> 00:09:09.950
+Scoping rules of R, is the paper in the
+journal Computation and
+
+172
+00:09:09.950 --> 00:09:11.940
+Graphical Statistics called Lexical Scope
+and
+
+173
+00:09:11.940 --> 00:09:14.380
+Statistical Computing, and Robert
+Gentleman and
+
+174
+00:09:14.380 --> 00:09:18.620
+Ross Ihaka who created R, have some very
+nice examples in this article.

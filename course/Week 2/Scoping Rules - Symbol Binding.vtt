@@ -1,0 +1,978 @@
+WEBVTT
+
+1
+00:00:05.670 --> 00:00:08.800
+One topic that's important to discuss in R
+is
+
+2
+00:00:08.800 --> 00:00:10.630
+a question of, you know, when a function
+sees a
+
+3
+00:00:10.630 --> 00:00:15.200
+symbol in its body and it's executing
+inside the R
+
+4
+00:00:15.200 --> 00:00:18.800
+environment, how does it assign a value to
+that symbol?
+
+5
+00:00:18.800 --> 00:00:23.660
+So for example, take a look at this, this
+function here that I've defined called lm.
+
+6
+00:00:23.660 --> 00:00:26.200
+So lm here is a function which takes
+
+7
+00:00:26.200 --> 00:00:29.240
+its argument x, and it multiplies it times
+itself.
+
+8
+00:00:29.240 --> 00:00:31.170
+So you can think of it as squaring the,
+
+9
+00:00:31.170 --> 00:00:32.232
+squaring the input.
+
+10
+00:00:32.232 --> 00:00:38.220
+Now, there's already a function in R
+called lm,
+
+11
+00:00:38.220 --> 00:00:43.260
+so I've created an, a function here also
+called lm, so when I call lm
+
+12
+00:00:43.260 --> 00:00:47.180
+somewhere else in R, maybe in another
+function or something like that
+
+13
+00:00:47.180 --> 00:00:50.610
+how does R know what value to assign to
+the symbol lm?
+
+14
+00:00:50.610 --> 00:00:52.980
+So it sees the symbol lm, and how does it
+know
+
+15
+00:00:52.980 --> 00:00:56.270
+whether to call the function that I just
+defined here or the
+
+16
+00:00:56.270 --> 00:00:57.980
+lm function that's in the stats package
+that's
+
+17
+00:00:57.980 --> 00:01:00.818
+used to model, you know, to fit linear
+models.
+
+18
+00:01:00.818 --> 00:01:07.187
+And so the, the idea that R needs to bind
+a value to a symbol.
+
+19
+00:01:07.187 --> 00:01:09.947
+So in this case the, in the previous
+slide, the symbol
+
+20
+00:01:09.947 --> 00:01:12.076
+was lm, and it needs to bind a value to
+it.
+
+21
+00:01:12.076 --> 00:01:13.957
+And the value is going to be a function of
+some sort.
+
+22
+00:01:13.957 --> 00:01:16.171
+It's either going to be my function or
+it's
+
+23
+00:01:16.171 --> 00:01:18.840
+going to be the function in the stats
+package.
+
+24
+00:01:18.840 --> 00:01:21.340
+And so when r tries to bind a value to a
+symbol what
+
+25
+00:01:21.340 --> 00:01:22.670
+it does is, it searches through a
+
+26
+00:01:22.670 --> 00:01:25.670
+series of environments to find the
+appropriate value.
+
+27
+00:01:25.670 --> 00:01:28.340
+So environments are kind of, you can think
+of them
+
+28
+00:01:28.340 --> 00:01:32.840
+as lists of objects and values or symbols
+and values.
+
+29
+00:01:32.840 --> 00:01:35.130
+And so, when you're working on the command
+line, and
+
+30
+00:01:35.130 --> 00:01:38.180
+you need to retrieve a value of an R
+object basically,
+
+31
+00:01:38.180 --> 00:01:40.766
+what happens is, the first thing that
+happens is, you search
+
+32
+00:01:40.766 --> 00:01:44.780
+the global environment for a symbol name
+matching the one requested.
+
+33
+00:01:44.780 --> 00:01:46.350
+And so for the global environment, it's
+just
+
+34
+00:01:46.350 --> 00:01:48.150
+your workspace, and it consists of all the
+
+35
+00:01:48.150 --> 00:01:51.610
+things that you've defined or loaded into
+R.
+
+36
+00:01:51.610 --> 00:01:53.070
+And so if there's a symbol there that
+
+37
+00:01:53.070 --> 00:01:56.150
+matches the name of the one that you're
+requesting
+
+38
+00:01:56.150 --> 00:01:58.870
+then it will take that symbol and, and
+
+39
+00:01:58.870 --> 00:02:01.540
+then retrieve the value that's associated
+with that symbol.
+
+40
+00:02:01.540 --> 00:02:06.090
+So in this case, I've defined lm in my
+global environment.
+
+41
+00:02:06.090 --> 00:02:09.600
+And so, because that exists, if I'm
+working the
+
+42
+00:02:09.600 --> 00:02:11.380
+command line, when I call lm, it's going
+to
+
+43
+00:02:11.380 --> 00:02:14.070
+find that object first.
+
+44
+00:02:14.070 --> 00:02:18.670
+So if there, if there's no match in the
+global environment, then what happens is,
+
+45
+00:02:18.670 --> 00:02:22.740
+the, R will search the namespaces of each
+of the packages on the search list.
+
+46
+00:02:22.740 --> 00:02:23.440
+So if you look at.
+
+47
+00:02:23.440 --> 00:02:28.225
+So the search list consists of all the R
+packages that are currently loaded into R.
+
+48
+00:02:28.225 --> 00:02:31.540
+And so you'll see that there, there's an
+order to the search list.
+
+49
+00:02:31.540 --> 00:02:35.840
+So, and it goes starts at the first
+element, which is the global environment.
+
+50
+00:02:35.840 --> 00:02:36.550
+That's number one
+
+51
+00:02:36.550 --> 00:02:37.900
+on the search list.
+
+52
+00:02:37.900 --> 00:02:39.700
+That's always number one on the search
+list.
+
+53
+00:02:39.700 --> 00:02:41.580
+Now, you can see, second on the search
+list is
+
+54
+00:02:41.580 --> 00:02:45.000
+the stats package, the graphics package,
+the GR devices package.
+
+55
+00:02:45.000 --> 00:02:48.280
+All the way down at the very is the base
+package, okay?
+
+56
+00:02:48.280 --> 00:02:52.470
+And so, somewhere in this list of packages
+R
+
+57
+00:02:52.470 --> 00:02:56.250
+is going to look for a function called lm.
+
+58
+00:02:56.250 --> 00:02:58.350
+And, of course, if it's not in the global
+environment, then it
+
+59
+00:02:58.350 --> 00:03:01.730
+will eventually find it in the stats
+package which is the function
+
+60
+00:03:01.730 --> 00:03:03.080
+that's used to fit linear models.
+
+61
+00:03:06.300 --> 00:03:10.520
+So, as I said before, the global
+environment is always, is equivalent to
+
+62
+00:03:10.520 --> 00:03:13.620
+the user's workspace, and it's always the
+first element on the search list.
+
+63
+00:03:13.620 --> 00:03:15.450
+And furthermore, the base package is
+always
+
+64
+00:03:15.450 --> 00:03:16.990
+the last element on the search list.
+
+65
+00:03:16.990 --> 00:03:21.180
+So, clearly because of the way that the
+search process works in terms of going
+
+66
+00:03:21.180 --> 00:03:25.840
+down the list of packages, the order of
+the packages in the search list matters.
+
+67
+00:03:25.840 --> 00:03:28.060
+And so, and furthermore, users can
+configure
+
+68
+00:03:28.060 --> 00:03:30.880
+which packages get loaded when you start
+up.
+
+69
+00:03:30.880 --> 00:03:32.190
+And for, and,
+
+70
+00:03:32.190 --> 00:03:34.610
+and users can also load packages whenever
+they want.
+
+71
+00:03:34.610 --> 00:03:37.750
+So you cannot assume that there's going to
+be a set list of
+
+72
+00:03:37.750 --> 00:03:42.920
+packages available or that the packages
+will be in any sort of order.
+
+73
+00:03:42.920 --> 00:03:45.310
+So they can be in different orders at any
+time to give
+
+74
+00:03:45.310 --> 00:03:49.070
+depending on the user has decided to do in
+a given session.
+
+75
+00:03:49.070 --> 00:03:52.897
+And so, when a user loads a package with a
+library function, what happens is,
+
+76
+00:03:52.897 --> 00:03:57.210
+the namespace of that package which is the
+environment that has all the name, all the
+
+77
+00:03:57.210 --> 00:04:00.552
+symbols, and all those, the values for the
+symbols.
+
+78
+00:04:00.552 --> 00:04:04.490
+The namespace of that package gets put in
+the second position of the search list.
+
+79
+00:04:04.490 --> 00:04:07.040
+So right behind the global environment.
+
+80
+00:04:07.040 --> 00:04:10.010
+And then everything else just kind of get
+pushed down one level.
+
+81
+00:04:10.010 --> 00:04:16.060
+So so, and then the search will kind of go
+down, will include that new
+
+82
+00:04:16.060 --> 00:04:18.450
+package, including, in addition to all the
+other
+
+83
+00:04:18.450 --> 00:04:21.290
+packages that were originally on the
+search list.
+
+84
+00:04:21.290 --> 00:04:22.380
+One thing to note is that R
+
+85
+00:04:22.380 --> 00:04:26.100
+has separate namespaces for functions and
+non-functions, so it is possible
+
+86
+00:04:26.100 --> 00:04:30.420
+to have an object named c somewhere and
+the function name c.
+
+87
+00:04:30.420 --> 00:04:34.258
+Of course, in your global environment,
+there can only be one symbol named c.
+
+88
+00:04:34.258 --> 00:04:38.720
+But it's possible to have for example, a
+vector named c, and that
+
+89
+00:04:38.720 --> 00:04:40.640
+won't necessarily interfere with the
+function
+
+90
+00:04:40.640 --> 00:04:43.290
+that already exists that's also named c.
+
+91
+00:04:45.540 --> 00:04:49.130
+so, this leads us to the scoping rules for
+R.
+
+92
+00:04:49.130 --> 00:04:51.040
+which, which is which I think are the, is
+the
+
+93
+00:04:51.040 --> 00:04:53.710
+main feature that makes it different from
+the original S language.
+
+94
+00:04:53.710 --> 00:04:56.270
+Since, since most of you probably did not
+use the original S
+
+95
+00:04:56.270 --> 00:05:00.100
+language, maybe, this may not, this may be
+something of a moot point.
+
+96
+00:05:00.100 --> 00:05:02.640
+But the point is that the, the scoping
+rules
+
+97
+00:05:02.640 --> 00:05:06.100
+are, are essentially what makes R
+different from the original.
+
+98
+00:05:06.100 --> 00:05:07.480
+So, what are the scoping rules?
+
+99
+00:05:07.480 --> 00:05:10.820
+So the scoping rules determine how a value
+
+100
+00:05:10.820 --> 00:05:13.210
+is bound to a free variable in a function.
+
+101
+00:05:13.210 --> 00:05:17.180
+So if you're in a function there's two
+types of variables.
+
+102
+00:05:17.180 --> 00:05:21.060
+There's the, there's the function
+arguments that are passed
+
+103
+00:05:21.060 --> 00:05:23.540
+through the definition of the function,
+and then there
+
+104
+00:05:23.540 --> 00:05:26.330
+may be other variables or other symbols
+that are
+
+105
+00:05:26.330 --> 00:05:28.940
+found in the function that are not
+function arguments.
+
+106
+00:05:28.940 --> 00:05:33.810
+And the question is, how do you assign a
+value to those symbols.
+
+107
+00:05:33.810 --> 00:05:36.120
+And so R uses what's called lexical
+scoping or static
+
+108
+00:05:36.120 --> 00:05:40.780
+scoping, and this is a common alternative
+to something called dynamic scoping.
+
+109
+00:05:40.780 --> 00:05:44.680
+And so this is, related to the scoping
+rules is how
+
+110
+00:05:44.680 --> 00:05:47.080
+R uses the search list to bind a value to
+a symbol.
+
+111
+00:05:47.080 --> 00:05:50.650
+And, and one thing that's nice about
+lexical scoping is that it
+
+112
+00:05:50.650 --> 00:05:51.960
+turns out to be particularly useful
+
+113
+00:05:51.960 --> 00:05:56.540
+for simplifying things like specifically
+statistical calculations.
+
+114
+00:05:56.540 --> 00:05:58.660
+So take a look at the following function.
+
+115
+00:05:58.660 --> 00:06:02.090
+So, this function has two formal arguments
+they're
+
+116
+00:06:02.090 --> 00:06:03.830
+called x and y.
+
+117
+00:06:03.830 --> 00:06:06.350
+And the body of the function, basically it
+squares x
+
+118
+00:06:06.350 --> 00:06:10.120
+and it adds the ratio of y divided by z,
+okay?
+
+119
+00:06:10.120 --> 00:06:14.370
+So, x is clear, and y is clear, but where
+did z come from, right?
+
+120
+00:06:14.370 --> 00:06:18.450
+And so, in this case, x and y are formal
+arguments, but this, the symbol z
+
+121
+00:06:18.450 --> 00:06:19.880
+is what's called a free variable, because
+it
+
+122
+00:06:19.880 --> 00:06:22.360
+wasn't defined in the function, in the
+function header.
+
+123
+00:06:23.410 --> 00:06:27.280
+And so the question is, well, what value
+do we assign to z, assuming that
+
+124
+00:06:27.280 --> 00:06:29.940
+values were inputted to the function for x
+and y.
+
+125
+00:06:31.380 --> 00:06:35.210
+And so, the scoping rules of a language
+determine how we
+
+126
+00:06:35.210 --> 00:06:38.730
+assign a value to something like z, which
+is a free variable.
+
+127
+00:06:42.440 --> 00:06:45.344
+So if I were so this, lexical scoping, the
+
+128
+00:06:45.344 --> 00:06:48.586
+rules in R, can be summarized by the
+following sentence.
+
+129
+00:06:48.586 --> 00:06:51.130
+Which is basically, the values of free
+variables are searched
+
+130
+00:06:51.130 --> 00:06:53.487
+for in the environment in which the
+function was defined.
+
+131
+00:06:53.487 --> 00:06:57.876
+OK, so, think about that for a second,
+maybe repeat it a few times.
+
+132
+00:06:57.876 --> 00:07:00.602
+And so, what's an environment?
+
+133
+00:07:00.602 --> 00:07:04.035
+An environment is a collection of
+symbol-value pairs.
+
+134
+00:07:04.035 --> 00:07:04.383
+Right?
+
+135
+00:07:04.383 --> 00:07:07.478
+So, x is a symbol.
+And 3.14 might be
+
+136
+00:07:07.478 --> 00:07:11.333
+its value.
+So every symbol has a value bound to it.
+
+137
+00:07:11.333 --> 00:07:16.037
+And, and you can think of everything in R
+as being pairs of symbols and values.
+
+138
+00:07:16.037 --> 00:07:18.207
+Right, so, a another symbol might be y,
+
+139
+00:07:18.207 --> 00:07:20.514
+and its value is a data frame, for
+example.
+
+140
+00:07:20.514 --> 00:07:23.610
+And so every environment which is a
+collection
+
+141
+00:07:23.610 --> 00:07:27.280
+of these symbol-value pairs, has a parent
+environment.
+
+142
+00:07:27.280 --> 00:07:29.060
+So it's kind of like the, the environment
+that sits
+
+143
+00:07:29.060 --> 00:07:33.015
+on top of it would that, that it inherits
+from and
+
+144
+00:07:33.015 --> 00:07:35.410
+it's possible for an environment to have
+multiple children.
+
+145
+00:07:35.410 --> 00:07:39.020
+So there might be one parent environment
+and many children environment and
+
+146
+00:07:39.020 --> 00:07:42.990
+so there's only one environment without a
+parent, and that's the empty environment.
+
+147
+00:07:43.990 --> 00:07:47.060
+And so, when, so, R uses a lot of these
+types of environments.
+
+148
+00:07:47.060 --> 00:07:48.910
+So you think of the global environment,
+which is
+
+149
+00:07:48.910 --> 00:07:52.990
+your workspace that is a set of
+symbol-value pairs, right?
+
+150
+00:07:52.990 --> 00:07:54.290
+So you have a bunch of things that you've
+
+151
+00:07:54.290 --> 00:07:57.730
+created in your workspace, and they all
+have names.
+
+152
+00:07:57.730 --> 00:07:58.150
+And each one
+
+153
+00:07:58.150 --> 00:08:00.350
+of those things has an object associated
+with it.
+
+154
+00:08:00.350 --> 00:08:02.260
+So they might be a vector of numerics, or
+it might
+
+155
+00:08:02.260 --> 00:08:04.826
+be a data frame, or it might be a list, or
+whatever.
+
+156
+00:08:04.826 --> 00:08:06.681
+And so there are all kinds of these envir,
+
+157
+00:08:06.681 --> 00:08:09.677
+each package has a namespace, and that's
+like an environment.
+
+158
+00:08:09.677 --> 00:08:11.820
+It has a bunch of symbols and values
+associated with it.
+
+159
+00:08:11.820 --> 00:08:16.165
+And so what the, the key thing in R is
+that if you take a function and
+
+160
+00:08:16.165 --> 00:08:19.404
+you associate it with an environment, then
+that
+
+161
+00:08:19.404 --> 00:08:23.270
+creates what's called a closure or a
+function closure.
+
+162
+00:08:23.270 --> 00:08:26.060
+And these closures are, are key to a
+
+163
+00:08:26.060 --> 00:08:31.290
+lot of different types of interesting
+operations in R.
+
+164
+00:08:31.290 --> 00:08:33.220
+So, if you, if you're in a function and
+
+165
+00:08:33.220 --> 00:08:37.360
+you encounter a free variable in that
+function what happens?
+
+166
+00:08:37.360 --> 00:08:41.340
+So, the first thing you look for is the
+function
+
+167
+00:08:41.340 --> 00:08:44.250
+in which the environment in which the
+function was defined.
+
+168
+00:08:44.250 --> 00:08:48.439
+So for example if the function was
+defined, if I define a function
+
+169
+00:08:48.439 --> 00:08:52.202
+in the global environment, then the global
+environment is the
+
+170
+00:08:52.202 --> 00:08:56.500
+function's, is the environment in which
+the function was defined.
+
+171
+00:08:56.500 --> 00:08:58.498
+So if I see a free variable in this
+function,
+
+172
+00:08:58.498 --> 00:09:00.874
+what's going to happen is that if I can't
+figure out
+
+173
+00:09:00.874 --> 00:09:03.250
+a value inside the function, then I'm
+going to look
+
+174
+00:09:03.250 --> 00:09:06.689
+in the global environment, because that's
+where the function was defined.
+
+175
+00:09:06.689 --> 00:09:09.889
+If I can't find something in the global
+environment, then
+
+176
+00:09:09.889 --> 00:09:13.665
+the search continues in what's called
+called the parent environment
+
+177
+00:09:13.665 --> 00:09:15.279
+of the global environment.
+
+178
+00:09:15.279 --> 00:09:17.814
+And so the, what happens in the usual
+case, if
+
+179
+00:09:17.814 --> 00:09:20.869
+I define a function in the global
+environment, then the
+
+180
+00:09:20.869 --> 00:09:24.184
+function is defined in the global
+environment, and then its
+
+181
+00:09:24.184 --> 00:09:27.655
+parent environment is the next thing down
+on the search list.
+
+182
+00:09:27.655 --> 00:09:30.106
+So, what happens is that you just go down
+the search
+
+183
+00:09:30.106 --> 00:09:34.160
+list until you eventually find the value
+for this free variable.
+
+184
+00:09:34.160 --> 00:09:36.440
+Now, it's possible to define a function
+
+185
+00:09:36.440 --> 00:09:39.010
+outside of the global environment, and so
+generally
+
+186
+00:09:39.010 --> 00:09:42.500
+speaking what happens is that a function
+will look for
+
+187
+00:09:42.500 --> 00:09:46.510
+a value in the environment in which it was
+defined.
+
+188
+00:09:46.510 --> 00:09:47.990
+And then it's going to look, if it can't
+find
+
+189
+00:09:47.990 --> 00:09:50.590
+it there, then it's going to look for the
+parent environment.
+
+190
+00:09:51.660 --> 00:09:54.880
+And then if it can't find it there the
+search, it will keep looking at
+
+191
+00:09:54.880 --> 00:09:57.590
+the parent environment or the parent etc,
+until
+
+192
+00:09:57.590 --> 00:09:59.970
+we hit what's called the top level
+environment.
+
+193
+00:09:59.970 --> 00:10:01.620
+The top level environment is usually the
+
+194
+00:10:01.620 --> 00:10:04.850
+global environment, however, if the
+function is defined
+
+195
+00:10:04.850 --> 00:10:08.290
+in a package, then the top level
+
+196
+00:10:08.290 --> 00:10:10.900
+environment is the namespace of that
+package.
+
+197
+00:10:10.900 --> 00:10:14.040
+once, if you can't find a value there,
+then once you hit the top level
+
+198
+00:10:14.040 --> 00:10:16.340
+environment, the search will continue down
+the search
+
+199
+00:10:16.340 --> 00:10:18.820
+list until we have hit the empty
+environment.
+
+200
+00:10:18.820 --> 00:10:22.300
+So, after the base package, for example,
+then we hit the empty environment.
+
+201
+00:10:22.300 --> 00:10:25.950
+If you can't find a symbol in all these
+environments and we've hit
+
+202
+00:10:25.950 --> 00:10:30.020
+the empty environment, then we throw an
+error saying we can't find a value
+
+203
+00:10:30.020 --> 00:10:30.710
+for this symbol.

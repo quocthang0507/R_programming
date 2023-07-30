@@ -1,0 +1,782 @@
+WEBVTT
+
+1
+00:00:00.555 --> 00:00:02.596
+Um,why exactly does all this matter?
+So.
+
+2
+00:00:02.596 --> 00:00:04.400
+It's not immediately clear.
+
+3
+00:00:04.400 --> 00:00:05.300
+No.
+
+4
+00:00:05.300 --> 00:00:08.660
+So typically the function is defined the
+global environment so that
+
+5
+00:00:08.660 --> 00:00:12.980
+values of the free variables are just
+found in the user's workspace.
+
+6
+00:00:12.980 --> 00:00:14.480
+So this is kind of the.
+
+7
+00:00:14.480 --> 00:00:17.350
+The right thing to do is kind of what most
+people are expecting.
+
+8
+00:00:17.350 --> 00:00:20.140
+If there's no, if, if there's, you can't
+find a value
+
+9
+00:00:20.140 --> 00:00:22.680
+inside the function itself, you just look
+in the global environment.
+
+10
+00:00:22.680 --> 00:00:25.700
+So this is the, the idea here is that you
+can define things like
+
+11
+00:00:25.700 --> 00:00:29.720
+global variables, that will be common to a
+lot of different functions.
+
+12
+00:00:29.720 --> 00:00:31.500
+That you might be defining in your
+workspace.
+
+13
+00:00:33.320 --> 00:00:35.380
+so, but the key difference in R is
+
+14
+00:00:35.380 --> 00:00:39.215
+that you can define functions inside of
+other functions.
+
+15
+00:00:39.215 --> 00:00:43.570
+'n so for example a function can return a
+function as the return value.
+
+16
+00:00:43.570 --> 00:00:47.020
+So, in most functions they'll return a
+list, or a vector, or a matrix, or
+
+17
+00:00:47.020 --> 00:00:51.580
+a data frame or something like that, but
+it is possible for a, for a function
+
+18
+00:00:51.580 --> 00:00:54.060
+to return another function and then that,
+if that's
+
+19
+00:00:54.060 --> 00:00:58.490
+the case then the, then the function that
+gets returned.
+
+20
+00:00:58.490 --> 00:01:01.250
+It was defined inside of another function.
+
+21
+00:01:01.250 --> 00:01:05.300
+So, it's an, the environment in which it
+was defined Is not the global environment.
+
+22
+00:01:05.300 --> 00:01:08.940
+It's really the, the, the insides of this
+other function.
+
+23
+00:01:08.940 --> 00:01:11.970
+So this is when things get interesting and
+this is when
+
+24
+00:01:11.970 --> 00:01:15.640
+the scoping rules really have an impact on
+what you can do.
+
+25
+00:01:17.900 --> 00:01:22.300
+So, I am going to define a very simple
+function here and often
+
+26
+00:01:22.300 --> 00:01:23.700
+these kinds of functions come [UNKNOWN]
+
+27
+00:01:23.700 --> 00:01:26.350
+where you might think of constructive
+functions.
+
+28
+00:01:26.350 --> 00:01:29.190
+So, the idea that the function is
+constructing another function.
+
+29
+00:01:29.190 --> 00:01:30.880
+So, here's what I want to, I want to
+
+30
+00:01:30.880 --> 00:01:36.379
+create a function that that defines
+another, called make.power.
+
+31
+00:01:36.379 --> 00:01:39.750
+And what make.power takes as input is a
+number n.
+
+32
+00:01:39.750 --> 00:01:40.600
+Okay?
+
+33
+00:01:40.600 --> 00:01:43.130
+So, and inside the make.power function I
+define
+
+34
+00:01:43.130 --> 00:01:44.970
+another function called pow.
+
+35
+00:01:44.970 --> 00:01:47.650
+And pow is going to take an argument
+called x.
+
+36
+00:01:47.650 --> 00:01:50.680
+And and so what's going to happen is that
+
+37
+00:01:50.680 --> 00:01:52.820
+the power function is going to take the,
+then the,
+
+38
+00:01:52.820 --> 00:01:54.810
+take the argument X and raise to their
+
+39
+00:01:54.810 --> 00:01:58.890
+power N, okay, and so make that power
+returns,
+
+40
+00:01:58.890 --> 00:02:04.950
+with a function power as its return value
+and so you see inside the power function X
+
+41
+00:02:04.950 --> 00:02:08.220
+is a, X is a function argument but that's
+not a problem, but n is a free variable
+
+42
+00:02:08.220 --> 00:02:10.900
+because its not defined inside the power.
+Function.
+
+43
+00:02:10.900 --> 00:02:14.900
+However, N is defined inside the
+make.power function and so
+
+44
+00:02:14.900 --> 00:02:18.400
+since that's the environment in which the
+pow is defined.
+
+45
+00:02:18.400 --> 00:02:19.940
+It will find the value of N.
+
+46
+00:02:19.940 --> 00:02:21.360
+The pow, the power function will find the
+
+47
+00:02:21.360 --> 00:02:25.120
+value of n inside this, it's other
+environment.
+
+48
+00:02:25.120 --> 00:02:28.720
+So what happens is that I can call
+make.power and pass it a number like 3.
+
+49
+00:02:28.720 --> 00:02:33.540
+And then, it will return a function, which
+I'll sign to
+
+50
+00:02:33.540 --> 00:02:35.150
+be called cube.
+
+51
+00:02:35.150 --> 00:02:37.190
+And, similarly, I can pass 2 to make that
+
+52
+00:02:37.190 --> 00:02:39.860
+power and create a function that I'll call
+square.
+
+53
+00:02:39.860 --> 00:02:44.530
+So, now, when I, when I pass cube, the
+number 3 What is
+
+54
+00:02:44.530 --> 00:02:46.890
+it does is it raises 3 to the 3rd power,
+so I get 27.
+
+55
+00:02:46.890 --> 00:02:50.200
+If I call square on the number 3, it, it
+
+56
+00:02:50.200 --> 00:02:53.920
+raises three to the 2nd power, so it gives
+me 9.
+
+57
+00:02:53.920 --> 00:02:56.400
+And so, so, so now, I've cons, I've
+
+58
+00:02:56.400 --> 00:02:58.920
+got one function that can, that's capable
+of constructing
+
+59
+00:02:58.920 --> 00:03:04.470
+many different types of functions, and by
+raising to pow, to various powers.
+
+60
+00:03:07.380 --> 00:03:09.920
+So, how do you know what's in a function's
+environment?
+
+61
+00:03:09.920 --> 00:03:12.290
+So you can, you can at the function, so,
+excuse me.
+
+62
+00:03:12.290 --> 00:03:13.650
+You can look in the environment in which
+
+63
+00:03:13.650 --> 00:03:16.350
+the function was defined, by calling the
+LS function.
+
+64
+00:03:16.350 --> 00:03:20.230
+So if I call, if I call LS on On the
+environment for cube.
+
+65
+00:03:20.230 --> 00:03:22.460
+You can see that inside the cube function,
+there's,
+
+66
+00:03:22.460 --> 00:03:25.760
+there's something, there's an, there's an
+object called N.
+
+67
+00:03:25.760 --> 00:03:30.270
+And if I use get on N you'll see that the
+value of N is equal to 3.
+
+68
+00:03:30.270 --> 00:03:32.460
+So that's how the power function knows to
+raise
+
+69
+00:03:32.460 --> 00:03:34.720
+it to the 3rd, to the 3rd power.
+
+70
+00:03:34.720 --> 00:03:36.680
+Excuse me, that's how the cube function
+knows how to, knows
+
+71
+00:03:36.680 --> 00:03:39.730
+to raise the argument to the 3rd power
+because it's already defined.
+
+72
+00:03:39.730 --> 00:03:42.810
+In it's, in it's, in it's, closure
+environment.
+
+73
+00:03:42.810 --> 00:03:44.840
+Similarly the environment for square, you
+can see
+
+74
+00:03:44.840 --> 00:03:47.060
+it has the exact same objects in it.
+
+75
+00:03:47.060 --> 00:03:50.050
+But now the value of n is equal to 2, in
+the square function.
+
+76
+00:03:52.180 --> 00:03:55.910
+So, so, I want to make one brief
+
+77
+00:03:55.910 --> 00:03:58.020
+comparison between lexical scoping, which
+is what R
+
+78
+00:03:58.020 --> 00:04:00.320
+does, and dynamic scoping, which is what
+maybe
+
+79
+00:04:00.320 --> 00:04:02.860
+some other function, some other programing
+languages implement.
+
+80
+00:04:02.860 --> 00:04:07.350
+So here I've got, I'm assigning the value
+of Y equal to 10.
+
+81
+00:04:07.350 --> 00:04:09.940
+Then create a function F, which takes, as
+an argument, X.
+
+82
+00:04:11.300 --> 00:04:17.290
+And then, it assigns, there it assigns Y
+equal to 2, it squares Y and then adds G
+
+83
+00:04:17.290 --> 00:04:18.400
+of X.
+So, what's G?
+
+84
+00:04:18.400 --> 00:04:20.890
+G is another function, which takes as an
+
+85
+00:04:20.890 --> 00:04:24.050
+argument called X, and it multiplies X
+times Y.
+
+86
+00:04:24.050 --> 00:04:29.590
+So, in the F function, Y is a free
+variable, and G is also a free variable.
+
+87
+00:04:29.590 --> 00:04:32.400
+So, the G function is not defined.
+
+88
+00:04:32.400 --> 00:04:36.500
+Inside of F of or, it's, it, of, argument
+to F.
+
+89
+00:04:36.500 --> 00:04:41.680
+Then in the G function, then the var-, the
+symbol Y is a free variable.
+
+90
+00:04:41.680 --> 00:04:42.290
+And so the question
+
+91
+00:04:42.290 --> 00:04:45.040
+is if I call f of 3 what gets returned?
+
+92
+00:04:49.320 --> 00:04:53.720
+So with lexical scoping, the value of Y
+and the function G
+
+93
+00:04:53.720 --> 00:04:56.360
+is looked up in the environment in which
+the function was defined.
+
+94
+00:04:56.360 --> 00:04:57.970
+Which in this case was the global
+environment.
+
+95
+00:04:57.970 --> 00:05:01.470
+So that the value of Y and the G function
+is 10.
+
+96
+00:05:01.470 --> 00:05:04.270
+So with dynamic scoping the value of Y is
+looked up in
+
+97
+00:05:04.270 --> 00:05:05.600
+the environment from which the function
+
+98
+00:05:05.600 --> 00:05:09.600
+was called; sometimes called the calling
+environment.
+
+99
+00:05:09.600 --> 00:05:11.550
+So in the R the calling environment is
+
+100
+00:05:11.550 --> 00:05:13.100
+known as is what's called the parent
+frame.
+
+101
+00:05:14.246 --> 00:05:17.062
+In this case the calling environment Y was
+defined to
+
+102
+00:05:17.062 --> 00:05:19.090
+be 2 and so the value of Y would be 2.
+
+103
+00:05:19.090 --> 00:05:20.150
+So.
+
+104
+00:05:20.150 --> 00:05:22.980
+Calling the function F would produce
+different answers depending
+
+105
+00:05:22.980 --> 00:05:25.180
+on whether you use lexical scoping or
+dynamic scoping.
+
+106
+00:05:30.260 --> 00:05:33.140
+So, the one thing that, that, that will
+
+107
+00:05:33.140 --> 00:05:35.140
+make lexical scoping and dynamic scoping
+look the
+
+108
+00:05:35.140 --> 00:05:37.130
+same is that when a function is defined
+
+109
+00:05:37.130 --> 00:05:39.620
+in the global environment and is
+subsequently called
+
+110
+00:05:39.620 --> 00:05:42.350
+from the global environment, then the
+defining environment
+
+111
+00:05:42.350 --> 00:05:44.550
+and the calling environment are exactly
+the same
+
+112
+00:05:44.550 --> 00:05:46.290
+and so this can sometimes give the
+appearance
+
+113
+00:05:46.290 --> 00:05:48.690
+of dynamic scoping even when It doesn't
+exist.
+
+114
+00:05:48.690 --> 00:05:51.010
+So here I've got a function called G.
+
+115
+00:05:51.010 --> 00:05:55.880
+It takes an argument X.
+It assigns A to be equal to 3.
+
+116
+00:05:55.880 --> 00:05:57.940
+And then it adds X plus A plus Y.
+
+117
+00:05:57.940 --> 00:06:01.930
+So, in this case, X is a function is a
+formal argument.
+
+118
+00:06:01.930 --> 00:06:03.950
+A is a local variable so it's not a
+
+119
+00:06:03.950 --> 00:06:06.020
+formal argument, but I defined it inside
+the function.
+
+120
+00:06:06.020 --> 00:06:07.820
+Then so, that's okay.
+
+121
+00:06:07.820 --> 00:06:10.280
+And then Y is a free variable, okay?
+
+122
+00:06:10.280 --> 00:06:14.270
+So if I call G of 2, the function G is
+
+123
+00:06:14.270 --> 00:06:16.850
+going to look for the value of Y in the
+global environment.
+
+124
+00:06:16.850 --> 00:06:19.490
+If I haven't yet defined Y then there has
+
+125
+00:06:19.490 --> 00:06:20.940
+to be an error because it doesn't know
+what
+
+126
+00:06:20.940 --> 00:06:24.680
+value to assign to the symbol of Y.
+So that's what I get in this line here.
+
+127
+00:06:24.680 --> 00:06:27.870
+Now if I define what Y is, say I assign it
+to be 3, if I call it
+
+128
+00:06:27.870 --> 00:06:32.990
+G of 2, then it returns 8 because now it's
+able to find Y in the global environment.
+
+129
+00:06:32.990 --> 00:06:38.240
+So even though it looks like the value of
+Y was looked up in the calling
+
+130
+00:06:38.240 --> 00:06:42.340
+environment, it's actually the defining
+environment because G
+
+131
+00:06:42.340 --> 00:06:44.940
+happened to be defined in the global
+environment
+
+132
+00:06:47.990 --> 00:06:50.980
+so, there are a number of other languages
+that support lexical scoping.
+
+133
+00:06:50.980 --> 00:06:54.410
+Some examples are things like Scheme,
+Perl, Python, and Common Lisp.
+
+134
+00:06:55.460 --> 00:06:58.710
+And of course there's a, a well known
+computer science
+
+135
+00:06:58.710 --> 00:07:01.860
+theorem which is that all languages
+eventually converge to Lisp.
+
+136
+00:07:01.860 --> 00:07:04.600
+And so it's, it's not a, it's not an
+obscure type of feature.
+
+137
+00:07:04.600 --> 00:07:07.330
+It's actually very common in a number of
+other programming languages.
+
+138
+00:07:10.940 --> 00:07:14.900
+So, one of the main consequences of
+lexical scoping in R
+
+139
+00:07:14.900 --> 00:07:17.750
+is that all the objects have to be stored
+in memory.
+
+140
+00:07:17.750 --> 00:07:20.050
+So, if you're working with a programming
+language that has
+
+141
+00:07:20.050 --> 00:07:23.890
+very small objects this generally speaking
+not a big problem.
+
+142
+00:07:23.890 --> 00:07:24.810
+but.
+
+143
+00:07:24.810 --> 00:07:26.330
+Because of nature of the scoping rules and
+
+144
+00:07:26.330 --> 00:07:29.160
+because of the complexity of the
+environment and the,
+
+145
+00:07:29.160 --> 00:07:32.680
+the way they are all linked together, it's
+difficult
+
+146
+00:07:32.680 --> 00:07:35.750
+to implement this type of model outside of
+physical
+
+147
+00:07:35.750 --> 00:07:37.080
+memory, and so.
+
+148
+00:07:38.310 --> 00:07:40.445
+So the consequence was that, when R was
+originally designed.
+
+149
+00:07:40.445 --> 00:07:41.520
+Everything was stored in memory.
+
+150
+00:07:41.520 --> 00:07:45.440
+Things are getting complicated now,
+because of very large types of data sets.
+
+151
+00:07:45.440 --> 00:07:48.720
+And, being able to read them into R.
+
+152
+00:07:48.720 --> 00:07:51.900
+It is a challenge.
+Everything has to be stored in memory.
+
+153
+00:07:53.310 --> 00:07:55.340
+Second now, so every function has a
+carrier
+
+154
+00:07:55.340 --> 00:07:58.650
+pointer to its respect, to its defining
+environment.
+
+155
+00:07:58.650 --> 00:08:01.060
+and, and that defining environment could
+literally be anywhere
+
+156
+00:08:01.060 --> 00:08:04.260
+because there could be functions within
+functions and then the,
+
+157
+00:08:04.260 --> 00:08:06.980
+and if you do, if one function returns
+another function,
+
+158
+00:08:08.010 --> 00:08:10.040
+then there has, there has to be a pointer
+to
+
+159
+00:08:10.040 --> 00:08:14.360
+that piece of memory where the defining
+environment is stored.
+
+160
+00:08:14.360 --> 00:08:16.010
+And so this makes the model a little bit
+
+161
+00:08:16.010 --> 00:08:20.880
+more complex but but, but all the more
+useful.
+
+162
+00:08:20.880 --> 00:08:26.310
+So, the, in S plus, which was kind of the
+original implementation of the S language,
+
+163
+00:08:26.310 --> 00:08:28.760
+the free variable were always looked up in
+the workspace.
+
+164
+00:08:28.760 --> 00:08:30.440
+Everything could be stored on the disk,
+because the
+
+165
+00:08:30.440 --> 00:08:33.100
+defining environment of all the functions
+was the same.
