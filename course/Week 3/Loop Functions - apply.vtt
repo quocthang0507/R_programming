@@ -1,0 +1,676 @@
+WEBVTT
+
+1
+00:00:00.136 --> 00:00:05.596
+[BLANK_AUDIO]
+
+2
+00:00:05.596 --> 00:00:08.836
+The apply function is another loop
+function that's used to
+
+3
+00:00:08.836 --> 00:00:11.865
+evaluate a, a function over the margins of
+an array.
+
+4
+00:00:11.865 --> 00:00:13.360
+Usu, usually, the function's going to be
+an
+
+5
+00:00:13.360 --> 00:00:16.410
+anonymous one, like we showed with lapply
+
+6
+00:00:16.410 --> 00:00:19.970
+or it could be a function that already
+exists like the mean, for example.
+
+7
+00:00:19.970 --> 00:00:23.590
+It's usually used to apply a function to
+the rows or columns of a matrix.
+
+8
+00:00:23.590 --> 00:00:26.700
+Of course, matrices which are two
+dimensional arrays, are going to be
+
+9
+00:00:26.700 --> 00:00:31.000
+the most common type of array that we're
+going to use in R.
+
+10
+00:00:31.000 --> 00:00:33.730
+But you may have three dimensional arrays
+and such.
+
+11
+00:00:33.730 --> 00:00:37.570
+But you, so you can use apply on general
+arrays such
+
+12
+00:00:37.570 --> 00:00:40.950
+as taking the average of an array of
+matrices, for example.
+
+13
+00:00:40.950 --> 00:00:42.270
+One thing to note, and you may hear this
+
+14
+00:00:42.270 --> 00:00:45.720
+out in the wild, occasionally, that apply,
+using apply
+
+15
+00:00:45.720 --> 00:00:47.900
+is somehow better than ta, using a for
+loop
+
+16
+00:00:47.900 --> 00:00:51.080
+or somehow it's faster than using a for
+loop.
+
+17
+00:00:51.080 --> 00:00:53.420
+And that's, generally speaking, not true.
+
+18
+00:00:53.420 --> 00:00:56.100
+It was true a long time ago in older
+versions of
+
+19
+00:00:56.100 --> 00:01:00.170
+the S language in R but right now, it's
+not true at all.
+
+20
+00:01:00.170 --> 00:01:02.130
+The main reason you want to use a function
+
+21
+00:01:02.130 --> 00:01:05.360
+like apply is that it involves less
+typing.
+
+22
+00:01:05.360 --> 00:01:10.240
+And less, less typing is always better,
+because good programmers are always lazy.
+
+23
+00:01:10.240 --> 00:01:13.410
+So, apply is very useful, but in
+particular on
+
+24
+00:01:13.410 --> 00:01:15.670
+command line, because on the command line,
+when we're
+
+25
+00:01:15.670 --> 00:01:18.910
+interacting with data, we're doing
+exploratory analysis, we want to
+
+26
+00:01:18.910 --> 00:01:21.120
+do as little typing as possible because it
+just makes
+
+27
+00:01:21.120 --> 00:01:24.240
+our fingers tired.
+So, how does apply work?
+
+28
+00:01:24.240 --> 00:01:27.000
+So the first argument acts as an array.
+
+29
+00:01:27.000 --> 00:01:30.120
+An array is a vector that has dimensions
+attached to it.
+
+30
+00:01:30.120 --> 00:01:33.450
+So a matrix is a two dimensional array,
+for example.
+
+31
+00:01:34.450 --> 00:01:37.150
+A margin, which, which we'll get to in a
+second.
+
+32
+00:01:37.150 --> 00:01:42.220
+This is a vector, an integer vector that
+indicates which margin should be retained.
+
+33
+00:01:42.220 --> 00:01:46.180
+And the last important argument is the
+function that you want to apply to each
+
+34
+00:01:46.180 --> 00:01:47.790
+of the margins.
+
+35
+00:01:47.790 --> 00:01:50.478
+So, and then the dot dot dot argument are
+other arguments that
+
+36
+00:01:50.478 --> 00:01:53.711
+you want to pass, include other arguments
+that you want to pass to the function.
+
+37
+00:01:53.711 --> 00:01:57.699
+So here's a matrix that I'm creating, it
+has 20 rows and ten columns.
+
+38
+00:01:57.699 --> 00:02:02.394
+so, in, in, in the matrix it's just normal
+random variables that I've generated.
+
+39
+00:02:02.394 --> 00:02:05.298
+So when I apply, so what I want to do is,
+I want to take
+
+40
+00:02:05.298 --> 00:02:09.570
+this matrix and I want to calculate the
+mean of each column of the matrix.
+
+41
+00:02:09.570 --> 00:02:11.638
+So the way I can do this
+
+42
+00:02:11.638 --> 00:02:15.723
+is I can apply, use the apply function on
+x.
+
+43
+00:02:15.723 --> 00:02:18.450
+I give it the margin, two, and I'll say
+what that means in a second.
+
+44
+00:02:18.450 --> 00:02:19.840
+And I pass the function, mean.
+
+45
+00:02:19.840 --> 00:02:22.372
+And so what happens is, I get back a
+vector of length
+
+46
+00:02:22.372 --> 00:02:25.838
+ten that has the mean of each of the
+columns of the matrix.
+
+47
+00:02:25.838 --> 00:02:31.230
+And so the idea is that, so the matrix has
+ten, sorry, it has 20
+
+48
+00:02:31.230 --> 00:02:36.700
+rows and ten columns, and so that you can
+think of the matrix as, as, and so
+
+49
+00:02:36.700 --> 00:02:40.340
+dimension one has 20 rows and dimension
+two has ten columns.
+
+50
+00:02:40.340 --> 00:02:42.660
+So, when you apply the function, mean,
+over the
+
+51
+00:02:42.660 --> 00:02:45.760
+matrix, well, the idea is that you want to
+keep the
+
+52
+00:02:45.760 --> 00:02:48.160
+second dimension, which is the number of
+columns, and
+
+53
+00:02:48.160 --> 00:02:50.640
+you want to collapse the first dimension,
+which is the rows.
+
+54
+00:02:50.640 --> 00:02:52.310
+So that, so the idea is that you're taking
+the
+
+55
+00:02:52.310 --> 00:02:55.370
+mean across all the rows in each column,
+and then
+
+56
+00:02:55.370 --> 00:02:58.790
+you're, and you're essentially limiting
+the, the rows from the
+
+57
+00:02:58.790 --> 00:03:01.800
+array, so what you get back is actually
+has the,
+
+58
+00:03:01.800 --> 00:03:03.390
+has one of the dimensions has been
+eliminated.
+
+59
+00:03:03.390 --> 00:03:05.880
+It's really the first dimension that's
+been eliminated.
+
+60
+00:03:05.880 --> 00:03:08.090
+And so you get this number which this
+vector which
+
+61
+00:03:08.090 --> 00:03:11.130
+has each of the means for each of the
+columns.
+
+62
+00:03:11.130 --> 00:03:15.060
+similarly, you can take the means of all
+the rows of the array.
+
+63
+00:03:15.060 --> 00:03:17.890
+And I can, I can call the apply function
+on x.
+
+64
+00:03:17.890 --> 00:03:20.440
+I give it the dimens, the margin, one,
+which
+
+65
+00:03:20.440 --> 00:03:25.280
+means preserve all the rows, but collapse
+all the columns.
+
+66
+00:03:25.280 --> 00:03:27.380
+And then I, I, here I'm calculating the
+sum
+
+67
+00:03:27.380 --> 00:03:29.814
+of each the rows, instead of the mean.
+
+68
+00:03:29.814 --> 00:03:32.782
+So the, so, I cast the one because it says
+I want to, I, because
+
+69
+00:03:32.782 --> 00:03:36.042
+of what I mean is I want to preserve the
+rows and collapse the columns.
+
+70
+00:03:36.042 --> 00:03:38.857
+So here, I got a vector of 20, because
+there's 20 rows.
+
+71
+00:03:38.857 --> 00:03:44.210
+And each, and inside each and for each
+row, I calculate the sum of that row.
+
+72
+00:03:47.830 --> 00:03:51.120
+Now for, for simple operations, like
+calculating the sum,
+
+73
+00:03:51.120 --> 00:03:53.474
+or calculating the mean of a column or a
+
+74
+00:03:53.474 --> 00:03:56.930
+ma, or, or, of a row there are special
+
+75
+00:03:56.930 --> 00:04:00.730
+functions that are highly optimized to do
+this very quickly.
+
+76
+00:04:00.730 --> 00:04:03.060
+So for calculating the row sums and
+
+77
+00:04:03.060 --> 00:04:06.020
+row means, there's the functions rowSums
+and rowMeans.
+
+78
+00:04:06.020 --> 00:04:08.780
+And similarly, there's colSums and
+colMeans, which
+
+79
+00:04:08.780 --> 00:04:10.370
+do the same things for the columns.
+
+80
+00:04:10.370 --> 00:04:12.814
+These are equivalent to using the apply
+function,
+
+81
+00:04:12.814 --> 00:04:15.102
+but they're very much faster than using
+the apply,
+
+82
+00:04:15.102 --> 00:04:18.400
+because they're optimized to specifically
+to do those operations.
+
+83
+00:04:18.400 --> 00:04:20.810
+So if you want to calculate the sum or the
+mean of
+
+84
+00:04:20.810 --> 00:04:24.310
+a, of a column or row of a matrix, use
+those functions instead.
+
+85
+00:04:28.280 --> 00:04:29.070
+Now you can, you know, use the
+
+86
+00:04:29.070 --> 00:04:31.694
+apply function to apply other types of
+functions.
+
+87
+00:04:31.694 --> 00:04:33.322
+For example, suppose you have a matrix.
+
+88
+00:04:33.322 --> 00:04:35.654
+Here, I've generated, again, a matrix of
+random
+
+89
+00:04:35.654 --> 00:04:38.183
+normal variables, that's 20 rows by 10
+columns.
+
+90
+00:04:38.183 --> 00:04:40.273
+And suppose I want to go through each row
+of the
+
+91
+00:04:40.273 --> 00:04:45.110
+matrix and calculate the twenty-fifth, and
+the seventy-fifth percentile of that row.
+
+92
+00:04:45.110 --> 00:04:48.610
+So, I can apply on x I, I get, I pass the
+
+93
+00:04:48.610 --> 00:04:52.100
+margin of one, because it means I want to
+preserve the rows.
+
+94
+00:04:52.100 --> 00:04:53.890
+And then I'm going to pass it the quantile
+function.
+
+95
+00:04:53.890 --> 00:04:58.830
+Now the quantile function needs, needs,
+the quantiles that you want to calculate.
+
+96
+00:04:58.830 --> 00:05:01.270
+So there's no default value for that, so I
+actually have to pass
+
+97
+00:05:01.270 --> 00:05:05.750
+it to the quantile function through the
+dot dot dot argument of apply.
+
+98
+00:05:05.750 --> 00:05:09.086
+So here, the argument for quarntile is
+called probs.
+
+99
+00:05:09.086 --> 00:05:11.144
+And I, and I give it 0.25 and 0.75 meaning
+
+100
+00:05:11.144 --> 00:05:12.075
+I want to calculate the
+
+101
+00:05:12.075 --> 00:05:15.290
+twenty-fifth percentile and the
+seventy-fifth percentile.
+
+102
+00:05:15.290 --> 00:05:17.084
+So what this funct, what this call does
+is, it
+
+103
+00:05:17.084 --> 00:05:18.970
+goes through each row of the matrix, and
+for each
+
+104
+00:05:18.970 --> 00:05:21.922
+row, it calculates the twenty-fifth and
+seventy-fifth percentile.
+
+105
+00:05:21.922 --> 00:05:26.548
+So there's, so for each row, there's
+going to be two numbers that are returned.
+
+106
+00:05:26.548 --> 00:05:31.512
+And what apply will do is, it'll create a
+matrix that has two rows, and the number
+
+107
+00:05:31.512 --> 00:05:36.268
+of columns is equal to the number of rows
+in this matrix, which happens to be 20.
+
+108
+00:05:36.268 --> 00:05:39.284
+So here, I'm going to get a 2 by 20
+matrix, where in each
+
+109
+00:05:39.284 --> 00:05:41.256
+column of this return matrix, I've got
+
+110
+00:05:41.256 --> 00:05:44.446
+the twenty-fifth and the seventh,
+seventy-fifth percentile
+
+111
+00:05:44.446 --> 00:05:46.420
+for the corresponding row.
+
+112
+00:05:46.420 --> 00:05:49.480
+So, for example, in the first row, the
+twenty-fifth percentile
+
+113
+00:05:49.480 --> 00:05:53.055
+is minus 0.33 and the seventy-fifth
+percentile is mi, is
+
+114
+00:05:53.055 --> 00:05:58.020
+0.92 and in the sixteenth row the
+seventy-fifth, the twenty-fifth
+
+115
+00:05:58.020 --> 00:06:02.760
+percentile is minus 0.95 and the
+seventy-fifth percentile is 0.88.
+
+116
+00:06:02.760 --> 00:06:03.720
+So you see how that works.
+
+117
+00:06:07.660 --> 00:06:10.420
+Now, suppose I had more than just a
+matrix.
+
+118
+00:06:10.420 --> 00:06:12.900
+Suppose I, I had an array that I want to
+do something with.
+
+119
+00:06:12.900 --> 00:06:17.770
+So, the so, here, I'm creating an array
+with, which has normal random variables
+
+120
+00:06:17.770 --> 00:06:23.970
+and it has two rows and two columns and
+it's ten and the third dimension is ten.
+
+121
+00:06:23.970 --> 00:06:26.440
+I guess I'm not sure what you would call
+that dimension.
+
+122
+00:06:26.440 --> 00:06:27.240
+But you can imagine this.
+
+123
+00:06:27.240 --> 00:06:29.360
+You can think of this as being, the,
+they're a
+
+124
+00:06:29.360 --> 00:06:32.010
+bunch of 2 by 2 matrices that are kind of
+stacked together.
+
+125
+00:06:33.110 --> 00:06:35.915
+And the idea is that, you can imagine I
+have a be, a bunch of 2
+
+126
+00:06:35.915 --> 00:06:39.600
+by 2 matrices, and I want to take the
+average of those 2 by 2 matrices.
+
+127
+00:06:39.600 --> 00:06:41.650
+So, the average of the, of a bunch of 2 by
+2
+
+128
+00:06:41.650 --> 00:06:44.910
+matrices is going to be another 2 by 2
+matrix, which is the mean.
+
+129
+00:06:44.910 --> 00:06:47.580
+And so, I can call apply on this array...
+
+130
+00:06:47.580 --> 00:06:49.210
+And I want to keep the first, and the
+
+131
+00:06:49.210 --> 00:06:52.160
+second dimension, but I want to collapse
+the third dimension.
+
+132
+00:06:52.160 --> 00:06:54.540
+So here, when I, when I give the margin, I
+give it one
+
+133
+00:06:54.540 --> 00:06:58.060
+and two, which I want to preserve, and
+then three is not there,
+
+134
+00:06:58.060 --> 00:07:00.240
+which means I want to collapse third
+dimension.
+
+135
+00:07:00.240 --> 00:07:02.198
+So here, and then the function I pass it
+is the mean.
+
+136
+00:07:02.198 --> 00:07:04.838
+So, what this will do is, it'll take my
+array and it'll
+
+137
+00:07:04.838 --> 00:07:09.562
+collapse, it'll average over the third
+dimension and give me the mean matrix.
+
+138
+00:07:09.562 --> 00:07:13.220
+Another way that you can do this is to use
+the rowMeans function, so
+
+139
+00:07:13.220 --> 00:07:16.970
+even though this is in a matrix, you can
+apply rowMeans to an array.
+
+140
+00:07:16.970 --> 00:07:19.720
+And you give it, and you pass the
+argument, dims, equal to two.
