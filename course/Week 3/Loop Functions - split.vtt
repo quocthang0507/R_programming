@@ -1,0 +1,850 @@
+WEBVTT
+
+1
+00:00:00.049 --> 00:00:04.760
+Tapply is useful because it splits up a
+vector into,
+
+2
+00:00:04.760 --> 00:00:08.750
+into little pieces and it applies a, a
+summary statistic or
+
+3
+00:00:08.750 --> 00:00:11.650
+function to those little pieces, and then
+after it applies
+
+4
+00:00:11.650 --> 00:00:14.020
+a function it kind of brings the pieces
+back together again.
+
+5
+00:00:14.020 --> 00:00:17.783
+So so split is not a loop function but
+it's a very handy
+
+6
+00:00:17.783 --> 00:00:22.770
+function that can be used in conjunction,
+with functions like lapply or sapply.
+
+7
+00:00:22.770 --> 00:00:24.990
+And so I just want to mention it here.
+
+8
+00:00:24.990 --> 00:00:26.530
+So split takes a vector.
+
+9
+00:00:26.530 --> 00:00:29.030
+So it's kind of like tapply, but it, but
+
+10
+00:00:29.030 --> 00:00:31.790
+it's like tapply but without applying the
+summary statistics.
+
+11
+00:00:31.790 --> 00:00:33.310
+So what it does, is it takes a vector, or
+
+12
+00:00:33.310 --> 00:00:37.490
+an object x and it takes a factor
+variable, f.
+
+13
+00:00:37.490 --> 00:00:39.450
+Which again identifies levels of a group.
+
+14
+00:00:40.510 --> 00:00:43.980
+And then it splits the object x into the
+
+15
+00:00:43.980 --> 00:00:47.000
+number of groups that are identified in,
+in factor f.
+
+16
+00:00:47.000 --> 00:00:50.190
+So for example, if f has three levels
+identifying three
+
+17
+00:00:50.190 --> 00:00:55.160
+groups, then the split function will split
+x, into three groups.
+
+18
+00:00:55.160 --> 00:00:58.460
+And so, and then once you've got those
+groups split apart, you can apply,
+
+19
+00:00:58.460 --> 00:01:03.641
+you can use lapply, or sapply to apply a
+function to those individual groups.
+
+20
+00:01:06.040 --> 00:01:10.446
+So here is, is a simpler example, similar
+to what I had before.
+
+21
+00:01:10.446 --> 00:01:16.100
+With tapply example, I've simulated a
+normal 10 normal random variables
+
+22
+00:01:16.100 --> 00:01:20.310
+with mean zero, 10 uniforms, and 10
+normal's with mean one.
+
+23
+00:01:20.310 --> 00:01:22.550
+And has created my factor variable here.
+
+24
+00:01:22.550 --> 00:01:24.960
+And now I'm just going to split the vector
+into three parts.
+
+25
+00:01:24.960 --> 00:01:27.410
+Because because the factor variable has
+three levels.
+
+26
+00:01:27.410 --> 00:01:31.810
+So now you can see when I split the x
+vector.
+
+27
+00:01:31.810 --> 00:01:36.440
+The first, I got a list back and the first
+element is 10 normals, the second element
+
+28
+00:01:36.440 --> 00:01:37.940
+is 10 uniforms and the third element,
+which
+
+29
+00:01:37.940 --> 00:01:41.360
+gets a little cutoff here is 10 normals
+again.
+
+30
+00:01:41.360 --> 00:01:42.930
+So that's what the split function does.
+
+31
+00:01:42.930 --> 00:01:46.130
+And now I've got a, so a split always
+returns a list back.
+
+32
+00:01:46.130 --> 00:01:50.422
+And so if you want to do something with
+this list, you can use lapply or sapply.
+
+33
+00:01:50.422 --> 00:01:56.920
+So, here for example, it is common to use
+
+34
+00:01:56.920 --> 00:02:00.040
+the lapply function in conjunction with
+the split function, so
+
+35
+00:02:00.040 --> 00:02:03.222
+the idea that you split something that
+lapply function over it.
+
+36
+00:02:03.222 --> 00:02:08.130
+Now, this case, this use of lapply and
+split is not necessary, because
+
+37
+00:02:08.130 --> 00:02:11.050
+you can use the tapply function which will
+do the same exact thing.
+
+38
+00:02:12.290 --> 00:02:15.060
+It's not anymore efficient or any worse to
+do it this
+
+39
+00:02:15.060 --> 00:02:22.130
+way but the tapply function is a little
+bit more compact.
+
+40
+00:02:22.130 --> 00:02:24.490
+But the nice thing about the split, using
+the split function is
+
+41
+00:02:24.490 --> 00:02:28.490
+that it can be used to split much more
+complicated types of objects.
+
+42
+00:02:28.490 --> 00:02:30.210
+So for example, here I've got a data frame
+for.
+
+43
+00:02:30.210 --> 00:02:32.750
+I'm loading the data sets package and I'm,
+and I'm
+
+44
+00:02:32.750 --> 00:02:35.480
+looking at the airquality data frame, from
+the data sets package.
+
+45
+00:02:35.480 --> 00:02:38.550
+So, you can see that this is the first six
+rows of the data, of this...
+
+46
+00:02:38.550 --> 00:02:42.540
+Data frame I think there's about a hundred
+some rows total in this data frame.
+
+47
+00:02:42.540 --> 00:02:43.930
+And you see there are measurements on
+
+48
+00:02:43.930 --> 00:02:47.510
+ozone, solar radiation, wind, and
+temperature, and
+
+49
+00:02:47.510 --> 00:02:49.620
+then the month and the day within that
+month.
+
+50
+00:02:50.750 --> 00:02:53.680
+And so, one thing I might want to do is,
+is calculate for
+
+51
+00:02:53.680 --> 00:02:56.290
+example the mean of ozone, solar
+radiation,
+
+52
+00:02:56.290 --> 00:02:59.830
+wind and temperature in, within each
+month.
+
+53
+00:02:59.830 --> 00:03:03.310
+So, so for in each month, there's you
+know, 30 some observations.
+
+54
+00:03:03.310 --> 00:03:06.130
+And I want to calculate the mean within
+each month.
+
+55
+00:03:06.130 --> 00:03:07.180
+All right, so how do I do this?
+
+56
+00:03:07.180 --> 00:03:13.250
+Well, what I'd like to do is I'd like to
+split the data frame into monthly pieces.
+
+57
+00:03:13.250 --> 00:03:18.360
+And then once I've split data frame into
+separate months, I can just calculate the
+
+58
+00:03:18.360 --> 00:03:23.768
+means, the column means using either apply
+or call means, on those other variables.
+
+59
+00:03:23.768 --> 00:03:27.459
+[SOUND].
+
+60
+00:03:27.459 --> 00:03:29.080
+So that's what I've done here.
+
+61
+00:03:29.080 --> 00:03:32.360
+What I've done is I split the airquality
+data frame and this,
+
+62
+00:03:32.360 --> 00:03:35.670
+and the factor I'm going to use to split
+is the month variable.
+
+63
+00:03:35.670 --> 00:03:38.460
+So the month variable technically
+speaking, in the data frame is not
+
+64
+00:03:38.460 --> 00:03:42.010
+a factor variable but it can be converted
+into a factor variable,
+
+65
+00:03:42.010 --> 00:03:46.030
+because it only takes the values 5, 6, 7,
+8 and 9.
+
+66
+00:03:46.030 --> 00:03:48.750
+Basically because the measurements are
+only taken in
+
+67
+00:03:48.750 --> 00:03:50.770
+the, kind of, warmer months of the year.
+
+68
+00:03:50.770 --> 00:03:53.080
+So here I've split the airquality variable
+according
+
+69
+00:03:53.080 --> 00:03:56.700
+to the month variable, and then I'm
+going to apply.
+
+70
+00:03:56.700 --> 00:03:59.770
+An anonymous function and the anonymous
+function here, what it does is
+
+71
+00:03:59.770 --> 00:04:03.660
+it takes the column means of just the
+ozone, solar radiation and wind.
+
+72
+00:04:03.660 --> 00:04:05.550
+So I'm not going to take the mean of
+temperature here.
+
+73
+00:04:05.550 --> 00:04:08.530
+So I'm just going to take the column means
+of the,
+
+74
+00:04:08.530 --> 00:04:12.930
+those three variables for each month each
+column monthly data frames.
+
+75
+00:04:12.930 --> 00:04:14.460
+So here you can see the results.
+
+76
+00:04:14.460 --> 00:04:17.070
+You can't see them all but you can see
+most of them into
+
+77
+00:04:17.070 --> 00:04:20.640
+lapply is returning a list back, where
+each element of the list is
+
+78
+00:04:20.640 --> 00:04:24.060
+a vector of length three which is, which
+is the mean for ozone,
+
+79
+00:04:24.060 --> 00:04:26.935
+the mean for solar radiation and the mean
+for wind, within that month.
+
+80
+00:04:26.935 --> 00:04:29.220
+As you can see that
+
+81
+00:04:29.220 --> 00:04:31.890
+for, for most of the months the ozone
+value is
+
+82
+00:04:31.890 --> 00:04:34.110
+NA and that's because when I take the mean
+of that
+
+83
+00:04:34.110 --> 00:04:37.220
+column there are, and there are missing
+values in that column
+
+84
+00:04:37.220 --> 00:04:40.210
+and I can't take the mean if there are
+missing values.
+
+85
+00:04:40.210 --> 00:04:44.430
+So the, the result, when I think the mean
+is that I just get a missing value back.
+
+86
+00:04:46.170 --> 00:04:48.210
+So one thing I can do is I can.
+
+87
+00:04:48.210 --> 00:04:52.312
+So before I fix the missing value problem,
+I can also call sapply here.
+
+88
+00:04:52.312 --> 00:04:54.226
+And the idea is that sapply, instead of
+
+89
+00:04:54.226 --> 00:04:57.880
+returning me a list, it will simplify the
+result because each element
+
+90
+00:04:57.880 --> 00:05:00.635
+of the returned list has a, has a vector
+of length 3.
+
+91
+00:05:00.635 --> 00:05:01.818
+They're all the same length.
+
+92
+00:05:01.818 --> 00:05:06.490
+So what I'll do is put, put all these
+numbers into a matrix.
+
+93
+00:05:06.490 --> 00:05:09.030
+Where the three rows and in this case 5
+columns.
+
+94
+00:05:09.030 --> 00:05:11.410
+So here you can see the monthly means.
+
+95
+00:05:11.410 --> 00:05:13.400
+For each of the three variables, in a much
+more
+
+96
+00:05:13.400 --> 00:05:16.540
+compact format, it's in a matrix, instead
+of a list.
+
+97
+00:05:16.540 --> 00:05:19.540
+Of course I still got NA's for a lot of
+them, because the missing values
+
+98
+00:05:19.540 --> 00:05:21.456
+in the original data.
+
+99
+00:05:21.456 --> 00:05:24.583
+So one thing I knew is I was going to pass
+the na.rm argument to call
+
+100
+00:05:24.583 --> 00:05:26.943
+means that would remove the missing values
+
+101
+00:05:26.943 --> 00:05:30.022
+from each column, before its calculating
+the mean.
+
+102
+00:05:30.022 --> 00:05:34.314
+And that, now when I call sapply on the
+split list, I can get the, the
+
+103
+00:05:34.314 --> 00:05:36.756
+means of the observed values for each of
+
+104
+00:05:36.756 --> 00:05:40.600
+the three variables for each of the five
+months.
+
+105
+00:05:40.600 --> 00:05:44.744
+So, so split is a very handy function for
+splitting arbitrary
+
+106
+00:05:44.744 --> 00:05:47.112
+objects according to the levels of the
+
+107
+00:05:47.112 --> 00:05:51.160
+factor and then applying any type of
+function.
+
+108
+00:05:51.160 --> 00:05:53.460
+To those split elements of that list.
+
+109
+00:05:53.460 --> 00:05:55.740
+And so here I split a data frame, you can
+split
+
+110
+00:05:55.740 --> 00:05:58.125
+other lists, you can, and, or other kinds
+of things too.
+
+111
+00:05:58.125 --> 00:06:01.490
+[SOUND].
+
+112
+00:06:01.490 --> 00:06:04.340
+So the last thing I want to talk about is
+splitting on more than one level.
+
+113
+00:06:04.340 --> 00:06:06.430
+So you, in the past couple of examples
+
+114
+00:06:06.430 --> 00:06:09.252
+what I've, I've only had a single factor
+variable.
+
+115
+00:06:09.252 --> 00:06:09.796
+And I've
+
+116
+00:06:09.796 --> 00:06:13.490
+split whatever the object is with a vector
+or a data frame.
+
+117
+00:06:13.490 --> 00:06:15.690
+According to the levels of that single
+factor.
+
+118
+00:06:15.690 --> 00:06:17.810
+But you might have more than one factor.
+
+119
+00:06:17.810 --> 00:06:20.104
+For example, you might have a variable,
+that, you
+
+120
+00:06:20.104 --> 00:06:22.040
+know, it's gender, so it has male and
+female.
+
+121
+00:06:22.040 --> 00:06:23.530
+And you might have another variable.
+
+122
+00:06:23.530 --> 00:06:25.100
+That has, for example, the race.
+
+123
+00:06:25.100 --> 00:06:26.260
+And so, you might want to look at
+
+124
+00:06:26.260 --> 00:06:29.420
+the combination of the levels within those
+factors.
+
+125
+00:06:29.420 --> 00:06:34.200
+And so so here, we've got, I've got f1,
+which is a factor with two levels.
+
+126
+00:06:34.200 --> 00:06:35.112
+And so I've simulated
+
+127
+00:06:35.112 --> 00:06:37.707
+a normal random variable with 10, with 10
+observations.
+
+128
+00:06:38.810 --> 00:06:41.360
+I've got a factor with two levels, and
+each repeated
+
+129
+00:06:41.360 --> 00:06:44.210
+five times, and then I've got another
+factor with five levels.
+
+130
+00:06:44.210 --> 00:06:45.210
+If repeated two times.
+
+131
+00:06:45.210 --> 00:06:51.290
+So there are my kind of two category, two
+group, grouping variables here.
+
+132
+00:06:51.290 --> 00:06:54.340
+And I want to look at the kind of
+combination of the two.
+
+133
+00:06:54.340 --> 00:06:58.430
+So I can use the interaction function to
+combine all the levels
+
+134
+00:06:58.430 --> 00:07:00.970
+of the first one with the, all the levels
+of the second one.
+
+135
+00:07:00.970 --> 00:07:04.430
+And so because there are two levels in the
+first
+
+136
+00:07:04.430 --> 00:07:06.510
+factor and there is five levels in the
+second factor
+
+137
+00:07:06.510 --> 00:07:09.350
+and there is a, the total combination of
+10 different
+
+138
+00:07:09.350 --> 00:07:12.060
+levels that you can have when you combine
+the two together.
+
+139
+00:07:12.060 --> 00:07:13.780
+So when you see, when I call, when I
+called the
+
+140
+00:07:13.780 --> 00:07:17.210
+interaction function I get another factor,
+that kind of concatenates the
+
+141
+00:07:17.210 --> 00:07:19.480
+levels of one with the other, and you can
+see that
+
+142
+00:07:19.480 --> 00:07:21.530
+it prints out that there is a total of ten
+levels.
+
+143
+00:07:21.530 --> 00:07:22.030
+Okay.
+
+144
+00:07:24.440 --> 00:07:31.170
+So, what now I can slit my numeric vector
+x according to the two different levels.
+
+145
+00:07:31.170 --> 00:07:32.950
+So now, when I Iike, when I use, now one
+thing, when
+
+146
+00:07:32.950 --> 00:07:36.900
+I use the split function I don't have to
+use the interaction function.
+
+147
+00:07:36.900 --> 00:07:40.150
+I can just pass it a list with the two
+factors and it will
+
+148
+00:07:40.150 --> 00:07:42.990
+automatically call the interaction
+function for me,
+
+149
+00:07:42.990 --> 00:07:45.710
+and create that 10 level interaction
+factor.
+
+150
+00:07:45.710 --> 00:07:47.180
+So I can just pass the list of these two
+
+151
+00:07:47.180 --> 00:07:49.890
+factors in it, and you can that, it
+create, it returns
+
+152
+00:07:49.890 --> 00:07:51.750
+me a list with the levels of
+
+153
+00:07:51.750 --> 00:07:54.690
+the 10 different kind of interaction
+factor levels.
+
+154
+00:07:54.690 --> 00:07:57.270
+And then and then, and then the elements
+of
+
+155
+00:07:57.270 --> 00:08:00.500
+the numeric factors that are within those
+10 levels.
+
+156
+00:08:00.500 --> 00:08:02.930
+Now of course there are, although there
+are 10 levels between
+
+157
+00:08:02.930 --> 00:08:06.690
+the two different factors, that we don't
+exactly observe every single combination.
+
+158
+00:08:06.690 --> 00:08:08.470
+And so there are some empty levels here
+and you
+
+159
+00:08:08.470 --> 00:08:11.060
+can see that some of these levels have
+nothing in them.
+
+160
+00:08:11.060 --> 00:08:16.030
+They have zero elements, whereas other
+levels have a number in it.
+
+161
+00:08:16.030 --> 00:08:17.700
+And so, so one thing you can do.
+
+162
+00:08:17.700 --> 00:08:21.156
+Well first I can, I could take this list
+and, and,
+
+163
+00:08:21.156 --> 00:08:23.650
+and lapply or sapply a function over it,
+if I wanted to.
+
+164
+00:08:23.650 --> 00:08:28.480
+But, sometimes it's a little bit handy to
+not have to keep these empty levels.
+
+165
+00:08:28.480 --> 00:08:30.600
+So, so the split function has an argument
+called drop.
+
+166
+00:08:31.700 --> 00:08:34.770
+And if you specify drop equals true, it
+will drop.
+
+167
+00:08:34.770 --> 00:08:38.150
+The empty levels, that are created by the
+splitting.
+
+168
+00:08:38.150 --> 00:08:41.572
+And, and this can be very handy, when
+you're, you're combining,
+
+169
+00:08:41.572 --> 00:08:43.130
+multiple different factors.
+
+170
+00:08:43.130 --> 00:08:46.570
+If you're only using a single factor, then
+doesn't, that argument doesn't really
+
+171
+00:08:46.570 --> 00:08:51.110
+do anything, because you'll just use all
+the, all the levels but, usually.
+
+172
+00:08:51.110 --> 00:08:53.780
+But if you have multiple factors then
+typically you're going to have empty
+
+173
+00:08:53.780 --> 00:08:55.090
+levels, just because you don't observe
+
+174
+00:08:55.090 --> 00:08:57.310
+every single combination of the two
+factors.
+
+175
+00:08:58.320 --> 00:09:01.596
+So, so drop equals true will drop those
+empty levels and then you can have,
+
+176
+00:09:01.596 --> 00:09:03.728
+you'll, you'll will be returned a list,
+with
+
+177
+00:09:03.728 --> 00:09:06.075
+only the levels, that have observations in
+them.
+
+178
+00:09:06.075 --> 00:09:06.587
+[SOUND].
