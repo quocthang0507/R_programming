@@ -1,0 +1,416 @@
+WEBVTT
+
+1
+00:00:05.550 --> 00:00:09.006
+mapply is a loop function that tries, is a
+multivariate version
+
+2
+00:00:09.006 --> 00:00:13.570
+of the kind of lapply and sapply functions
+that you've seen previously.
+
+3
+00:00:13.570 --> 00:00:14.850
+And the idea is that it applies a
+
+4
+00:00:14.850 --> 00:00:18.080
+function in parallel over a set of
+different arguments.
+
+5
+00:00:18.080 --> 00:00:20.288
+So one thing we have noticed about
+
+6
+00:00:20.288 --> 00:00:24.014
+the previous functions, lapply, sapply,
+tapply, is that,
+
+7
+00:00:24.014 --> 00:00:28.720
+they have only, they only apply a function
+over the elements of a single object.
+
+8
+00:00:28.720 --> 00:00:30.904
+So, for example, if you think about
+lapply,
+
+9
+00:00:30.904 --> 00:00:34.500
+the input to lapply was a list.
+A single list, that is.
+
+10
+00:00:34.500 --> 00:00:39.830
+And then the function was applied over the
+elements of that list.
+
+11
+00:00:39.830 --> 00:00:43.512
+So, what happens if you have two lists
+that you want to apply a function over?
+
+12
+00:00:43.512 --> 00:00:45.510
+And so, and suppose you have two lists,
+and
+
+13
+00:00:45.510 --> 00:00:47.346
+the elements of the first list go into one
+
+14
+00:00:47.346 --> 00:00:49.614
+argument of the function, and the elements
+of the
+
+15
+00:00:49.614 --> 00:00:52.340
+second list go into another argument of
+the function.
+
+16
+00:00:52.340 --> 00:00:55.960
+So lapply and sapply can't really be used
+for that purpose.
+
+17
+00:00:55.960 --> 00:00:57.950
+So one way to do that is just to write
+
+18
+00:00:57.950 --> 00:01:00.632
+a for loop, where the for loop will index
+the elements
+
+19
+00:01:00.632 --> 00:01:02.810
+of each of the different lists, and then
+you can
+
+20
+00:01:02.810 --> 00:01:07.120
+pass a function to each of those elements
+of the list.
+
+21
+00:01:07.120 --> 00:01:09.630
+Another way to do that though is with
+
+22
+00:01:09.630 --> 00:01:12.350
+mapply, where mapply can take multiple
+list arguments and
+
+23
+00:01:12.350 --> 00:01:13.730
+then apply a function to the, to the
+
+24
+00:01:13.730 --> 00:01:17.200
+elements of those, of the multiple lists,
+in parallel.
+
+25
+00:01:17.200 --> 00:01:21.160
+So the function arguments for mapply are a
+little bit different, just because it has
+
+26
+00:01:21.160 --> 00:01:24.220
+to allow for the possibility of a variable
+number of arguments.
+
+27
+00:01:24.220 --> 00:01:28.600
+So here, the first argument to mapply is
+the function that you want to apply.
+
+28
+00:01:28.600 --> 00:01:31.548
+And the function that you're going to pass
+to mapply
+
+29
+00:01:31.548 --> 00:01:34.630
+has to have, the number of arguments that
+the function
+
+30
+00:01:34.630 --> 00:01:36.640
+takes has to be at least as many as the
+
+31
+00:01:36.640 --> 00:01:39.785
+number of lists that you're going to pass
+to mapply.
+
+32
+00:01:39.785 --> 00:01:42.795
+So the list that, the things that will be
+coerced to
+
+33
+00:01:42.795 --> 00:01:46.950
+a list, will be passed through the dot dot
+dot argument.
+
+34
+00:01:46.950 --> 00:01:49.420
+And so if you have three lists, you'll
+pass three objects and
+
+35
+00:01:49.420 --> 00:01:53.160
+then your function has to take at least
+three arguments to it.
+
+36
+00:01:53.160 --> 00:01:55.390
+So, the more args, argument is just if you
+have
+
+37
+00:01:55.390 --> 00:01:57.850
+more arguments and you need to pass to
+your function.
+
+38
+00:01:57.850 --> 00:02:01.890
+And a simplified argument is similar to
+the simplify arguments
+
+39
+00:02:01.890 --> 00:02:05.281
+that you saw in sapply and also in in
+tapply.
+
+40
+00:02:07.930 --> 00:02:10.714
+So, here, for example, I'm creating a list
+here, and
+
+41
+00:02:10.714 --> 00:02:13.324
+the list has, I'm going to repeat 1 four
+times, the
+
+42
+00:02:13.324 --> 00:02:16.282
+integer 1 four times, I'm going to repeat
+2 three times,
+
+43
+00:02:16.282 --> 00:02:19.830
+I'm going to repeat 3 two times, and
+repeat 4 just once.
+
+44
+00:02:19.830 --> 00:02:22.250
+So it's a little bit tedious to have to
+type something to do, even
+
+45
+00:02:22.250 --> 00:02:23.922
+though this is a fairly artificial
+example,
+
+46
+00:02:23.922 --> 00:02:25.847
+but with mapply, it's actually quite
+simple.
+
+47
+00:02:25.847 --> 00:02:28.967
+I can just do mapply rep, so, rep is the
+repeat
+
+48
+00:02:28.967 --> 00:02:33.016
+function And then, repeat, it has two
+arguments, so, the first set
+
+49
+00:02:33.016 --> 00:02:36.676
+of arguments is going to be 1 through 4,
+and the second set of arguments is
+
+50
+00:02:36.676 --> 00:02:40.286
+going to be 4 through 1, and you can see
+that in list above here.
+
+51
+00:02:40.286 --> 00:02:45.330
+The first argument was 1, 2, 3, and 4, and
+the second argument was 4, 3, 2, and 1.
+
+52
+00:02:45.330 --> 00:02:47.210
+So, that's, so those are the two sets
+
+53
+00:02:47.210 --> 00:02:49.410
+of arguments that I'm going to pass to
+mapply.
+
+54
+00:02:49.410 --> 00:02:52.783
+And you can see that when I do that, I get
+my list of four 1s,
+
+55
+00:02:52.783 --> 00:02:58.650
+three 2s, two 3s and one 4, just like the
+list that I have above here.
+
+56
+00:02:58.650 --> 00:03:04.750
+So mapply is, can be used to apply a
+function to multiple sets of arguments.
+
+57
+00:03:07.210 --> 00:03:08.980
+So, here's just another very simple
+function.
+
+58
+00:03:08.980 --> 00:03:11.350
+It just generates some random normal
+noise.
+
+59
+00:03:11.350 --> 00:03:13.240
+And these, and, see, the rnorm, the, the,
+
+60
+00:03:13.240 --> 00:03:15.520
+I'm sorry, the function has three
+arguments the,
+
+61
+00:03:15.520 --> 00:03:19.300
+the number of observations the value of
+the
+
+62
+00:03:19.300 --> 00:03:21.330
+mean, and the value of the standard
+deviation.
+
+63
+00:03:21.330 --> 00:03:26.040
+So, if I just apply noise to, with a
+single set of arguments, 5, 1 and 2.
+
+64
+00:03:26.040 --> 00:03:30.850
+I get 5 random normal variables with the
+mean 1 and standard variation 2.
+
+65
+00:03:30.850 --> 00:03:32.530
+However, this function doesn't work
+
+66
+00:03:32.530 --> 00:03:36.688
+really correctly if I pass it a vector of
+arguments.
+
+67
+00:03:36.688 --> 00:03:40.240
+So, now what's happening is, I get a
+vector of 5, here.
+
+68
+00:03:40.240 --> 00:03:42.030
+When I pass it 1 through 5 and 1 through
+5.
+
+69
+00:03:42.030 --> 00:03:44.730
+But, really what I want to happen is to
+
+70
+00:03:44.730 --> 00:03:48.405
+have one, one random normal with mean 1,
+two random
+
+71
+00:03:48.405 --> 00:03:51.780
+normals with mean 2, three random normals
+with mean
+
+72
+00:03:51.780 --> 00:03:55.272
+3, etc, and then five random normals with
+mean 5.
+
+73
+00:03:55.272 --> 00:03:57.648
+And, so that's what I get here, when I use
+
+74
+00:03:57.648 --> 00:04:02.730
+the mapply function onto the and if I
+vectorize this noise function I give it,
+
+75
+00:04:02.730 --> 00:04:07.850
+you know, three sets of arguments, so it's
+1 through 5, 1 through 5, and then 2.
+
+76
+00:04:07.850 --> 00:04:10.604
+So I, I'm always going to fix the standard
+deviation to be 2, but
+
+77
+00:04:10.604 --> 00:04:13.820
+I'm going to be changing the n and I'm
+going to be changing the mean.
+
+78
+00:04:13.820 --> 00:04:17.170
+So now I've got one random variable with a
+mean 1, I got two with
+
+79
+00:04:17.170 --> 00:04:21.670
+mean 2, three with mean 3, four with mean
+4 and then five with mean 5.
+
+80
+00:04:21.670 --> 00:04:23.160
+So that's how I can instantly
+
+81
+00:04:23.160 --> 00:04:26.850
+vectorize a function that doesn't allow
+for vector arguments.
+
+82
+00:04:29.070 --> 00:04:30.960
+So this is the same as, as I were to
+
+83
+00:04:30.960 --> 00:04:35.560
+manually type out a list with these five
+different function calls.
+
+84
+00:04:35.560 --> 00:04:38.510
+So this way, it's, it's nice to be able to
+instantly, kind of, create a
+
+85
+00:04:38.510 --> 00:04:41.580
+function that doesn't allow for vector
+inputs and
+
+86
+00:04:41.580 --> 00:04:44.230
+to and to kind of instantly vectorize it.
