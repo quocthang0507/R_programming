@@ -1,0 +1,631 @@
+WEBVTT
+
+1
+00:00:00.810 --> 00:00:06.890
+so, what are the tools that R comes with
+to help you to debug a program?
+
+2
+00:00:06.890 --> 00:00:11.790
+Right, so there are five basic functions
+and a
+
+3
+00:00:11.790 --> 00:00:14.060
+few associated ones that I want to talk
+about.
+
+4
+00:00:14.060 --> 00:00:17.310
+But the first most basic one is the
+traceback function.
+
+5
+00:00:17.310 --> 00:00:18.060
+Okay?
+
+6
+00:00:18.060 --> 00:00:19.347
+Now, one thing I want to say, you can get
+
+7
+00:00:19.347 --> 00:00:21.140
+pretty far in R without using any of these
+functions.
+
+8
+00:00:21.140 --> 00:00:25.830
+I actually, I worked with R for like six
+years and didn't even know these functions
+
+9
+00:00:25.830 --> 00:00:29.962
+existed so, and So, I'm, I'm not saying
+that you necessarily have to, that you
+
+10
+00:00:29.962 --> 00:00:31.654
+will always be using these functions, but
+
+11
+00:00:31.654 --> 00:00:34.230
+they're actually quite handy in some, some
+cases.
+
+12
+00:00:34.230 --> 00:00:36.000
+So, the traceback function, what does is
+it
+
+13
+00:00:36.000 --> 00:00:38.228
+prints out what's called the function call
+stack.
+
+14
+00:00:38.228 --> 00:00:40.864
+So you know, typically when you call a
+function, you call,
+
+15
+00:00:40.864 --> 00:00:43.500
+you call the function and that function
+calls another function, and then
+
+16
+00:00:43.500 --> 00:00:45.940
+that function calls another function, and
+it's like, and then you're four
+
+17
+00:00:45.940 --> 00:00:49.318
+functions deep, and then maybe the error
+happens way down here, right?
+
+18
+00:00:49.318 --> 00:00:49.929
+And so,
+
+19
+00:00:49.929 --> 00:00:52.600
+traceback just tells you how many function
+calls
+
+20
+00:00:52.600 --> 00:00:55.000
+you're in and where the error occurred,
+right?
+
+21
+00:00:55.000 --> 00:00:56.770
+And so you can try to identify where
+
+22
+00:00:56.770 --> 00:00:59.510
+in the sequence of function calls the
+error occurred.
+
+23
+00:00:59.510 --> 00:01:02.800
+Otherwise, all you know is that you called
+one function and then an error occurred.
+
+24
+00:01:02.800 --> 00:01:06.638
+But you've no idea, you know, how many
+other functions are called underneath.
+
+25
+00:01:06.638 --> 00:01:09.750
+So the traceback function will tell you
+that, and I'll give you an example.
+
+26
+00:01:10.940 --> 00:01:14.090
+So the debug function is probably the
+handiest function.
+
+27
+00:01:14.090 --> 00:01:15.030
+It, what it does is
+
+28
+00:01:15.030 --> 00:01:17.320
+it, as you give it a function as an
+
+29
+00:01:17.320 --> 00:01:21.070
+argument, and it flags that function for
+debug mode.
+
+30
+00:01:21.070 --> 00:01:24.600
+Okay, what debug means, that anytime you
+execute that function,
+
+31
+00:01:24.600 --> 00:01:29.280
+anytime, anywhere even if another function
+calls it, it will, it
+
+32
+00:01:29.280 --> 00:01:32.870
+will halt, it will suspend execution of
+the function at the
+
+33
+00:01:32.870 --> 00:01:36.565
+first line, and then you can, in what's
+called a browser.
+
+34
+00:01:36.565 --> 00:01:40.110
+And I'll show you how this works and then
+you can step through the function
+
+35
+00:01:40.110 --> 00:01:41.290
+line by line.
+
+36
+00:01:41.290 --> 00:01:42.870
+And then you can see you can execute one
+line,
+
+37
+00:01:42.870 --> 00:01:47.858
+one expression at a time, I should say
+inside the function.
+
+38
+00:01:47.858 --> 00:01:50.860
+So you can try to pinpoint, okay, if
+there's a specific line of code
+
+39
+00:01:50.860 --> 00:01:54.490
+when the error occurs, you'll be able to
+find out which line that is, okay.
+
+40
+00:01:55.680 --> 00:01:58.090
+The browser function's relativity to debug
+in the
+
+41
+00:01:58.090 --> 00:01:59.941
+sense that you can stick the browser, the
+
+42
+00:01:59.941 --> 00:02:02.470
+browser, of, of call to the browser
+function
+
+43
+00:02:02.470 --> 00:02:05.280
+anywhere in your code, and then when that,
+
+44
+00:02:05.280 --> 00:02:07.055
+when that line of code gets hit, when that
+browser
+
+45
+00:02:07.055 --> 00:02:11.110
+call gets hit, the execution of the
+function will suspend, okay?
+
+46
+00:02:11.110 --> 00:02:13.260
+And then you can, and then you can go line
+by line from there.
+
+47
+00:02:13.260 --> 00:02:17.540
+So sometimes, for example, you don't, the
+debug function by the, will always start
+
+48
+00:02:17.540 --> 00:02:20.640
+the, start the debugging, start the
+browser right at the top of the function.
+
+49
+00:02:20.640 --> 00:02:22.150
+But sometimes, you kind of want to run
+through the
+
+50
+00:02:22.150 --> 00:02:25.690
+beginning and then stop it somewhere in
+the middle.
+
+51
+00:02:25.690 --> 00:02:27.500
+And so, so the browser function allows you
+to
+
+52
+00:02:27.500 --> 00:02:30.710
+stick the browser call anywhere in your
+code and
+
+53
+00:02:30.710 --> 00:02:33.910
+then it will run the function up until
+that point and then suspend it.
+
+54
+00:02:33.910 --> 00:02:36.530
+So so that, so there, those two are
+obviously related.
+
+55
+00:02:36.530 --> 00:02:41.820
+The trace function allows you to insert
+debugging code
+
+56
+00:02:41.820 --> 00:02:45.250
+into a function without actually editing
+the function itself.
+
+57
+00:02:46.280 --> 00:02:49.710
+and, and this is handy if you are
+debugging someone else's code.
+
+58
+00:02:49.710 --> 00:02:53.220
+Right, so for example, there's code in the
+package or the, and
+
+59
+00:02:53.220 --> 00:02:55.870
+you can't easily edit the code in that
+package, or there's code
+
+60
+00:02:55.870 --> 00:02:59.990
+in the base R itself or there's you know,
+something like that.
+
+61
+00:02:59.990 --> 00:03:01.710
+And you don't want to go and edit that
+
+62
+00:03:01.710 --> 00:03:03.390
+code, because you can't find the file, or
+whatever.
+
+63
+00:03:03.390 --> 00:03:06.320
+So, you can use the trace function, just
+insert a little snippet of
+
+64
+00:03:06.320 --> 00:03:09.340
+code, and using that snippet is just a
+call to the browser function.
+
+65
+00:03:11.100 --> 00:03:15.080
+And then and, and then, and then you can
+kind of browse through that function, and
+
+66
+00:03:15.080 --> 00:03:18.620
+then you can turn the trace off, and it's,
+and the function's back to normal.
+
+67
+00:03:18.620 --> 00:03:20.972
+So that, and then the recover function is
+the
+
+68
+00:03:20.972 --> 00:03:21.770
+last function.
+
+69
+00:03:21.770 --> 00:03:24.380
+It's actually, I should put it up here,
+it's related to the traceback.
+
+70
+00:03:24.380 --> 00:03:26.480
+What recover does, so normally when you
+get an
+
+71
+00:03:26.480 --> 00:03:31.120
+error you get, you usually get a message
+saying what
+
+72
+00:03:31.120 --> 00:03:32.910
+the error was and then the, and then you
+
+73
+00:03:32.910 --> 00:03:35.770
+get, and then the console kind of comes
+back to you.
+
+74
+00:03:35.770 --> 00:03:36.760
+And then you can start, you can just
+
+75
+00:03:36.760 --> 00:03:38.330
+enter more commands, you can do whatever
+you want.
+
+76
+00:03:38.330 --> 00:03:41.990
+But execution of that function stops and
+you get the console back.
+
+77
+00:03:41.990 --> 00:03:43.880
+What we were, that's the default behavior.
+
+78
+00:03:43.880 --> 00:03:46.960
+You can change that default behavior by,
+
+79
+00:03:46.960 --> 00:03:51.740
+by, by creating what's called, or setting
+what's called an error handler.
+
+80
+00:03:51.740 --> 00:03:54.430
+And recover is an error handler function
+which means that any time
+
+81
+00:03:54.430 --> 00:03:58.280
+you encounter an error, anywhere in a
+function, rather than getting the
+
+82
+00:03:58.280 --> 00:04:04.460
+console back the R interpreter will stop
+the execution of that function
+
+83
+00:04:04.460 --> 00:04:08.520
+right where the error occurred, and will
+kind of freeze it there.
+
+84
+00:04:08.520 --> 00:04:09.920
+And then it will print out the function
+
+85
+00:04:09.920 --> 00:04:11.970
+call stack, so you'll see how far deep
+you're
+
+86
+00:04:11.970 --> 00:04:14.040
+in, and then you can go, you can kind of
+jump
+
+87
+00:04:14.040 --> 00:04:16.880
+around to the different function calls to
+see, and to look around.
+
+88
+00:04:16.880 --> 00:04:18.700
+Now you're in the browser, and you can
+look
+
+89
+00:04:18.700 --> 00:04:20.600
+around in the different function calls to
+see kind of,
+
+90
+00:04:20.600 --> 00:04:23.180
+okay, what happened here, and happened
+here, what did the,
+
+91
+00:04:23.180 --> 00:04:25.920
+how did data get corrected here and things
+like that.
+
+92
+00:04:25.920 --> 00:04:29.050
+It's a little hard to talk about in the
+abstract so I'll give you the example.
+
+93
+00:04:30.620 --> 00:04:33.610
+So there's also, so these functions kind
+of allow you to
+
+94
+00:04:33.610 --> 00:04:37.100
+pick apart the kind of the details, the
+lines of code and
+
+95
+00:04:37.100 --> 00:04:40.480
+try to figure out, okay, nail down where
+exactly the the bug may be.
+
+96
+00:04:41.790 --> 00:04:44.500
+You can also just put things like print,
+and
+
+97
+00:04:44.500 --> 00:04:47.170
+cat, statements in your code to print out
+things.
+
+98
+00:04:47.170 --> 00:04:49.410
+So if you want to know, well what's the
+value of x at line
+
+99
+00:04:49.410 --> 00:04:54.290
+42, you can just print it out, right, and
+then see what it is.
+
+100
+00:04:54.290 --> 00:04:57.380
+And you can get a lot of mileage out by
+just putting in print statements.
+
+101
+00:04:57.380 --> 00:04:59.850
+The only problem with print statements and
+things like that, is that you often
+
+102
+00:04:59.850 --> 00:05:02.240
+you'll put in like a lot of these, it's a
+long piece of code,
+
+103
+00:05:02.240 --> 00:05:03.600
+you'll put in like 40 print statements.
+
+104
+00:05:03.600 --> 00:05:05.452
+And then you're like, okay, I'm ready to
+go.
+
+105
+00:05:05.452 --> 00:05:07.670
+And then I go back through and, like,
+delete all the print statements.
+
+106
+00:05:07.670 --> 00:05:10.706
+So that's, that can be a little bit kind
+of
+
+107
+00:05:10.706 --> 00:05:14.900
+a pain, but you know, there's nothing
+terribly wrong with it.
+
+108
+00:05:14.900 --> 00:05:18.150
+Some people I've, I've, that I've worked
+with are
+
+109
+00:05:18.150 --> 00:05:22.742
+actually against, they like, oppose the
+use of debugging tools.
+
+110
+00:05:22.742 --> 00:05:27.298
+I've ever software engineer company many
+years ago and there was
+
+111
+00:05:27.298 --> 00:05:31.410
+an engineer there who was, he, he was
+opposed to any debugging tools.
+
+112
+00:05:31.410 --> 00:05:32.650
+He'd never used a debugger.
+
+113
+00:05:32.650 --> 00:05:35.820
+All he did was print and you know, print
+statements basically.
+
+114
+00:05:35.820 --> 00:05:40.090
+And because he thought that the use of the
+debugger encouraged bad habits, right?
+
+115
+00:05:40.090 --> 00:05:41.450
+So, what do you, and it's true.
+
+116
+00:05:41.450 --> 00:05:43.440
+I've seen it happen in other places.
+
+117
+00:05:43.440 --> 00:05:45.320
+Where you just write some code.
+I don't care how it's going to work.
+
+118
+00:05:45.320 --> 00:05:45.850
+I'm just going to run it.
+
+119
+00:05:45.850 --> 00:05:48.130
+If there's a problem, I'll just run it
+through the debugger.
+
+120
+00:05:48.130 --> 00:05:50.400
+Right, and I'll just step through line by
+line to find out what the problem was.
+
+121
+00:05:50.400 --> 00:05:52.900
+And, and it encourages kind of a sloppy
+
+122
+00:05:52.900 --> 00:05:55.490
+code development process because you know
+that if there's a
+
+123
+00:05:55.490 --> 00:05:58.790
+problem you can just step through
+execution with the debugger.
+
+124
+00:05:59.940 --> 00:06:03.852
+And I have to say, that's probably not a
+good habit to get into.
+
+125
+00:06:03.852 --> 00:06:07.042
+It's probably better to think about your
+code, write it in, in a
+
+126
+00:06:07.042 --> 00:06:10.970
+kind of intelligent way and then if
+there's a problem resort to the debugger.
+
+127
+00:06:10.970 --> 00:06:12.340
+But I use the debugger all the time.
+
+128
+00:06:12.340 --> 00:06:16.920
+I use the browser function, I use all
+these functions all the time.
+
+129
+00:06:16.920 --> 00:06:18.008
+So maybe I just
+
+130
+00:06:18.008 --> 00:06:21.408
+have bad habits but that, that memory is
+burnin'
+
+131
+00:06:21.408 --> 00:06:24.350
+my mem, mem, burnin' my brain for some
+reason.
