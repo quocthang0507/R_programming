@@ -1,0 +1,286 @@
+WEBVTT
+
+1
+00:00:00.482 --> 00:00:05.375
+[BLANK_AUDIO]
+
+2
+00:00:05.375 --> 00:00:08.342
+Tapply is a very useful function and it's
+used
+
+3
+00:00:08.342 --> 00:00:10.981
+to apply a function over subsets of a
+vector.
+
+4
+00:00:10.981 --> 00:00:13.378
+So the idea is basically, imagine you have
+a vector
+
+5
+00:00:13.378 --> 00:00:16.690
+usually it's going to to be numbers, so a
+numeric vector.
+
+6
+00:00:16.690 --> 00:00:18.710
+And there are, there are pieces of this
+
+7
+00:00:18.710 --> 00:00:21.270
+vector that you want to calculate a
+summary statistic over.
+
+8
+00:00:21.270 --> 00:00:24.880
+So and so you, you're going to have to
+have another variable
+
+9
+00:00:24.880 --> 00:00:30.610
+or another object which identifies which
+element of this, of your numeric
+
+10
+00:00:30.610 --> 00:00:32.430
+vector belongs to which group.
+
+11
+00:00:32.430 --> 00:00:35.100
+The idea is that for each group in the
+numeric vector you're going to
+
+12
+00:00:35.100 --> 00:00:40.470
+calculate a summary statistic like a mean,
+or a standard deviation, or whatever.
+
+13
+00:00:40.470 --> 00:00:44.390
+So the basic idea behind tapply is that
+the first
+
+14
+00:00:44.390 --> 00:00:49.450
+argument is a numeric vector or a vector
+of some sort.
+
+15
+00:00:49.450 --> 00:00:51.970
+The second argument is, is another vector
+
+16
+00:00:51.970 --> 00:00:55.610
+of the same length which identifies which
+group
+
+17
+00:00:55.610 --> 00:00:58.180
+each element of the numeric vector is in.
+
+18
+00:00:58.180 --> 00:00:59.260
+So for example, suppose there are two
+groups
+
+19
+00:00:59.260 --> 00:01:01.360
+suppose you have men and women, for
+example, in
+
+20
+00:01:01.360 --> 00:01:04.160
+two groups, and maybe the first 50
+observations
+
+21
+00:01:04.160 --> 00:01:06.495
+are men and the second 50 observations are
+women.
+
+22
+00:01:06.495 --> 00:01:10.710
+Then you need to have a factor variable
+which indicates, you
+
+23
+00:01:10.710 --> 00:01:13.970
+know, which, which observations are men
+and which, which are women.
+
+24
+00:01:13.970 --> 00:01:16.500
+And so if you want to take the, the, the
+mean of the numeric
+
+25
+00:01:16.500 --> 00:01:20.700
+factor within men or within women, then
+you can use tapply to do this.
+
+26
+00:01:20.700 --> 00:01:20.910
+So
+
+27
+00:01:20.910 --> 00:01:23.740
+FUN is the function that you want to apply
+
+28
+00:01:23.740 --> 00:01:25.410
+and so this is going to be the same as
+before.
+
+29
+00:01:25.410 --> 00:01:26.940
+It's going to be the, either a function or
+
+30
+00:01:26.940 --> 00:01:29.700
+you can pass in an ano-, an anonymous
+function.
+
+31
+00:01:29.700 --> 00:01:31.670
+And then the dot, dot, dot contains the
+
+32
+00:01:31.670 --> 00:01:34.290
+other arguments that may go to this
+function.
+
+33
+00:01:34.290 --> 00:01:37.535
+And then the simplify argument indicates
+whether you want to simplify
+
+34
+00:01:37.535 --> 00:01:42.200
+the argu-, simplify the results, kind of
+like the sapply simplification.
+
+35
+00:01:42.200 --> 00:01:44.590
+So, here's a very simple example.
+
+36
+00:01:44.590 --> 00:01:45.980
+I'm simulating
+
+37
+00:01:45.980 --> 00:01:50.220
+a vector of normal random variables and
+uniform random variables and, and there's
+
+38
+00:01:50.220 --> 00:01:53.680
+ten normals, ten uniforms, then ten
+normals that have a mean of one.
+
+39
+00:01:53.680 --> 00:01:56.980
+So you can think of this vector as having
+three groups.
+
+40
+00:01:56.980 --> 00:02:01.510
+So then I'm going to create another factor
+variable using the gl
+
+41
+00:02:01.510 --> 00:02:04.718
+function, and its going to be, this factor
+variable going to have three levels.
+
+42
+00:02:04.718 --> 00:02:07.310
+And each level is going to be repeated ten
+times.
+
+43
+00:02:07.310 --> 00:02:11.470
+So when I print out the factor variable
+here, you can see that there's ten ones,
+
+44
+00:02:11.470 --> 00:02:14.720
+ten twos, and there's ten threes.
+
+45
+00:02:14.720 --> 00:02:17.370
+So each, so that the factor variable
+indicates
+
+46
+00:02:17.370 --> 00:02:20.870
+kind of which group the, the observation
+is in.
+
+47
+00:02:20.870 --> 00:02:25.994
+So now I can, I can, tapply on x, pass it
+the factor variable f in the mean
+
+48
+00:02:25.994 --> 00:02:31.749
+function, that allows me to take the mean
+of each group of numbers in, in x.
+
+49
+00:02:31.749 --> 00:02:35.075
+[BLANK_AUDIO]
+
+50
+00:02:35.075 --> 00:02:39.288
+If you don't simplify the result, then
+what you get back is going to be a list.
+
+51
+00:02:39.288 --> 00:02:41.934
+So so tapply applied for the same numeric
+
+52
+00:02:41.934 --> 00:02:44.750
+vector and factor as on the previous
+slide.
+
+53
+00:02:44.750 --> 00:02:48.830
+I want to calculate the mean and say
+simplify equals false then I get back
+
+54
+00:02:48.830 --> 00:02:52.820
+a list with three elements and e in each
+element is the mean of that subgroup.
+
+55
+00:02:56.550 --> 00:02:59.770
+I, I can pass at slightly more complicated
+summary statistics.
+
+56
+00:02:59.770 --> 00:03:01.470
+So here, instead of calculating the mean,
+which, which
+
+57
+00:03:01.470 --> 00:03:05.250
+returns one number I'm going to calculate
+the range of observations.
+
+58
+00:03:05.250 --> 00:03:09.570
+So this gives me the min and the max of
+the observations within that subset of the
+
+59
+00:03:09.570 --> 00:03:11.720
+vector x, and so here I'm getting a list
+
+60
+00:03:11.720 --> 00:03:17.333
+where each element is a vector of length
+2.
