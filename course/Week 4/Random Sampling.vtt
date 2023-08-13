@@ -1,0 +1,219 @@
+WEBVTT
+
+1
+00:00:04.238 --> 00:00:08.140
+So, the last function I want to
+talk about is the sample function.
+
+2
+00:00:08.140 --> 00:00:11.680
+And the way, and the sample function
+allows you to draw randomly from a,
+
+3
+00:00:11.680 --> 00:00:15.560
+a specific set of objects
+that you specify.
+
+4
+00:00:15.560 --> 00:00:17.590
+So if you give it a vector of numbers,
+
+5
+00:00:17.590 --> 00:00:22.000
+it allows you to draw a random
+sample from that vector of numbers.
+
+6
+00:00:22.000 --> 00:00:25.550
+And so you can kind of create any
+arbitrary distribution that you want,
+
+7
+00:00:25.550 --> 00:00:29.560
+by specifying a vector of objects and
+then sampling from it.
+
+8
+00:00:29.560 --> 00:00:32.630
+So here for example, I'm going to
+sample from the integers one to ten.
+
+9
+00:00:32.630 --> 00:00:34.710
+So I pass the vector of
+integers of one through ten.
+
+10
+00:00:34.710 --> 00:00:38.360
+And I tell it that I want to
+sample randomly four of them,
+
+11
+00:00:38.360 --> 00:00:40.290
+without replacement.
+
+12
+00:00:40.290 --> 00:00:45.400
+So so I'm just choosing four random
+entries from one to ten, and
+
+13
+00:00:45.400 --> 00:00:47.160
+here I get 3, 4, 5, 7.
+
+14
+00:00:47.160 --> 00:00:50.060
+If I do it again, I get 3, 9, 8, 5.
+
+15
+00:00:50.060 --> 00:00:51.770
+So in this, ex, example, I,
+
+16
+00:00:51.770 --> 00:00:55.910
+I will, I won't get repeated numbers,
+because I'm not sampling with replacement.
+
+17
+00:00:55.910 --> 00:00:58.640
+I don't have to just sample numbers,
+I can sample letters if I wanted to,
+
+18
+00:00:58.640 --> 00:01:00.710
+so here I'm taking the letters.
+
+19
+00:01:00.710 --> 00:01:04.510
+A through z, and I'm just going to sample
+five of them without replacement, and
+
+20
+00:01:04.510 --> 00:01:07.550
+I just get q, b, e, x and p.
+
+21
+00:01:07.550 --> 00:01:09.300
+now, what happens if I
+don't specify anything,
+
+22
+00:01:09.300 --> 00:01:10.820
+I just give it the vector of objects.
+
+23
+00:01:10.820 --> 00:01:15.290
+So here I'm [INAUDIBLE] passing sample
+the vector one through ten, and if I
+
+24
+00:01:15.290 --> 00:01:18.890
+don't specify anything else, what it does,
+is it gives me a permutation of those.
+
+25
+00:01:18.890 --> 00:01:22.870
+So here the vector one through ten
+is just permuted in a random order.
+
+26
+00:01:22.870 --> 00:01:25.310
+If I call it again I get a,
+I get yet another permutation.
+
+27
+00:01:26.670 --> 00:01:30.630
+So lastly, if I want to sample from one
+through ten but with replacement, I can
+
+28
+00:01:30.630 --> 00:01:35.090
+specify the replace equals true argument,
+so now I'm sampling one through ten,
+
+29
+00:01:35.090 --> 00:01:39.200
+I'm getting a vector of ten numbers
+from the vector one through ten, but
+
+30
+00:01:39.200 --> 00:01:41.420
+because it's with replacement,
+I can get repeats.
+
+31
+00:01:41.420 --> 00:01:46.440
+So, you can see I got eight,
+three times and I got nine multiple times.
+
+32
+00:01:46.440 --> 00:01:48.450
+So, that's how you
+sample with replacement.
+
+33
+00:01:51.570 --> 00:01:55.480
+So, that's a very quick summary
+of the simulation functions in r.
+
+34
+00:01:55.480 --> 00:01:59.000
+You can draw random samples from
+specific probability distributions with
+
+35
+00:01:59.000 --> 00:02:00.220
+the R functions.
+
+36
+00:02:00.220 --> 00:02:06.130
+So r norm, r plus I'm sorry,
+r poiss, r binom we saw already.
+
+37
+00:02:06.130 --> 00:02:08.280
+All the standard distributions
+are going to be built in that you ha,
+
+38
+00:02:08.280 --> 00:02:09.540
+have, probably you will need.
+
+39
+00:02:09.540 --> 00:02:12.740
+Things like the Normal, the Poisson and
+the Binomial, the Exponential, Gamma, etc.
+
+40
+00:02:12.740 --> 00:02:14.590
+All those functions are built in.
+
+41
+00:02:14.590 --> 00:02:18.610
+And you can use the corresponding
+r functions to simulate from them.
+
+42
+00:02:18.610 --> 00:02:22.249
+The sample function can be used to draw
+random samples from arbitrary vectors,
+
+43
+00:02:22.249 --> 00:02:24.619
+if you want to kind of create
+your own distribution here.
+
+44
+00:02:25.810 --> 00:02:29.770
+And it's very important to, to remember
+to set the random number generator seed,
+
+45
+00:02:29.770 --> 00:02:31.540
+anytime you simulate data in r,
+
+46
+00:02:31.540 --> 00:02:35.400
+so that you can reproduce the results
+that you got, at a later date.

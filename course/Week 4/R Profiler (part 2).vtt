@@ -1,0 +1,959 @@
+WEBVTT
+
+1
+00:00:02.820 --> 00:00:05.350
+So that's the R Profiler.
+
+2
+00:00:05.350 --> 00:00:08.710
+And the R Profiler has a function in R
+that's called Rprof.
+
+3
+00:00:08.710 --> 00:00:12.320
+And it, an Rprof is used to start the
+profiler in R.
+
+4
+00:00:12.320 --> 00:00:15.120
+One could note is that R must be compiled
+with profiler
+
+5
+00:00:15.120 --> 00:00:19.170
+support and so it's not something that's
+going to built in all cases.
+
+6
+00:00:19.170 --> 00:00:23.310
+However, and I'd say 99.9% of the cases
+this is the true, this is
+
+7
+00:00:23.310 --> 00:00:28.209
+the truth, so mu, you will only, R will
+only be compiled without profiler
+
+8
+00:00:28.209 --> 00:00:31.246
+support in some very cer, special
+circumstances.
+
+9
+00:00:31.246 --> 00:00:35.636
+And so I wouldn't, the chances are your
+version of R use, it can use the profiler.
+
+10
+00:00:35.636 --> 00:00:38.350
+The other function that's useful is the
+summary Rprof
+
+11
+00:00:38.350 --> 00:00:41.713
+function, which takes the output from the
+profiler and summarizes
+
+12
+00:00:41.713 --> 00:00:44.132
+it in a way that's kind of readable,
+because the
+
+13
+00:00:44.132 --> 00:00:47.100
+raw output from the profiler is generally
+not very usable.
+
+14
+00:00:48.100 --> 00:00:50.950
+And so the summary Rprof function is very
+important.
+
+15
+00:00:50.950 --> 00:00:53.460
+It's important to realize that you should
+not use the system time
+
+16
+00:00:53.460 --> 00:00:56.716
+function and the R Profiler function
+together.
+
+17
+00:00:56.716 --> 00:01:00.310
+they, these are not really designed to be
+worked together, to be used together.
+
+18
+00:01:00.310 --> 00:01:03.230
+So you should always use one or the other
+and not both.
+
+19
+00:01:04.810 --> 00:01:07.790
+So the Rprof function keeps track,
+basically what it does is it
+
+20
+00:01:07.790 --> 00:01:12.100
+keeps track of the function call stack, at
+regularly sampled intervals, right?
+
+21
+00:01:12.100 --> 00:01:15.750
+And so basically it as you're function is
+running, it kind of
+
+22
+00:01:15.750 --> 00:01:18.560
+goes it, it, it queries the function call
+stack, so how
+
+23
+00:01:18.560 --> 00:01:22.170
+many functions you, functions that call
+other functions that call other functions.
+
+24
+00:01:22.170 --> 00:01:23.040
+And it just prints it out.
+
+25
+00:01:23.040 --> 00:01:27.640
+Basically, that's all it does is it prints
+out the function call stack at, at very
+
+26
+00:01:27.640 --> 00:01:30.273
+quick intervals, so, so that every 0.02
+seconds
+
+27
+00:01:30.273 --> 00:01:32.440
+and it prints out the function call stack.
+
+28
+00:01:32.440 --> 00:01:36.030
+So first thing you'll notice is that if
+your function takes less
+
+29
+00:01:36.030 --> 00:01:40.040
+than 0.02 seconds to run, then this R, the
+profiler will be useless.
+
+30
+00:01:40.040 --> 00:01:44.170
+And in general, because it will never
+sample the function call stack.
+
+31
+00:01:44.170 --> 00:01:49.370
+And in general if your program is runs
+very quickly, the profiler is not useful.
+
+32
+00:01:49.370 --> 00:01:51.800
+Well, and but of course that if your
+program runs very quickly,
+
+33
+00:01:51.800 --> 00:01:54.570
+you probably wouldn't think to run the
+profiler in the first place.
+
+34
+00:01:54.570 --> 00:01:56.846
+So it's usually not a problem.
+
+35
+00:01:56.846 --> 00:02:01.064
+But you really need to use the profiler in
+situations where your code
+
+36
+00:02:01.064 --> 00:02:05.755
+is taking much longer on the order, at
+least on the order of seconds.
+
+37
+00:02:05.755 --> 00:02:09.381
+So here's just a quick example of the raw
+output that comes
+
+38
+00:02:09.381 --> 00:02:10.640
+from the profiler.
+
+39
+00:02:10.640 --> 00:02:13.140
+Now you generally speaking you will not
+ever use this output, but
+
+40
+00:02:13.140 --> 00:02:15.220
+I thought it might be interesting to look
+at what's going on.
+
+41
+00:02:15.220 --> 00:02:17.970
+So you can see that I'm, you, I'm just
+calling the lm
+
+42
+00:02:17.970 --> 00:02:21.670
+function, which is kind of a univariate
+outcome and a univariate predictor.
+
+43
+00:02:22.670 --> 00:02:25.960
+And, and what happens here, as you can
+see, that
+
+44
+00:02:25.960 --> 00:02:29.430
+each line of this output is the function
+call stack.
+
+45
+00:02:29.430 --> 00:02:33.672
+So you can see at the very right, is kind
+of the top.
+
+46
+00:02:33.672 --> 00:02:34.488
+and, and at the very
+
+47
+00:02:34.488 --> 00:02:36.652
+left is kind of the bottom, so to speak.
+
+48
+00:02:36.652 --> 00:02:38.250
+And the, so the very right, you can see
+that
+
+49
+00:02:38.250 --> 00:02:41.820
+lm was called, and lm called eval, and
+eval called eval.
+
+50
+00:02:41.820 --> 00:02:43.880
+So I'm going from right to left here.
+
+51
+00:02:43.880 --> 00:02:46.270
+And eval called model frame, which called
+model frame
+
+52
+00:02:46.270 --> 00:02:49.510
+default, which called eval again and eval
+in the list.
+
+53
+00:02:49.510 --> 00:02:51.110
+So all these functions call each other.
+
+54
+00:02:51.110 --> 00:02:54.346
+So you can see that the function calls
+back goes out for the deep.
+
+55
+00:02:54.346 --> 00:02:56.588
+As you go further in the evaluation you
+can see
+
+56
+00:02:56.588 --> 00:02:59.656
+that that the function calls that changes,
+so at the
+
+57
+00:02:59.656 --> 00:03:02.030
+very bottom you can see that lm called
+lm.fit.
+
+58
+00:03:03.270 --> 00:03:06.930
+And if you're not familiar with the LM
+function, lm.fit is really
+
+59
+00:03:06.930 --> 00:03:11.760
+the workhorse of this function, it does
+all the really kind of computation.
+
+60
+00:03:11.760 --> 00:03:13.480
+And so, you, you wouldn't suspect that it
+would
+
+61
+00:03:13.480 --> 00:03:16.540
+spend a reasonable amount of time in the
+lm.fit function.
+
+62
+00:03:19.660 --> 00:03:21.755
+So, that kind of raw output is not
+
+63
+00:03:21.755 --> 00:03:24.800
+particularly easy to read, so we use the
+sumaryRprof
+
+64
+00:03:24.800 --> 00:03:28.190
+function to tabulate the Rprof or the
+output
+
+65
+00:03:28.190 --> 00:03:30.620
+and calculate how much is spent in which
+function.
+
+66
+00:03:30.620 --> 00:03:34.010
+So, the idea is that once you see that the
+function call stack, you know that
+
+67
+00:03:34.010 --> 00:03:35.461
+the, that each line of the con, the
+
+68
+00:03:35.461 --> 00:03:38.580
+function call stack is separated out by
+0.02 seconds.
+
+69
+00:03:38.580 --> 00:03:41.010
+Access the frequency which is sampled.
+
+70
+00:03:41.010 --> 00:03:44.920
+So, given that you can calculate how many
+seconds are
+
+71
+00:03:44.920 --> 00:03:47.760
+spent in each of the functions, because if
+it appears in the function call
+
+72
+00:03:47.760 --> 00:03:51.440
+stack then you're actually spend, then you
+must be spending some time in it.
+
+73
+00:03:51.440 --> 00:03:54.209
+So there are two methods for, for
+normalizing
+
+74
+00:03:54.209 --> 00:03:56.710
+the data that you get the R Profiler.
+
+75
+00:03:56.710 --> 00:03:59.986
+One is called by.total, which divides the
+time spent in
+
+76
+00:03:59.986 --> 00:04:02.620
+each function by a total, by the total run
+time.
+
+77
+00:04:03.630 --> 00:04:06.390
+And by.self, which does the same thing,
+but at first
+
+78
+00:04:06.390 --> 00:04:09.500
+subtracts out time spent in functions
+above in the call stack.
+
+79
+00:04:12.990 --> 00:04:15.220
+So, its important to realize that the two
+
+80
+00:04:15.220 --> 00:04:19.470
+separate concepts here of kind of,
+by.total and by self.
+
+81
+00:04:19.470 --> 00:04:23.190
+The basic idea is that by total, I, I
+mean, the, the normalizing
+
+82
+00:04:23.190 --> 00:04:26.972
+by the total amount of time spent in a
+function gives you basically,
+
+83
+00:04:26.972 --> 00:04:30.382
+how much time was be, was spent that that
+how many basically, how
+
+84
+00:04:30.382 --> 00:04:34.660
+many times that function appeared in the
+calls, in the kind of printout here.
+
+85
+00:04:34.660 --> 00:04:38.198
+And so for example, a 100% of your time is
+spent in the top-level
+
+86
+00:04:38.198 --> 00:04:42.590
+function, right, so the function that you
+call, suppose it's lm, you spend a
+
+87
+00:04:42.590 --> 00:04:46.830
+100% of your time in that function,
+because it was at the top level.
+
+88
+00:04:46.830 --> 00:04:48.980
+And so, but the reality is that often
+
+89
+00:04:48.980 --> 00:04:51.100
+the top level functions don't really do
+anything with
+
+90
+00:04:51.100 --> 00:04:52.700
+that's kind of important, all they do is
+they
+
+91
+00:04:52.700 --> 00:04:56.570
+call helper functions that do the real
+work, right?
+
+92
+00:04:56.570 --> 00:04:58.350
+So chances are if your function is
+spending
+
+93
+00:04:58.350 --> 00:04:59.810
+a lot of time doing something, it's
+spending
+
+94
+00:04:59.810 --> 00:05:03.610
+a lot of time in those helper functions
+which is just being called by this top
+
+95
+00:05:03.610 --> 00:05:06.380
+function to kind of do, to do all the
+work.
+
+96
+00:05:06.380 --> 00:05:09.880
+And so often it's not very interesting to
+know how much is time is spent in
+
+97
+00:05:09.880 --> 00:05:12.050
+these top level functions, because that's
+not where
+
+98
+00:05:12.050 --> 00:05:14.880
+the, where the real, where the real work
+occurs.
+
+99
+00:05:14.880 --> 00:05:18.600
+All right, so you really want to know
+kind of how much time is spent in the
+
+100
+00:05:18.600 --> 00:05:20.880
+top level function, but subtracting out
+all
+
+101
+00:05:20.880 --> 00:05:23.230
+the low, the functions that it calls
+right?
+
+102
+00:05:23.230 --> 00:05:25.375
+So it turns out that it spends a lot of
+time in the
+
+103
+00:05:25.375 --> 00:05:28.785
+top level function, but even after you
+subtract out all of the lower level
+
+104
+00:05:28.785 --> 00:05:31.673
+functions, then that has something that's
+interesting.
+
+105
+00:05:31.673 --> 00:05:35.090
+But most of the time you will notice that
+when you subtract out all the lower level
+
+106
+00:05:35.090 --> 00:05:37.283
+functions that get, that get called
+there's very
+
+107
+00:05:37.283 --> 00:05:39.970
+little time it spends in the top level
+function.
+
+108
+00:05:39.970 --> 00:05:43.610
+And because all the work and all the kind
+of the computations is being done
+
+109
+00:05:43.610 --> 00:05:45.300
+at the lower level function, so that's,
+that's
+
+110
+00:05:45.300 --> 00:05:46.856
+kind of where you want to focus your
+efforts.
+
+111
+00:05:46.856 --> 00:05:50.880
+So, the, the buy.self format is, I, I
+think, the most
+
+112
+00:05:50.880 --> 00:05:53.840
+interesting format to use because it tells
+you how much time
+
+113
+00:05:53.840 --> 00:05:58.044
+is being spent in a given function, but
+after subtracting out all of the
+
+114
+00:05:58.044 --> 00:06:01.420
+other, all of the time spent in, in lower
+level functions that it calls.
+
+115
+00:06:01.420 --> 00:06:03.290
+So it gives you I think a more accurate
+
+116
+00:06:03.290 --> 00:06:06.990
+picture of, you know, which functions are
+really, are truly
+
+117
+00:06:06.990 --> 00:06:09.370
+taking up the most amount of time and
+which functions
+
+118
+00:06:09.370 --> 00:06:12.670
+that you might want to target for
+optimization, later on.
+
+119
+00:06:15.140 --> 00:06:19.050
+So here's an example of some output in the
+by.total format and you can see very
+
+120
+00:06:19.050 --> 00:06:22.890
+clearly at the very top that 100% of the
+time is spent in the lm function.
+
+121
+00:06:22.890 --> 00:06:25.670
+So the total time was 7.41 seconds for
+this run.
+
+122
+00:06:26.800 --> 00:06:27.940
+And all of it was spent in lm.
+
+123
+00:06:27.940 --> 00:06:30.120
+Of course, because lm was the top level
+function.
+
+124
+00:06:31.240 --> 00:06:33.220
+But you can see that and so you can
+
+125
+00:06:33.220 --> 00:06:37.610
+see that the second place winner was the
+lm.fit function.
+
+126
+00:06:37.610 --> 00:06:41.350
+I mentioned lm.fit is where a lot of the
+computation occurs.
+
+127
+00:06:41.350 --> 00:06:43.220
+And so that was three and a half seconds,
+
+128
+00:06:43.220 --> 00:06:45.650
+so about half of the time in that
+function.
+
+129
+00:06:45.650 --> 00:06:47.610
+Now, now you also see that a number of
+
+130
+00:06:47.610 --> 00:06:50.655
+functions here model.frame,
+model.frame.default, eval,
+
+131
+00:06:50.655 --> 00:06:52.220
+all these functions don't really
+
+132
+00:06:52.220 --> 00:06:54.390
+involve computation but there is a
+reasonable amount of
+
+133
+00:06:54.390 --> 00:06:57.110
+time spent within those functions, so
+that's kind of interesting.
+
+134
+00:06:58.230 --> 00:07:01.826
+Now, I think a more useful output is the
+by.self output which kind of
+
+135
+00:07:01.826 --> 00:07:04.182
+subtracts out any lower level function
+calls
+
+136
+00:07:04.182 --> 00:07:06.414
+from, so and calculates the amount of
+
+137
+00:07:06.414 --> 00:07:10.360
+time spent in a, it's kind of truly spent
+in a given function.
+
+138
+00:07:10.360 --> 00:07:12.880
+And here you can see that lm.fit is the
+
+139
+00:07:12.880 --> 00:07:15.600
+clear winner, because that's really where
+all the computation occurs.
+
+140
+00:07:16.630 --> 00:07:21.430
+In particular, lm.fit calls, calls a four
+trend routine for inverting a matrix.
+
+141
+00:07:21.430 --> 00:07:24.970
+And so, that's usually where in most large
+scale regression problems, that's where
+
+142
+00:07:24.970 --> 00:07:31.662
+all the computation occurs.
+The next function that takes a lot of time
+
+143
+00:07:31.662 --> 00:07:34.178
+ap, ap, apparently, or 11% of the time
+
+144
+00:07:34.178 --> 00:07:38.690
+is the as.list function, for the
+as.list.data.frame method.
+
+145
+00:07:38.690 --> 00:07:41.240
+It's not immediately clear why so much
+time is being spent in
+
+146
+00:07:41.240 --> 00:07:42.840
+this, but, spent in this function,
+
+147
+00:07:42.840 --> 00:07:45.400
+but it's maybe something you want to
+investigate.
+
+148
+00:07:45.400 --> 00:07:48.842
+Because it maybe something that's not very
+important to the kind of core computation.
+
+149
+00:07:48.842 --> 00:07:51.570
+for, and so you can kind of go down the
+list here
+
+150
+00:07:51.570 --> 00:07:54.360
+and see how much time is being spent in
+various functions.
+
+151
+00:07:54.360 --> 00:07:56.990
+And then you'll see a lot of these
+functions don't directly pertain
+
+152
+00:07:56.990 --> 00:08:00.440
+to computation or kind of core
+computation, but they're really more kind
+
+153
+00:08:00.440 --> 00:08:04.330
+of pertain to data, formatting of the data
+and things like that.
+
+154
+00:08:08.670 --> 00:08:10.720
+The last part of the summaryRprof output
+is
+
+155
+00:08:10.720 --> 00:08:12.750
+just the sample interval, so you can see
+
+156
+00:08:12.750 --> 00:08:15.350
+how, what, what time interval the sampling
+took
+
+157
+00:08:15.350 --> 00:08:17.110
+place for printing out the function call
+stack.
+
+158
+00:08:17.110 --> 00:08:18.770
+So you can see, it's 0.02 seconds.
+
+159
+00:08:18.770 --> 00:08:20.450
+And the sampling time, which is just the
+total
+
+160
+00:08:20.450 --> 00:08:22.500
+amount of time that the expression took to
+run.
+
+161
+00:08:22.500 --> 00:08:27.230
+This is the same kind of, this is so this
+is the, I think equivalent to the kind of
+
+162
+00:08:27.230 --> 00:08:34.554
+elapse time in the system.time function.
+
+163
+00:08:34.554 --> 00:08:37.390
+So that's a quick tour of the R profiler
+in R,
+
+164
+00:08:37.390 --> 00:08:41.080
+it's a very handy tool for doing
+performance analysis, R code to
+
+165
+00:08:41.080 --> 00:08:46.110
+give you some useful feedback and I find
+often highlights functions that
+
+166
+00:08:46.110 --> 00:08:50.290
+you may not have suspected as being
+kind of time hogs or bottlenecks.
+
+167
+00:08:51.420 --> 00:08:53.315
+And because they're not really core to the
+
+168
+00:08:53.315 --> 00:08:56.360
+kind of, the real computation that you're
+working on.
+
+169
+00:08:56.360 --> 00:08:57.900
+So the profiler can be really useful,
+
+170
+00:08:57.900 --> 00:08:59.980
+I think for highlighting these kinds of
+situations
+
+171
+00:08:59.980 --> 00:09:03.960
+and, and often finding things that you are
+kind of unexpected.
+
+172
+00:09:03.960 --> 00:09:07.405
+The summary Rprof function summarizes the
+output from Rprof and
+
+173
+00:09:07.405 --> 00:09:10.450
+gives you the percent time spent in in
+each functions.
+
+174
+00:09:10.450 --> 00:09:13.153
+And I think the by.self kind of [UNKNOWN]
+normalization is the
+
+175
+00:09:13.153 --> 00:09:16.410
+most useful for kind of highlighting
+bottlenecks in your, in your code.
+
+176
+00:09:17.770 --> 00:09:19.625
+One of the, one of the implications of
+using the
+
+177
+00:09:19.625 --> 00:09:22.930
+profiler is that it's useful to break your
+code into functions.
+
+178
+00:09:22.930 --> 00:09:25.530
+So rather than have one massive function,
+
+179
+00:09:25.530 --> 00:09:30.160
+it's useful to break your code into kind
+of logical pieces of different functions.
+
+180
+00:09:30.160 --> 00:09:32.650
+And so the profiler can use this
+information
+
+181
+00:09:32.650 --> 00:09:34.280
+to tell you where the time is being spent.
+
+182
+00:09:34.280 --> 00:09:37.400
+So remember the profiler prints, prints
+out the function call stack.
+
+183
+00:09:37.400 --> 00:09:40.880
+And if you break your code into mul,
+multiple little functions, the
+
+184
+00:09:40.880 --> 00:09:44.712
+function names that you give will kind of
+serve as little identifiers.
+
+185
+00:09:44.712 --> 00:09:46.518
+In the function call stack to tell you
+kind of where
+
+186
+00:09:46.518 --> 00:09:49.030
+the, where the code is spending the most
+amount of time.
+
+187
+00:09:49.030 --> 00:09:50.710
+So that's another little strategy
+
+188
+00:09:50.710 --> 00:09:55.136
+that's kind of that's can be useful when
+you're profiling your R code.
+
+189
+00:09:55.136 --> 00:09:59.266
+The last thing that's worth learning is
+that if your R code, or any other R code
+
+190
+00:09:59.266 --> 00:10:03.220
+call C or Fortran code, this C and Fortran
+code is can, is like a black box.
+
+191
+00:10:03.220 --> 00:10:04.130
+It's not profiled.
+
+192
+00:10:04.130 --> 00:10:06.591
+You, you won't see any information about
+that code.
+
+193
+00:10:06.591 --> 00:10:08.481
+All you will know is that some time is
+
+194
+00:10:08.481 --> 00:10:12.090
+spent there, but you won't know any
+details about that.
+
+195
+00:10:13.120 --> 00:10:14.940
+So overall I think the profiler is very
+useful.
+
+196
+00:10:14.940 --> 00:10:15.780
+I encourage you to use
+
+197
+00:10:15.780 --> 00:10:21.315
+it rather than just try to guess at, you
+know, where to optimize your code and, and
+
+198
+00:10:21.315 --> 00:10:22.740
+just, the profiler can be used to kind
+
+199
+00:10:22.740 --> 00:10:25.032
+of collect data about where time is being
+spent.

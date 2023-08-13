@@ -32,3 +32,5 @@ The book [R Programming for Data Science](http://bit.ly/rprogrammingcoursera) co
 |2|2|Dates and Times in R|[link](tutorial/Week2/2.md)|
 |3|Week 3: Loop Functions and Debugging|
 |3|1|Week 3: Loop Functions and Debugging|[link](tutorial/Week3/1.md)|
+|4|Week 4:Simulation & Profiling|
+|4|1|Week 4:Simulation & Profiling|[link](tutorial/Week4/1.md)|

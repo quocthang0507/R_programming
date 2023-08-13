@@ -1,0 +1,975 @@
+WEBVTT
+
+1
+00:00:02.370 --> 00:00:05.294
+The profiler in R is a really handy tool
+for when
+
+2
+00:00:05.294 --> 00:00:10.380
+you're developing larger programs or, or
+doing really big data analyses.
+
+3
+00:00:10.380 --> 00:00:13.660
+and, and you're basically, essentially
+running R code that's taking a
+
+4
+00:00:13.660 --> 00:00:16.980
+lot of time, or longer than, you know,
+than you want to wait.
+
+5
+00:00:16.980 --> 00:00:18.632
+And of course that's all relative
+depending
+
+6
+00:00:18.632 --> 00:00:19.970
+on kind of what you're working on and
+what,
+
+7
+00:00:19.970 --> 00:00:23.920
+maybe there are some other things that you
+can do in, while you're running a program.
+
+8
+00:00:23.920 --> 00:00:27.616
+But if something's taking a long time the
+profiler is a really
+
+9
+00:00:27.616 --> 00:00:31.246
+handy tool to figure out exactly why it's
+taking so much time
+
+10
+00:00:31.246 --> 00:00:35.424
+and how to, and to suggest kind of
+strategies for fixing your problem.
+
+11
+00:00:35.424 --> 00:00:37.974
+So I'm going to talk a little bit about
+using the R profiler and
+
+12
+00:00:37.974 --> 00:00:40.809
+our, and, and kind of talking about when
+you might need to use it.
+
+13
+00:00:41.930 --> 00:00:44.470
+There're also some other tools that I'll
+talk about that'll
+
+14
+00:00:44.470 --> 00:00:47.560
+help you kind of time your programs, time
+your functions,
+
+15
+00:00:47.560 --> 00:00:50.270
+and, and so the conjunction of, of the
+profile with
+
+16
+00:00:50.270 --> 00:00:53.030
+these other tools, is a really handy
+toolbox for figuring
+
+17
+00:00:53.030 --> 00:00:54.440
+out how to optimize your software.
+
+18
+00:00:58.950 --> 00:01:01.203
+So, the first question you want to ask
+yourself
+
+19
+00:01:01.203 --> 00:01:03.555
+is, you know, is your code actually
+running slowly?
+
+20
+00:01:03.555 --> 00:01:06.010
+And sometimes you can solve this problem
+by just you
+
+21
+00:01:06.010 --> 00:01:08.732
+know, running your program then going and
+doing something else.
+
+22
+00:01:08.732 --> 00:01:12.888
+But sometimes that's not an option and you
+need your program to really run quickly.
+
+23
+00:01:12.888 --> 00:01:16.560
+And so profiling is a general, is a
+systematic way to examine
+
+24
+00:01:16.560 --> 00:01:20.670
+how much time is being spent in various
+parts of your program.
+
+25
+00:01:21.788 --> 00:01:24.239
+And it's particularly useful when you're
+trying
+
+26
+00:01:24.239 --> 00:01:27.260
+to optimize your code, you're trying to
+squeeze, you know,
+
+27
+00:01:27.260 --> 00:01:29.700
+a lot of efficiency out of some code, And,
+and
+
+28
+00:01:29.700 --> 00:01:32.180
+a lot of times when you first start
+writing code
+
+29
+00:01:32.180 --> 00:01:34.880
+it, it, it runs fine, you know, when
+you're running
+
+30
+00:01:34.880 --> 00:01:37.606
+it once, and maybe you're running a small
+piece of,
+
+31
+00:01:37.606 --> 00:01:39.550
+of, of a function or a small piece of a
+
+32
+00:01:39.550 --> 00:01:42.210
+larger program, and it looks great when
+you're running it,
+
+33
+00:01:42.210 --> 00:01:44.210
+it seems to run very quickly when you're
+doing it.
+
+34
+00:01:44.210 --> 00:01:48.580
+But then sometimes these pieces get
+embedded in a much larger program.
+
+35
+00:01:48.580 --> 00:01:49.430
+It may be a larger
+
+36
+00:01:49.430 --> 00:01:51.560
+program is running your piece a thousand
+times
+
+37
+00:01:51.560 --> 00:01:54.350
+or five thousand times, or even ten
+thousand times.
+
+38
+00:01:54.350 --> 00:01:57.420
+And then your one little piece, which was
+running great when you were running
+
+39
+00:01:57.420 --> 00:01:59.260
+it, is kind of slowing down everything
+
+40
+00:01:59.260 --> 00:02:01.700
+else because it's being run ten thousand
+times.
+
+41
+00:02:01.700 --> 00:02:02.850
+And so now you need to make it a
+
+42
+00:02:02.850 --> 00:02:05.670
+lot faster because it's being iterated
+over a lot.
+
+43
+00:02:05.670 --> 00:02:09.630
+And so it, if profiling can come into play
+when, for example if you you have a piece
+
+44
+00:02:09.630 --> 00:02:10.930
+of code that runs great, but then when it
+
+45
+00:02:10.930 --> 00:02:14.220
+gets embedded in a larger piece it starts,
+it, it,
+
+46
+00:02:14.220 --> 00:02:17.390
+the, the it, it's speed becomes much more
+noticeable.
+
+47
+00:02:18.530 --> 00:02:21.860
+So in general when it comes to optimizing
+your code,
+
+48
+00:02:21.860 --> 00:02:24.530
+the, the general rule is that you
+shouldn't do it.
+
+49
+00:02:24.530 --> 00:02:29.180
+And what I mean by that is that you
+shouldn't think about it at first.
+
+50
+00:02:29.180 --> 00:02:31.180
+It should and, the first thing that you,
+you
+
+51
+00:02:31.180 --> 00:02:35.640
+should think about, is is that, is kind of
+how, how
+
+52
+00:02:35.640 --> 00:02:37.410
+to get the code to run, how to make it
+
+53
+00:02:37.410 --> 00:02:39.510
+readable, how to make sure that other
+people can understand
+
+54
+00:02:39.510 --> 00:02:40.090
+what you're doing.
+
+55
+00:02:41.220 --> 00:02:45.880
+And because, and one of the reasons is
+that it's often difficult
+
+56
+00:02:45.880 --> 00:02:50.630
+to understand, where exactly your program
+is spending all of it's time.
+
+57
+00:02:50.630 --> 00:02:52.690
+And in order for you to speed up your
+program, you
+
+58
+00:02:52.690 --> 00:02:55.210
+need to be able to know where it's
+spending it's time.
+
+59
+00:02:55.210 --> 00:02:58.550
+And so this can't be done without any kind
+of, it's difficult
+
+60
+00:02:58.550 --> 00:03:01.720
+to do this, I should say, without a formal
+performance analysis or profiling.
+
+61
+00:03:03.730 --> 00:03:07.850
+And and so the basic idea is you should
+always design your code first, and make
+
+62
+00:03:07.850 --> 00:03:10.980
+it so it's understandable and and then
+after
+
+63
+00:03:10.980 --> 00:03:13.810
+you've got something working, then try to
+optimize it.
+
+64
+00:03:13.810 --> 00:03:15.430
+and, and then the famous phrase is, you
+
+65
+00:03:15.430 --> 00:03:17.640
+know, premature optimization is the root
+of all evil.
+
+66
+00:03:17.640 --> 00:03:23.100
+If you try to optimize first the chances
+are that you'll introduce bugs before you
+
+67
+00:03:23.100 --> 00:03:26.290
+even have a, get a chance to kind of get
+things working in the first place.
+
+68
+00:03:26.290 --> 00:03:28.810
+Once you've decided that you want to
+optimize your code,
+
+69
+00:03:28.810 --> 00:03:32.040
+though, you should, you know, act like a
+scientist.
+
+70
+00:03:32.040 --> 00:03:35.660
+Just like you would in any other context,
+you should collect some data.
+
+71
+00:03:35.660 --> 00:03:37.806
+Alright, so if you have a sense of, of
+where
+
+72
+00:03:37.806 --> 00:03:40.880
+your program is kind of being bogged down
+or where it's spending
+
+73
+00:03:40.880 --> 00:03:43.606
+all it's time, you should collect the data
+to figure it
+
+74
+00:03:43.606 --> 00:03:46.609
+out, and the way you collect the data is
+by profiling.
+
+75
+00:03:46.609 --> 00:03:50.376
+[BLANK_AUDIO]
+
+76
+00:03:50.376 --> 00:03:53.102
+So, the first tool I'm going to talk about
+is actually not
+
+77
+00:03:53.102 --> 00:03:56.731
+the profiler it's a very simple function
+called system.time in R.
+
+78
+00:03:56.731 --> 00:04:01.911
+And what system.time does is it takes an
+arbitrary R expression and evaluates that
+
+79
+00:04:01.911 --> 00:04:04.571
+expression and then tells you the amount
+
+80
+00:04:04.571 --> 00:04:07.310
+of time it took to evaluate that
+expression.
+
+81
+00:04:07.310 --> 00:04:10.450
+Now this expression could be very simple
+like a single function call, or
+
+82
+00:04:10.450 --> 00:04:13.050
+could be very complicated if it have to be
+wrapped in curly braces.
+
+83
+00:04:13.050 --> 00:04:15.270
+So, it could actually be a very long
+expression if you wanted to be.
+
+84
+00:04:17.610 --> 00:04:21.240
+So, the basic idea is that you take this
+expression and it gives
+
+85
+00:04:21.240 --> 00:04:25.480
+you the time in seconds, that was, that
+was needed to execute the expression.
+
+86
+00:04:25.480 --> 00:04:27.670
+If there's an error, you know, in the code
+while the
+
+87
+00:04:27.670 --> 00:04:32.560
+expression's being evaluated, then you'll
+get the time until the error occured.
+
+88
+00:04:32.560 --> 00:04:36.260
+now, there's two very important notions of
+time
+
+89
+00:04:36.260 --> 00:04:39.590
+when you're exe, executing expression on,
+on the computer.
+
+90
+00:04:39.590 --> 00:04:42.640
+The first is called the user time and this
+is the
+
+91
+00:04:42.640 --> 00:04:45.150
+amount of time that's charged to the CPU
+
+92
+00:04:45.150 --> 00:04:48.410
+or CPUs for this, for running this
+expression.
+
+93
+00:04:48.410 --> 00:04:53.012
+Okay, so this is the kind of time the
+computer experiences, roughly speaking.
+
+94
+00:04:53.012 --> 00:04:55.715
+The elapsed time is sometimes called the
+wall clock time
+
+95
+00:04:55.715 --> 00:04:58.140
+and this is the amount of time that you
+experience.
+
+96
+00:04:58.140 --> 00:05:02.539
+It's alright, so the, the, so even though
+you're the user you're not the user time,
+
+97
+00:05:02.539 --> 00:05:08.440
+you, you experience the elapsed time.
+And so the two different notions
+
+98
+00:05:08.440 --> 00:05:12.080
+of time can kind of different importance
+depending on what you care about.
+
+99
+00:05:13.140 --> 00:05:16.300
+So usually the user time and the elapsed
+time are relatively
+
+100
+00:05:16.300 --> 00:05:19.370
+close, because the amount of time that the
+computer spends to do
+
+101
+00:05:19.370 --> 00:05:23.220
+using, you know, executing your fu, your
+function or expression, is roughly
+
+102
+00:05:23.220 --> 00:05:25.920
+equal to the amount of time you spend
+waiting for it, right.
+
+103
+00:05:25.920 --> 00:05:29.110
+These are for standard kind of computing
+types of tasks.
+
+104
+00:05:29.110 --> 00:05:31.620
+however, there are times when the elapsed
+time will
+
+105
+00:05:31.620 --> 00:05:33.440
+be greater than the user time, and there
+will
+
+106
+00:05:33.440 --> 00:05:36.625
+be times when the elapsed time is smaller
+than the user time.
+
+107
+00:05:36.625 --> 00:05:42.150
+So in the ca, the elapsed time can be
+greater than the user time, so that means
+
+108
+00:05:42.150 --> 00:05:45.960
+that you spend kind of more time waiting
+around than
+
+109
+00:05:45.960 --> 00:05:48.990
+the, the computer actually spent you know,
+dealing with
+
+110
+00:05:48.990 --> 00:05:54.450
+your code and the reason, if, and the idea
+that the c, the computer may spend a lot
+
+111
+00:05:54.450 --> 00:05:56.360
+of time reading around for other things to
+happen,
+
+112
+00:05:56.360 --> 00:05:59.050
+things that are maybe external to the
+program itself.
+
+113
+00:05:59.050 --> 00:06:02.450
+And, and so the CPU doesn't actually spend
+a lot of time working on your code, it
+
+114
+00:06:02.450 --> 00:06:03.700
+may be spending a lot of time on
+
+115
+00:06:03.700 --> 00:06:05.930
+other things that are going on in the
+background.
+
+116
+00:06:06.992 --> 00:06:11.276
+If the elapsed time is smaller than the
+user time this most commonly occurs if
+
+117
+00:06:11.276 --> 00:06:14.363
+your machine has multiple cores or
+processor and
+
+118
+00:06:14.363 --> 00:06:16.890
+is capab, and is capable of exploiting
+them.
+
+119
+00:06:16.890 --> 00:06:20.340
+So this, so most of the computers these
+days, have at least
+
+120
+00:06:20.340 --> 00:06:24.066
+two, or four cores or multi core machines
+and so this is
+
+121
+00:06:24.066 --> 00:06:25.630
+a very common situation.
+
+122
+00:06:25.630 --> 00:06:28.650
+However, it's not always that the compute,
+the program that you're running
+
+123
+00:06:28.650 --> 00:06:31.680
+will be all to kind of exploit the use of
+multiple cores.
+
+124
+00:06:31.680 --> 00:06:37.690
+In particular, R, the basic R program does
+not use multiple cores as of yet.
+
+125
+00:06:37.690 --> 00:06:42.090
+However, it often links to libraries that
+do use multiple cores, and
+
+126
+00:06:42.090 --> 00:06:45.520
+the most common one would be the linear
+algebra type of library.
+
+127
+00:06:45.520 --> 00:06:48.020
+So if you're doing something like
+regression,
+
+128
+00:06:48.020 --> 00:06:49.300
+or a lot, a lot of these prediction
+
+129
+00:06:49.300 --> 00:06:54.740
+routines or, or matrix computations, these
+all involve linear algebra libraries.
+
+130
+00:06:54.740 --> 00:06:59.130
+And many of these libraries have been
+optimized to use multiple cores.
+
+131
+00:06:59.130 --> 00:07:00.590
+And so they're, they're called
+multi-threaded
+
+132
+00:07:00.590 --> 00:07:02.580
+BLAS libraries or, for the basic linear
+
+133
+00:07:02.580 --> 00:07:05.850
+algebra standard libraries, subroutines
+libraries and on
+
+134
+00:07:05.850 --> 00:07:09.280
+the MAC sometimes called vecLib or
+Accelerate.
+
+135
+00:07:09.280 --> 00:07:11.120
+There are more general libraries like
+ATLAS
+
+136
+00:07:11.120 --> 00:07:14.920
+for AMD machines, there's ACML or ACML,
+and
+
+137
+00:07:14.920 --> 00:07:16.420
+for INTEL machines there's MKL.
+
+138
+00:07:23.380 --> 00:07:25.230
+There's also parallel processing
+libraries, for
+
+139
+00:07:25.230 --> 00:07:26.900
+example the parallel package which doesn't
+
+140
+00:07:26.900 --> 00:07:30.018
+use, which can use multiple cores but it
+can also use multiple computers.
+
+141
+00:07:30.018 --> 00:07:33.640
+And so this will, will lead to,
+potentially
+
+142
+00:07:33.640 --> 00:07:36.690
+lead to a program that takes more user
+
+143
+00:07:36.690 --> 00:07:41.995
+time than it does elapse time, and I'll
+give an example of how this will work.
+
+144
+00:07:41.995 --> 00:07:43.680
+So, one example when elapsed time will be
+bigger than
+
+145
+00:07:43.680 --> 00:07:45.920
+the user time, is if you read something
+from the web.
+
+146
+00:07:45.920 --> 00:07:49.060
+So here I'm just using the read lines
+function to read a web page
+
+147
+00:07:49.060 --> 00:07:52.170
+off off, off, off a remote server.
+
+148
+00:07:52.170 --> 00:07:53.595
+And you can see the elapsed time is about
+
+149
+00:07:53.595 --> 00:07:57.280
+0.4 seconds but the user time is about
+0.004 seconds.
+
+150
+00:07:57.280 --> 00:08:00.040
+So the CPU actually doesn't spend a lot of
+time running
+
+151
+00:08:00.040 --> 00:08:02.860
+this code because the chunk of the time is
+just spent
+
+152
+00:08:02.860 --> 00:08:05.560
+waiting for the network to, or waiting for
+the data to
+
+153
+00:08:05.560 --> 00:08:09.560
+kind of go over the network and to come
+back to your computer.
+
+154
+00:08:09.560 --> 00:08:11.720
+And so waiting for the, the network to
+kind
+
+155
+00:08:11.720 --> 00:08:14.240
+of deal with the data coming, going there
+and
+
+156
+00:08:14.240 --> 00:08:16.760
+coming back, is not really part of your
+program,
+
+157
+00:08:16.760 --> 00:08:19.340
+is part of a different thing the computer
+is doing,
+
+158
+00:08:19.340 --> 00:08:22.160
+and so the, the amount of time executing
+your program,
+
+159
+00:08:22.160 --> 00:08:25.648
+in the case just the readLines function,
+is relatively small.
+
+160
+00:08:25.648 --> 00:08:28.421
+And the second example, this is where the
+elapsed time is less than the
+
+161
+00:08:28.421 --> 00:08:30.160
+user time, I've created a simple function
+
+162
+00:08:30.160 --> 00:08:33.050
+which creates which creates a hilbert type
+matrix.
+
+163
+00:08:33.050 --> 00:08:34.898
+And I calculate the singular value
+decomposition
+
+164
+00:08:34.898 --> 00:08:36.480
+of this ma, matrix with the svd.
+
+165
+00:08:36.480 --> 00:08:39.670
+So the svd function makes use of
+
+166
+00:08:39.670 --> 00:08:42.860
+the accelerate fr framework on the Mac
+
+167
+00:08:42.860 --> 00:08:46.270
+and, which is a multi-threaded linear
+algebra library.
+
+168
+00:08:46.270 --> 00:08:48.200
+And so it can take advantage of, of the
+
+169
+00:08:48.200 --> 00:08:50.950
+two different cores of this computer that
+I'm using.
+
+170
+00:08:50.950 --> 00:08:58.210
+And so you can see that the user time was
+roughly almost double of the elapsed time.
+
+171
+00:08:58.210 --> 00:09:02.040
+So the elapsed time was about 0.7 seconds
+and the user time was about 1.6 seconds.
+
+172
+00:09:02.040 --> 00:09:05.004
+And the pa, and the reason is because the
+
+173
+00:09:05.004 --> 00:09:08.280
+the underlying linear algebra library
+split
+
+174
+00:09:08.280 --> 00:09:11.470
+the computation across the two cores.
+
+175
+00:09:11.470 --> 00:09:13.420
+And so you can think about of it is, but
+basically the elapsed
+
+176
+00:09:13.420 --> 00:09:17.760
+time was multiplied times two, because it
+was being executed on two different CPUs.
+
+177
+00:09:17.760 --> 00:09:22.010
+So the amount of time that the user, the
+CPU spent working on your program
+
+178
+00:09:22.010 --> 00:09:25.710
+was actually more than the amount of time
+that you spent waiting for it to
+
+179
+00:09:28.880 --> 00:09:29.552
+come back.
+
+180
+00:09:29.552 --> 00:09:31.520
+You can time longer expressions by just
+wrapping
+
+181
+00:09:31.520 --> 00:09:33.420
+everything in curly, a set of curly
+braces.
+
+182
+00:09:33.420 --> 00:09:34.990
+So here I've got a four loop
+
+183
+00:09:34.990 --> 00:09:38.210
+here that's just generating some random
+normal variables.
+
+184
+00:09:38.210 --> 00:09:43.460
+And you can wrap that whole thing in curly
+braces and call system time around it.
+
+185
+00:09:43.460 --> 00:09:44.790
+And you can see that here this is
+
+186
+00:09:44.790 --> 00:09:46.840
+a very simple expression, it's not multi
+threaded,
+
+187
+00:09:46.840 --> 00:09:49.290
+there's no network activity, and so the
+user's
+
+188
+00:09:49.290 --> 00:09:51.260
+time and the elapsed time are basically
+the same.
+
+189
+00:09:55.690 --> 00:09:59.000
+So, this is sometimes a really handy
+function if you just want to take
+
+190
+00:09:59.000 --> 00:10:02.140
+a little bit, a little piece of code,
+figure out how long it takes to
+
+191
+00:10:02.140 --> 00:10:07.280
+run it and, and may kind of go through a
+program, maybe, expression by
+
+192
+00:10:07.280 --> 00:10:10.566
+expression or line by line to see which
+parts are taking a lot of time.
+
+193
+00:10:10.566 --> 00:10:13.490
+Now the part of problem with system time
+is
+
+194
+00:10:13.490 --> 00:10:16.240
+that it assumes that you know where to
+look.
+
+195
+00:10:16.240 --> 00:10:17.780
+Assumes that you know where the problem is
+and
+
+196
+00:10:17.780 --> 00:10:20.660
+that you can call system time on a given
+expression.
+
+197
+00:10:20.660 --> 00:10:24.650
+And so, this may be useful for smaller
+programs for less complicated programs
+
+198
+00:10:24.650 --> 00:10:27.840
+where you have a very good sense of, kind
+of where the bottlenecks are.
+
+199
+00:10:27.840 --> 00:10:29.800
+But the question's you know what if you
+don't know where to start.
+
+200
+00:10:29.800 --> 00:10:35.014
+What if you don't know where the problems
+might be and where to start looking.
+
+201
+00:10:35.014 --> 00:10:38.390
+And so you need another functioner to
+kind of help you along with that.
