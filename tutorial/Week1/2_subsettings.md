@@ -116,7 +116,6 @@ By default, when a single element of a matrix is retrieved, it is returned as a 
 > x[1, 2, drop = F]
      [,1]
 [1,]    3
-> 
 ```
 
 Subsetting a single column or row will give you a vector, not a matrix (by default):
