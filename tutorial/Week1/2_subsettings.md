@@ -154,7 +154,6 @@ A common task is to remove missing values (`NAS`).
 [1] 1 2 4 5
 > bad
 [1] FALSE FALSE  TRUE FALSE  TRUE FALSE
-> 
 ```
 
 ```r
