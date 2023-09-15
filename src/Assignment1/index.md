@@ -1,4 +1,6 @@
-# Programming Assignment 1 INSTRUCTIONS: Air Pollution
+# Programming Assignment 1
+
+INSTRUCTIONS: Air Pollution
 
 ## Data
 
